@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+
+:root {
+  --color-red: #C21807;
+}
+
+* {
+  font-family: 'HelveticaNowDisplay', sans-serif;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background-color: #f5f5f5;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* ==========================================================================
+   Helvetica Now Display - Full Font Face Declarations
+   Relative Path: ../public/assets/font/
+   ========================================================================== */
+
+/* --- Hairline (Weight 100) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-Hairline.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-Hairlinel.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Thin (Weight 200) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-Thin.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-ThinIta.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Extra Light (Weight 250) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-ExtLt.ttf') format('truetype');
+  font-weight: 250;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-ExtLtIta.ttf') format('truetype');
+  font-weight: 250;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Light (Weight 300) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-LightIta.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Regular (Weight 400) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-RegIta.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Medium (Weight 500) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-MedIta.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Bold (Weight 700) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-BoldIta.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Extra Bold (Weight 800) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-ExtBdIta.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Black (Weight 900) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-BlackIta.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Extra Black (Weight 950) --- */
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-ExtBlk.ttf') format('truetype');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNowDisplay';
+  src: url('../public/assets/font/HelveticaNowDisplay-ExtBlkIta.ttf') format('truetype');
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}
