@@ -25,7 +25,7 @@ export default function HomePage() {
                     <span className="inline-block -rotate-2 bg-yellow-400 px-4 py-1 text-xs font-black uppercase text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-2">
                         PPIF 2026
                     </span>
-                    <h1 className="text-4xl sm:text-5xl font-black italic uppercase text-red-600 tracking-tight drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                    <h1 className="text-4xl sm:text-5xl font-black italic uppercase text-red-600 tracking-tight drop-shadow-[2px_4px_0px_rgba(0,0,0,1)]">
                         MODULE HUB
                     </h1>
                 </div>
@@ -33,24 +33,16 @@ export default function HomePage() {
                 {/* Comic Grid Layout */}
                 <div className="flex flex-col gap-4 sm:gap-5">
 
-                    {/* TOP ROW: 2 Columns */}
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                        <ComicCard
-                            title="List Evaluasi"
-                            badgeBg="bg-yellow-400"
-                            link="/all-evaluations"
-                            rotate="-rotate-1"
-                            desc="Master evaluation codes catalog"
-                        />
-                        <ComicCard
-                            title="Evaluasi Rangkaian"
-                            badge="!!!"
-                            badgeBg="bg-red-500 text-white"
-                            link="/evaluations"
-                            rotate="rotate-1"
-                            desc="Simulations & partner evaluation"
-                        />
-                    </div>
+                    {/* BOTTOM ROW: Full Width */}
+                    <ComicCard
+                        title="Evaluasi"
+                        badge="IMPORTANT!"
+                        badgeBg="bg-purple-500 text-white"
+                        link="/evaluations"
+                        rotate="rotate-1"
+                        isWide
+                        desc="Last Updated: Simulasi 2 (20 Juli 2026)"
+                    />
 
                     {/* MIDDLE ROW: 3 Columns */}
                     <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
@@ -60,6 +52,8 @@ export default function HomePage() {
                             link="https://drive.google.com/drive/folders/18lObZbLYvojYfhG0n_QgVvaa5S7tLnzk?usp=drive_link"
                             rotate="-rotate-1"
                             isSmall
+                            desc="Open in Drive"
+
                         />
                         <ComicCard
                             title="Cheat Sheet"
@@ -67,6 +61,8 @@ export default function HomePage() {
                             link="https://docs.google.com/document/d/16WrTbQGQPQHfcAVkq1UWdYHwYvEisOx5lBRav8PKUvo/"
                             rotate="rotate-1"
                             isSmall
+                            desc="Open in Docs"
+
                         />
                         <ComicCard
                             title="Dokumentasi"
@@ -74,20 +70,28 @@ export default function HomePage() {
                             link="https://drive.google.com/drive/folders/1i1YFCatTLwU204fpFWFw8vIN0MsfkJkW?usp=drive_link"
                             rotate="-rotate-2"
                             isSmall
+                            desc="Open in Drive"
                         />
                     </div>
 
-                    {/* BOTTOM ROW: Full Width */}
-                    <ComicCard
-                        title="Storyline"
-                        badge="IMPORTANT!"
-                        badgeBg="bg-purple-500 text-white"
-                        link="/not-found"
-                        rotate="rotate-1"
-                        isWide
-                        desc="Current module roadmap & mentee progress line"
-                    />
-
+                    {/* TOP ROW: 2 Columns */}
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                        <ComicCard
+                            title="Flow Briefing Day"
+                            badgeBg="bg-yellow-400"
+                            link="/flow"
+                            rotate="-rotate-1"
+                            desc="Flow acara dari Briefing ke D-Day"
+                        />
+                        <ComicCard
+                            title="Storyline"
+                            badge="!!!"
+                            badgeBg="bg-red-500 text-white"
+                            link="/storyline"
+                            rotate="rotate-1"
+                            desc="Jump through the Multiverse!"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -130,7 +134,7 @@ function ComicCard({ title, badge, badgeBg, link, rotate = "", isSmall = false, 
                 {desc ? (
                     <p className="text-[10px] sm:text-xs text-gray-500 font-bold line-clamp-2">{desc}</p>
                 ) : (
-                    <span className="text-[10px] text-gray-400 font-extrabold italic">Module section</span>
+                    <span className="text-[10px] text-gray-400 font-extrabold italic"></span>
                 )}
                 <span className="text-xs sm:text-sm font-black text-black group-hover:translate-x-1 transition-transform ml-1">
                     →

@@ -31,8 +31,11 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto no-scrollbar py-1 px-1">
+          <NavLink to="/storyline" className={linkClass}>
+            STORY
+          </NavLink>
           <NavLink to="/evaluations" className={linkClass}>
-            LATEST EVAL
+            EVAL
           </NavLink>
 
           {isCoordinator ? (
