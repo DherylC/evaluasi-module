@@ -33,7 +33,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Astroid className="w-4 h-4 fill-current text-black" /> Story ACT 1
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 Briefing Day
                             </div>
                         </div>
@@ -99,7 +99,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Astroid className="w-4 h-4 fill-current text-black" /> PROLOG
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (2 Min)
                             </div>
                         </div>
@@ -129,7 +129,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-yellow-400  text-black border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Astroid className="w-4 h-4 fill-current text-black" /> QUIZ PROLOG
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (2 Min)
                             </div>
                         </div>
@@ -155,7 +155,7 @@ export default function StorylinePage() {
                                         <span className="flex items-center justify-center w-6 h-6 rounded bg-black text-emerald-300 text-xs font-black">B</span>
                                         <span>Wooden Puppet Universe</span>
                                     </div>
-                                    <span className="text-xs bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
+                                    <span className="text-xs text-right bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
                                         Jawaban Tepat
                                     </span>
                                 </div>
@@ -181,7 +181,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-cyan-700 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Triangle className="w-4 h-4 fill-current text-white" /> CHAPTER 1: HOPE
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (2 Min)
                             </div>
                         </div>
@@ -219,7 +219,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-cyan-700 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Triangle className="w-4 h-4 fill-current text-white" /> QUIZ 1
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (2 Min)
                             </div>
                         </div>
@@ -257,7 +257,7 @@ export default function StorylinePage() {
                                         <span className="flex items-center justify-center w-6 h-6 rounded bg-black text-emerald-300 text-xs font-black">D</span>
                                         <span>Codie</span>
                                     </div>
-                                    <span className="text-xs bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
+                                    <span className="text-xs text-right bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
                                         Jawaban Tepat
                                     </span>
                                 </div>
@@ -271,7 +271,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-orange-600 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Cross className="w-4 h-4 fill-current text-white" /> CHAPTER 2: Change
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (2 Min)
                             </div>
                         </div>
@@ -319,7 +319,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-orange-600 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Cross className="w-4 h-4 fill-current text-white" /> QUIZ 2
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (2 Min)
                             </div>
                         </div>
@@ -351,7 +351,7 @@ export default function StorylinePage() {
                                         <span className="flex items-center justify-center w-6 h-6 rounded bg-black text-emerald-300 text-xs font-black">C</span>
                                         <span>Keadaan sempurna tidak akan pernah datang</span>
                                     </div>
-                                    <span className="text-xs bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
+                                    <span className="text-xs text-right bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
                                         Jawaban Tepat
                                     </span>
                                 </div>
@@ -371,7 +371,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-emerald-600 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Hexagon className="w-4 h-4 fill-current text-white" /> Chapter 3: Commitment
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (2 Min)
                             </div>
                         </div>
@@ -407,7 +407,7 @@ export default function StorylinePage() {
                                 bermunculan selagi Variants melangkah. Satu per satu, Variants mulai goyah. Langkah
                                 mereka melambat dan pandangan kalian mulai kabur.
                             </span>
-                            <div className="flex items-center gap-4 bg-emerald-600 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            <div className="flex text-start items-center gap-4 bg-emerald-600 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Hexagon className="w-4 h-4 fill-current text-white" /> Variants beraktivitas selama durasi (20 menit)
                             </div>
                             <div className="flex items-center gap-4 bg-emerald-600 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
@@ -421,7 +421,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-emerald-600 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Hexagon className="w-4 h-4 fill-current text-white" /> QUIZ 3
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (2 Min)
                             </div>
                         </div>
@@ -441,7 +441,7 @@ export default function StorylinePage() {
                                         <span className="flex items-center justify-center w-6 h-6 rounded bg-black text-emerald-300 text-xs font-black">A</span>
                                         <span>Sunyi</span>
                                     </div>
-                                    <span className="text-xs bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
+                                    <span className="text-xs bg-black text-right text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
                                         Jawaban Tepat
                                     </span>
                                 </div>
@@ -473,7 +473,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Astroid className="w-4 h-4 fill-current text-black" /> Storyline Post Chapter 3
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (10-12 Min)
                             </div>
                         </div>
@@ -530,7 +530,7 @@ export default function StorylinePage() {
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Astroid className="w-4 h-4 fill-current text-black" /> Storyline EPILOG
                             </div>
-                            <div className="flex font-black text-xs uppercase tracking-widest">
+                            <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 D-DAY (2 Min)
                             </div>
                         </div>
