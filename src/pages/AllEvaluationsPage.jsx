@@ -73,7 +73,7 @@ export default function AllEvaluationsPage() {
 
     return (
         <div className="min-h-screen bg-neutral-100 px-4 py-8">
-            <div className="mx-auto max-w-xl">
+            <div className="mt-20 mx-auto max-w-xl">
                 <div className="flex items-center justify-between mb-4">
                     <h1 className="text-3xl font-extrabold text-gray-900">Semua Evaluasi</h1>
                     <Link
