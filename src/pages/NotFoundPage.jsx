@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Home, ArrowLeft, RefreshCw, Zap } from 'lucide-react';
 
-export default function NotFoundComic() {
+export default function NotFoundPage() {
+
+    useEffect(() => {
+        document.title = "404 Not Found";
+    }, []);
+
     return (
         <div className="min-h-screen bg-amber-300 flex items-center justify-center p-4 relative overflow-hidden font-sans selection:bg-yellow-400 selection:text-black">
 

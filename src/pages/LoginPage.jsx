@@ -19,6 +19,10 @@ export default function LoginPage() {
         }
     };
 
+    useEffect(() => {
+        document.title = "Coordinator Login";
+    }, []);
+
     return (
         /* flex-1 lets it stretch to fill all vertical space below the Navbar */
         <div className="min-h-screen flex-1 flex items-center justify-center bg-amber-300 p-4 relative overflow-hidden font-sans">

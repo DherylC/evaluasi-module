@@ -73,6 +73,7 @@ export default function EvaluationsPage() {
 
     useEffect(() => {
         loadAll();
+        document.title = "Evaluasi Rangkaian Module";
     }, []);
 
     // 1. General Row Data (For Notes & Modal initialization)

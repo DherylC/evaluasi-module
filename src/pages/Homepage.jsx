@@ -1,9 +1,24 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function HomePage() {
+
+    useEffect(() => {
+        document.title = "ModuleHub | PPIF 2026";
+    }, []);
+
     return (
-        <div className=" mt-20 bg-neutral-100 px-4 py-6 sm:py-8">
-            <div className="mx-auto max-w-xl">
+        <div className="relative min-h-screen bg-red-50 px-4 py-6 sm:py-8 pt-24 font-sans overflow-hidden">
+            {/* Background Halftone Dot Pattern */}
+            <div
+                className="absolute inset-0 opacity-15 pointer-events-none"
+                style={{
+                    backgroundImage: "radial-gradient(#000 2px, transparent 2px)",
+                    backgroundSize: "16px 16px"
+                }}
+            />
+
+            <div className="pt-20 relative z-10 mx-auto max-w-xl">
 
                 {/* Hero Title Banner */}
                 <div className="relative mb-8 text-center">
@@ -42,18 +57,21 @@ export default function HomePage() {
                         <ComicCard
                             title="Aktivitas"
                             badgeBg="bg-cyan-400"
+                            link="https://drive.google.com/drive/folders/18lObZbLYvojYfhG0n_QgVvaa5S7tLnzk?usp=drive_link"
                             rotate="-rotate-1"
                             isSmall
                         />
                         <ComicCard
                             title="Cheat Sheet"
                             badgeBg="bg-emerald-400"
+                            link="https://docs.google.com/document/d/16WrTbQGQPQHfcAVkq1UWdYHwYvEisOx5lBRav8PKUvo/"
                             rotate="rotate-1"
                             isSmall
                         />
                         <ComicCard
                             title="Dokumentasi"
                             badgeBg="bg-orange-400"
+                            link="https://drive.google.com/drive/folders/1i1YFCatTLwU204fpFWFw8vIN0MsfkJkW?usp=drive_link"
                             rotate="-rotate-2"
                             isSmall
                         />
@@ -64,6 +82,7 @@ export default function HomePage() {
                         title="Storyline"
                         badge="IMPORTANT!"
                         badgeBg="bg-purple-500 text-white"
+                        link="/not-found"
                         rotate="rotate-1"
                         isWide
                         desc="Current module roadmap & mentee progress line"
@@ -84,7 +103,7 @@ function ComicCard({ title, badge, badgeBg, link, rotate = "", isSmall = false, 
         transition-all duration-150 transform hover:-translate-y-1 hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5
         ${rotate} ${isSmall ? "min-h-27.5 sm:min-h-32.5 p-3" : isWide ? "min-h-30" : "min-h-35 sm:min-h-40"}`}
         >
-            {/* Halftone Dot Pattern Background inside card */}
+            {/* Card Internal Halftone Dot Pattern Background */}
             <div
                 className="absolute inset-0 opacity-5 pointer-events-none rounded-xl"
                 style={{

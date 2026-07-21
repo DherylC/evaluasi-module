@@ -40,6 +40,7 @@ export default function AllEvaluationsPage() {
 
     useEffect(() => {
         loadCodes();
+        document.title = "Semua Evaluasi Module";
     }, []);
 
     const codesByCategory = useMemo(() => {
