@@ -32,11 +32,12 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
-/* Offsets section targets so top sticky headers don't cover them */
-[id^="story-"], [id^="quiz-"] {
+/* In index.css or App.css */
+#story-act-1, #story-prolog, #quiz-prolog,
+#story-1, #quiz-1, #story-2, #quiz-2, 
+#story-3, #quiz-3, #story-bf, #story-end {
   scroll-margin-top: 120px;
 }
-
 /* ==========================================================================
    Helvetica Now Display - Full Font Face Declarations
    Relative Path: ../public/assets/font/
