@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { getCodes, getAssignments, getEvents, addEvent, saveAssignment, getNotes } from "../apis/api";
 import { useAuth } from "../context/AuthContext";
 import { getUniqueCodesForSimulation } from "../components/GetUniqueCodesForSimulation";
-import { ArrowUpRight } from "lucide-react";
+import { Loader } from "lucide-react";
 import AddEventModal from "../components/AddEventModal";
 import AssignEvaluationModal from "../components/AssignEvaluationModal";
 
@@ -168,7 +168,7 @@ export default function EvaluationsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-neutral-100 px-4 py-8">
+        <div className="min-h-screen bg-neutral-100 px-4 py-8 select-none">
             <div className="mt-20 mx-auto max-w-xl">
                 <div className="flex items-center justify-between mb-4">
                     <h1 className="text-3xl font-extrabold text-gray-900">Evaluasi Rangkaian</h1>
@@ -176,12 +176,12 @@ export default function EvaluationsPage() {
                         to="/all-evaluations"
                         className="text-xs font-bold text-center bg-white border border-gray-200 px-3 py-1.5 rounded-full text-gray-700 hover:bg-gray-50 shadow-sm transition-colors"
                     >
-                        All Evaluations
+                        Semua Evaluasi
                     </Link>
                 </div>
 
                 {/* Top Control Bar */}
-                <div className="rounded-2xl bg-white pb-4 px-4 pt-3 shadow-sm mb-8">
+                <div className="rounded-2xl bg-white pb-4 px-4 pt-3 shadow-sm mb-8 animate-fade-in">
                     <div className="flex flex-wrap items-center justify-between gap-3 mb-3 border-b border-gray-200 pb-3">
                         <span className="font-bold text-gray-900 shrink-0">Rangkaian</span>
                         <div className="flex flex-wrap items-center gap-2">
@@ -223,14 +223,14 @@ export default function EvaluationsPage() {
 
                 {/* Empty State */}
                 {!selectedEvent && (
-                    <div className="text-center text-gray-500 text-sm mt-10">
-                        No events yet — add one to get started.
+                    <div className="flex flex-row items-center text-center text-gray-500 border border-gray-300 bg-gray-200 p-2 rounded-2xl animate-pulse">
+                        <Loader className="w-8 h-8 p-2 animate-spin" /> Evaluasi sedang loading.. yang sabar yaa..
                     </div>
                 )}
 
                 {/* Per Partner Mode (ON) */}
                 {selectedEvent && perPartner && (
-                    <div>
+                    <div className="animate-fade-in">
                         <h2 className="font-bold text-gray-900 mb-2">{selectedEvent}</h2>
                         <div className="flex flex-col gap-4">
                             {partnerGroups.map((group) => {
@@ -283,7 +283,7 @@ export default function EvaluationsPage() {
 
                 {/* Per Partner Mode (OFF - General View + Unique Aggregated Partner Evaluations) */}
                 {selectedEvent && !perPartner && (
-                    <div className="rounded-2xl bg-white p-4 shadow-sm">
+                    <div className="rounded-2xl bg-white p-4 shadow-sm animate-fade-in">
                         <div className="flex items-center justify-between mb-3">
                             <h2 className="font-bold text-gray-900">{selectedEvent} (Evaluasi Keseluruhan)</h2>
                             {isCoordinator && (

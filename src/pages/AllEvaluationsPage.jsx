@@ -4,6 +4,7 @@ import { getCodes, addCode } from "../apis/api";
 import AddEvaluationCodeModal from "../components/AddEvaluationCodeModal";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-hot-toast";
+import { Loader } from "lucide-react";
 
 const CATEGORY_ORDER = ["Umum", "Pembawaan", "Zoom"];
 const CATEGORY_LABEL = {
@@ -73,7 +74,7 @@ export default function AllEvaluationsPage() {
         : [selectedFilter];
 
     return (
-        <div className="min-h-screen bg-neutral-100 px-4 py-8">
+        <div className="min-h-screen bg-neutral-100 px-4 py-8 select-none">
             <div className="mt-20 mx-auto max-w-xl">
                 <div className="flex items-center justify-between mb-4">
                     <h1 className="text-3xl font-extrabold text-gray-900">Semua Evaluasi</h1>
@@ -86,7 +87,7 @@ export default function AllEvaluationsPage() {
                 </div>
 
                 {/* Category Filter Pills */}
-                <div className="rounded-2xl bg-white p-4 mb-8 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="rounded-2xl bg-white p-4 mb-8 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fade-in">
                     <span className="font-bold text-gray-900 shrink-0">Filter</span>
 
                     {/* Wrapped container */}
@@ -109,21 +110,23 @@ export default function AllEvaluationsPage() {
                 {isCoordinator &&
                     <button
                         onClick={() => setAddCodeOpen(true)}
-                        className="w-full rounded-full bg-gray-200 -mt-10 mb-6 py-2.5 text-sm font-bold text-gray-700 hover:bg-gray-300 transition-colors"
+                        className="w-full rounded-full bg-gray-200 -mt-10 mb-6 py-2.5 text-sm font-bold text-gray-700 hover:bg-gray-300 transition-colors animate-fade-in"
                     >
                         + Add new evaluation code
                     </button>
                 }
 
                 {/* Master Code List */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-6 animate-fade-in" style={{ animationDelay: "100ms" }}>
                     {activeCategories.map((cat) => {
                         const categoryCodes = codesByCategory[cat] ?? [];
                         return (
                             <div key={cat}>
                                 <h3 className="font-bold text-gray-900 mb-2">{CATEGORY_LABEL[cat]}</h3>
                                 {categoryCodes.length === 0 ? (
-                                    <div className="text-sm text-gray-400 italic">Loading...</div>
+                                    <div className="flex flex-row items-center text-center text-gray-500 border border-gray-300 bg-gray-200 p-2 rounded-2xl animate-pulse">
+                                        <Loader className="w-8 h-8 p-2 animate-spin" /> Evaluasi sedang loading.. yang sabar yaa..
+                                    </div>
                                 ) : (
                                     <div className="flex flex-col gap-2">
                                         {categoryCodes.map((c) => (
@@ -135,8 +138,6 @@ export default function AllEvaluationsPage() {
                         );
                     })}
                 </div>
-
-
             </div>
 
             <AddEvaluationCodeModal

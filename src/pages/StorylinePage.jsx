@@ -22,14 +22,16 @@ export default function StorylinePage() {
 
             {/* Main Comic Panel Card */}
             <main className="mt-20 relative z-10 w-full max-w-2xl bg-white border-4 border-black rounded-3xl p-6 sm:p-10 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
-                <div className="mb-8 border-b-2 border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 py-1 font-black text-xs uppercase tracking-widest">
+
+                <div className="mb-8 border-b-2 animate-fade-in border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 py-1 font-black text-xs uppercase tracking-widest" style={{ animationDelay: "0ms" }}>
                     <Sparkles className="w-12 h-12 text-black" />
-                    <span className="font-black ml-4 text-2xl">Storyline PPIF 2026</span>
+                    <span className="font-black ml-4 text-2xl">STORYLINE PPIF 2026</span>
                 </div>
 
-                <div className="flex flex-col gap-16">
+                <div className="flex flex-col gap-16 animate-fade-in" style={{ animationDelay: "100ms" }}>
                     <div id="story-act-1"> {/* STORYLINE ACT 1 BRIEFING DAY */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
+
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Astroid className="w-4 h-4 fill-current text-black" /> Story ACT 1
                             </div>
@@ -91,7 +93,21 @@ export default function StorylinePage() {
                                 kelompok mereka masing-masing. Setelah identitas berhasil dipulihkan, barulah perjalanan
                                 menuju misi utama dapat dimulai.
                             </span>
+
+                            <div className="flex items-center gap-4 bg-yellow-500 text-black border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <Astroid className="w-4 h-4 fill-current text-black" /> Variants bekerjasama memecahkan nama kelompok
+                            </div>
+                            <div className="mt-4 inline-flex items-center gap-2 bg-emerald-400 text-black border-3 border-black px-4 py-2 font-black text-sm sm:text-base uppercase tracking-tight shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] rotate-1">
+                                <Astroid className="w-3 h-3 fill-black" />
+                                <span>Variants mendapatkan nama kelompok!</span>
+                            </div>
+
                         </div>
+                    </div>
+
+                    <div className="mt-12 border-b-2 border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 py-1 font-black text-xs uppercase tracking-widest">
+                        <Sparkles className="w-12 h-12 text-black" />
+                        <span className="font-black ml-4 text-2xl">D-Day PPIF 2026</span>
                     </div>
 
                     <div id="story-prolog"> {/* STORYLINE PROLOG D-DAY */}
@@ -100,7 +116,7 @@ export default function StorylinePage() {
                                 <Astroid className="w-4 h-4 fill-current text-black" /> PROLOG
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (2 Min)
+                                2 Min
                             </div>
                         </div>
 
@@ -130,7 +146,7 @@ export default function StorylinePage() {
                                 <Astroid className="w-4 h-4 fill-current text-black" /> QUIZ PROLOG
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (2 Min)
+                                2 Min
                             </div>
                         </div>
 
@@ -182,7 +198,7 @@ export default function StorylinePage() {
                                 <Triangle className="w-4 h-4 fill-current text-white" /> CHAPTER 1: HOPE
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (2 Min)
+                                2 Min
                             </div>
                         </div>
 
@@ -220,7 +236,7 @@ export default function StorylinePage() {
                                 <Triangle className="w-4 h-4 fill-current text-white" /> QUIZ 1
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (2 Min)
+                                2 Min
                             </div>
                         </div>
 
@@ -272,7 +288,7 @@ export default function StorylinePage() {
                                 <Cross className="w-4 h-4 fill-current text-white" /> CHAPTER 2: Change
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (2 Min)
+                                2 Min
                             </div>
                         </div>
 
@@ -320,7 +336,7 @@ export default function StorylinePage() {
                                 <Cross className="w-4 h-4 fill-current text-white" /> QUIZ 2
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (2 Min)
+                                2 Min
                             </div>
                         </div>
 
@@ -372,7 +388,7 @@ export default function StorylinePage() {
                                 <Hexagon className="w-4 h-4 fill-current text-white" /> Chapter 3: Commitment
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (2 Min)
+                                2 Min
                             </div>
                         </div>
 
@@ -422,7 +438,7 @@ export default function StorylinePage() {
                                 <Hexagon className="w-4 h-4 fill-current text-white" /> QUIZ 3
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (2 Min)
+                                2 Min
                             </div>
                         </div>
 
@@ -474,7 +490,7 @@ export default function StorylinePage() {
                                 <Astroid className="w-4 h-4 fill-current text-black" /> Storyline Post Chapter 3
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (10-12 Min)
+                                10-12 Min
                             </div>
                         </div>
 
@@ -531,7 +547,7 @@ export default function StorylinePage() {
                                 <Astroid className="w-4 h-4 fill-current text-black" /> Storyline EPILOG
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
-                                D-DAY (2 Min)
+                                2 Min
                             </div>
                         </div>
 

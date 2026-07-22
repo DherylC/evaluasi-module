@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Search, Check } from "lucide-react";
 import Modal from "./Modal";
 
 export default function AssignEvaluationModal({
@@ -10,27 +11,35 @@ export default function AssignEvaluationModal({
     initialCodes = [],
     initialNotes = "",
 }) {
-    const [rows, setRows] = useState([]);
     const [notes, setNotes] = useState("");
+    const [selectedCodes, setSelectedCodes] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
 
+    // Sync initial state when modal opens
     useEffect(() => {
         if (open) {
-            // Filter out empty/invalid initial codes
-            const validInitial = (initialCodes || []).filter((c) => Boolean(c) && String(c).trim() !== "");
-            setRows(validInitial.length > 0 ? [...validInitial] : [""]);
+            const validInitial = (initialCodes || []).filter(
+                (c) => Boolean(c) && String(c).trim() !== ""
+            );
+            setSelectedCodes([...validInitial]);
             setNotes(initialNotes || "");
+            setSearchQuery(""); // Reset search query on open
         }
     }, [open, initialCodes, initialNotes]);
 
     if (!open || !target) return null;
 
-    const addRow = () => setRows((r) => [...r, ""]);
-    const removeRow = (i) => setRows((r) => r.filter((_, idx) => idx !== i));
-    const updateRow = (i, code) => setRows((r) => r.map((c, idx) => (idx === i ? code : c)));
+    // Toggle individual evaluation code selection
+    const toggleCode = (code) => {
+        setSelectedCodes((prev) =>
+            prev.includes(code)
+                ? prev.filter((c) => c !== code) // Deselect if active
+                : [...prev, code]               // Add if inactive
+        );
+    };
 
     const handleSubmit = () => {
-        const codes = rows.filter((c) => Boolean(c) && String(c).trim() !== "");
-        onSubmit(codes, notes);
+        onSubmit(selectedCodes, notes);
     };
 
     const title =
@@ -38,7 +47,7 @@ export default function AssignEvaluationModal({
             ? `Input Evaluation to ${target.label}`
             : `Input General Evaluation to ${target.label}`;
 
-    // Normalize allCodes so it handles both string arrays and object arrays safely
+    // Normalize allCodes safely
     const formattedCodes = (allCodes || [])
         .map((item, index) => {
             if (typeof item === "string") {
@@ -51,44 +60,99 @@ export default function AssignEvaluationModal({
                 uniqueKey: codeVal || `opt-${index}`,
             };
         })
-        .filter((item) => item.code.trim() !== ""); // Exclude empty codes from rendering options
+        .filter((item) => item.code.trim() !== "");
+
+    // Live search filter (matches against code OR note text)
+    const filteredCodes = formattedCodes.filter((item) => {
+        const query = searchQuery.toLowerCase().trim();
+        if (!query) return true;
+        return (
+            item.code.toLowerCase().includes(query) ||
+            item.note.toLowerCase().includes(query)
+        );
+    });
 
     return (
         <Modal open={open} onClose={onClose} title={title}>
-            <button
-                type="button"
-                onClick={addRow}
-                className="w-full rounded-full bg-gray-200 py-1.5 text-sm font-bold text-gray-700 hover:bg-gray-300 mb-4"
-            >
-                + Add Evaluation Code
-            </button>
+            {/* Search Input Bar */}
+            <div className="relative mb-3">
+                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search code or description..."
+                    className="w-full rounded-full border border-gray-300 pl-9 pr-3 py-1.5 text-xs outline-none focus:ring-2 focus:ring-gray-400 bg-gray-50"
+                />
+            </div>
 
-            {/* Code Selectors */}
-            <div className="flex flex-col gap-2 mb-4 max-h-48 overflow-y-auto">
-                {rows.map((code, i) => (
-                    <div key={`row-${i}`} className="flex items-center gap-3">
-                        <select
-                            value={code}
-                            onChange={(e) => updateRow(i, e.target.value)}
-                            className="flex-1 rounded-full border border-gray-300 px-3 py-1.5 text-sm outline-none focus:ring-2 focus:ring-gray-400"
-                        >
-                            <option value="">Select code…</option>
-                            {formattedCodes.map((c) => (
-                                <option key={c.uniqueKey} value={c.code}>
-                                    {c.code} {c.note ? `— ${c.note}` : ""}
-                                </option>
-                            ))}
-                        </select>
-                        <button
-                            type="button"
-                            onClick={() => removeRow(i)}
-                            className="h-6 w-6 shrink-0 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300 flex items-center justify-center font-bold"
-                            aria-label="Remove"
-                        >
-                            -
-                        </button>
+            {/* Selection Counter & Clear All */}
+            <div className="flex items-center justify-between mb-2 px-1">
+                <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                    Selected ({selectedCodes.length})
+                </span>
+                {selectedCodes.length > 0 && (
+                    <button
+                        type="button"
+                        onClick={() => setSelectedCodes([])}
+                        className="text-[11px] font-semibold text-red-500 hover:underline"
+                    >
+                        Clear All
+                    </button>
+                )}
+            </div>
+
+            {/* Scrollable Toggle List */}
+            <div className="flex flex-col gap-2 mb-4 max-h-56 overflow-y-auto pr-1 border border-gray-200 rounded-2xl p-2 bg-gray-50">
+                {filteredCodes.length === 0 ? (
+                    <div className="text-center py-6 px-2">
+                        <p className="text-xs text-gray-400 italic">
+                            {searchQuery
+                                ? `No evaluations match "${searchQuery}"`
+                                : "No evaluation codes available."}
+                        </p>
                     </div>
-                ))}
+                ) : (
+                    filteredCodes.map((c) => {
+                        const isSelected = selectedCodes.includes(c.code);
+                        return (
+                            <button
+                                key={c.uniqueKey}
+                                type="button"
+                                onClick={() => toggleCode(c.code)}
+                                className={`flex items-center justify-between p-2.5 rounded-xl text-sm font-medium transition-all text-left border ${isSelected
+                                    ? "bg-black text-white border-black shadow-sm"
+                                    : "bg-white text-gray-800 border-gray-200 hover:border-gray-300"
+                                    }`}
+                            >
+                                <div className="flex items-center gap-2 overflow-hidden pr-2">
+                                    <span
+                                        className={`font-mono font-bold text-xs px-2 py-0.5 rounded-md shrink-0 ${isSelected
+                                            ? "bg-gray-800 text-yellow-300"
+                                            : "bg-gray-100 text-gray-700"
+                                            }`}
+                                    >
+                                        {c.code}
+                                    </span>
+                                    {c.note && (
+                                        <span className="truncate text-xs opacity-80">
+                                            {c.note}
+                                        </span>
+                                    )}
+                                </div>
+
+                                <div
+                                    className={`w-5 h-5 shrink-0 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-colors ${isSelected
+                                        ? "bg-yellow-400 border-black text-black"
+                                        : "border-gray-300 bg-white"
+                                        }`}
+                                >
+                                    {isSelected && <Check className="w-3 h-3 stroke-3" />}
+                                </div>
+                            </button>
+                        );
+                    })
+                )}
             </div>
 
             {/* Partner Notes Field */}

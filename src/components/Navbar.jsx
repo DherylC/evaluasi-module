@@ -12,7 +12,7 @@ export default function Navbar() {
     }`;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-red-500 border-b-4 border-black shadow-[0_4px_0_0_rgba(0,0,0,1)] sm:shadow-[0_6px_0_0_rgba(0,0,0,1)]">      {/* Comic Halftone Dot Background Pattern Overlay */}
+    <nav className="select-none fixed top-0 left-0 right-0 z-50 w-full bg-red-500 border-b-4 border-black shadow-[0_4px_0_0_rgba(0,0,0,1)] sm:shadow-[0_6px_0_0_rgba(0,0,0,1)]">      {/* Comic Halftone Dot Background Pattern Overlay */}
       <div
         className="absolute inset-0 opacity-15 pointer-events-none"
         style={{

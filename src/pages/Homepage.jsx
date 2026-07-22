@@ -23,7 +23,7 @@ export default function HomePage() {
     }, []);
 
     return (
-        <div className="relative min-h-screen bg-red-50 px-4 py-6 sm:py-8 pt-24 font-sans overflow-hidden">
+        <div className="select-none relative min-h-screen bg-red-50 px-4 py-6 sm:py-8  font-sans overflow-hidden">
 
             {/* Inline keyframe for diagonal halftone dot movement */}
             <style>{`
@@ -52,7 +52,7 @@ export default function HomePage() {
                     <span className="inline-block -rotate-2 bg-yellow-400 px-4 py-1 text-xs font-black uppercase text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-2">
                         PPIF 2026
                     </span>
-                    <h1 className="text-4xl sm:text-5xl font-black italic uppercase text-red-500 tracking-tight drop-shadow-[2px_4px_0px_rgba(0,0,0,1)] [-webkit-text-stroke:2px_black]">
+                    <h1 className="text-4xl -rotate-1 sm:text-5xl font-black italic uppercase text-red-500 tracking-tight drop-shadow-[2px_4px_0px_rgba(0,0,0,1)] [-webkit-text-stroke:2px_black]">
                         MODULE HUB
                     </h1>
                 </div>
@@ -60,8 +60,8 @@ export default function HomePage() {
                 {/* --- LATEST NEWS HEADLINE BANNER --- */}
                 <div className="bg-yellow-300 border-3 border-black p-3 rounded-2xl shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3 relative overflow-hidden transition-transform">
                     {/* Comic Flash Tag */}
-                    <span className="shrink-0 bg-red-600 text-white font-black text-[10px] sm:text-xs uppercase px-2.5 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 animate-pulse">
-                        <Megaphone className="w-3.5 h-3.5 stroke-[2.5]" />
+                    <span className="shrink-0 bg-red-600 text-white font-black text-[10px] sm:text-xs uppercase px-2.5 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5">
+                        <Megaphone className="w-3.5 h-3.5 stroke-[2.5] animate-pulse" />
                         NEWS
                     </span>
 
@@ -77,63 +77,88 @@ export default function HomePage() {
                 <div className="flex flex-col gap-4 sm:gap-5">
 
                     {/* TOP ROW: Full Width */}
-                    <ComicCard
-                        title="Evaluasi"
-                        badge="SIMUL 2 UPDATE"
-                        badgeBg="bg-red-500 text-white"
-                        link="/evaluations"
-                        rotate="rotate-1"
-                        isWide
-                        desc="Last Updated: Simulasi 2 (20 Juli 2026)"
-                    />
+                    <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
+                        <ComicCard
+                            title="Evaluasi"
+                            badge="SIMUL 2 UPDATE"
+                            badgeBg="bg-red-500 text-white"
+                            link="/evaluations"
+                            rotate="rotate-1"
+                            isWide
+                            desc="Last Updated: Simulasi 2 (20 Juli 2026)"
+                        />
+                    </div>
+
 
                     {/* MIDDLE ROW: 3 Columns */}
                     <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
-                        <ComicCard
-                            title="Aktivitas"
-                            badgeBg="bg-cyan-400"
-                            link="https://drive.google.com/drive/folders/18lObZbLYvojYfhG0n_QgVvaa5S7tLnzk?usp=drive_link"
-                            rotate="-rotate-1"
-                            isCompact
-                            desc={<LinkIcon size={16} />}
-                        />
-                        <ComicCard
-                            title="Cheat Sheet"
-                            badgeBg="bg-emerald-400"
-                            link="https://docs.google.com/document/d/16WrTbQGQPQHfcAVkq1UWdYHwYvEisOx5lBRav8PKUvo/"
-                            rotate="rotate-1"
-                            isCompact
-                            desc={<LinkIcon size={16} />}
-                        />
-                        <ComicCard
-                            title="Dokumentasi"
-                            badgeBg="bg-orange-400"
-                            link="https://drive.google.com/drive/folders/1i1YFCatTLwU204fpFWFw8vIN0MsfkJkW?usp=drive_link"
-                            rotate="-rotate-2"
-                            isCompact
-                            desc={<LinkIcon size={16} />}
-                        />
+                        <div className="animate-fade-in" style={{ animationDelay: '50ms' }}>
+
+                            <ComicCard
+                                title="Aktivitas"
+                                badgeBg="bg-cyan-400"
+                                link="https://drive.google.com/drive/folders/18lObZbLYvojYfhG0n_QgVvaa5S7tLnzk?usp=drive_link"
+                                rotate="-rotate-1"
+                                isCompact
+                                desc={<LinkIcon size={16} />}
+                            />
+                        </div>
+
+                        <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
+
+                            <ComicCard
+                                title="Cheat Sheet"
+                                badgeBg="bg-emerald-400"
+                                link="https://docs.google.com/document/d/16WrTbQGQPQHfcAVkq1UWdYHwYvEisOx5lBRav8PKUvo/"
+                                rotate="rotate-1"
+                                isCompact
+                                desc={<LinkIcon size={16} />}
+                            />
+                        </div>
+
+                        <div className="animate-fade-in" style={{ animationDelay: '150ms' }}>
+
+                            <ComicCard
+                                title="Dokum"
+                                badgeBg="bg-orange-400"
+                                link="https://drive.google.com/drive/folders/1i1YFCatTLwU204fpFWFw8vIN0MsfkJkW?usp=drive_link"
+                                rotate="-rotate-2"
+                                isCompact
+                                desc={<LinkIcon size={16} />}
+                            />
+                        </div>
+
                     </div>
 
                     {/* BOTTOM ROW: 2 Columns (Compact Height) */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                        <ComicCard
-                            title="Flow Briefing Day"
-                            badgeBg="bg-yellow-400"
-                            link="/flow"
-                            rotate="-rotate-1"
-                            isCompact
-                            desc="Zoom Meeting 101"
-                        />
-                        <ComicCard
-                            title="Storyline"
-                            badge="!!!"
-                            badgeBg="bg-emerald-500 text-white"
-                            link="/storyline"
-                            rotate="rotate-1"
-                            isCompact
-                            desc="Jump through the Multiverse!"
-                        />
+                        <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
+
+                            <ComicCard
+                                title="Flow Briefing Day"
+                                badgeBg="bg-yellow-400"
+                                link="/flow"
+                                rotate="-rotate-1"
+                                isCompact
+                                desc="Zoom Meeting 101"
+                            />
+                        </div>
+
+
+                        <div className="animate-fade-in" style={{ animationDelay: '250ms' }}>
+
+                            <ComicCard
+                                title="Storyline"
+                                badge="!!!"
+                                badgeBg="bg-emerald-500 text-white"
+                                link="/storyline"
+                                rotate="rotate-1"
+                                isCompact
+                                desc="Jump through the Multiverse!"
+
+                            />
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 // src/lib/api.js
 
 const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL;
-const CACHE_TTL = 10 * 60 * 1000; // 10 minutes in milliseconds
+const CACHE_TTL = 5 * 60 * 1000; // 10 minutes in milliseconds
 
 // Helper: Get cached data if it's still fresh
 function getFromCache(key) {
