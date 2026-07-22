@@ -4,7 +4,7 @@ const SHEET_CSV_URL =
 
 const CACHE_KEY = "modulehub_latest_news";
 const CACHE_TIME_KEY = "modulehub_latest_news_timestamp";
-const CACHE_DURATION_MS = 2 * 60 * 1000;
+const CACHE_DURATION_MS = 1 * 60 * 1000;
 
 export async function getLatestNews() {
   const now = Date.now();

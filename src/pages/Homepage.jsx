@@ -52,7 +52,7 @@ export default function HomePage() {
                     <span className="inline-block -rotate-2 bg-yellow-400 px-4 py-1 text-xs font-black uppercase text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-2">
                         PPIF 2026
                     </span>
-                    <h1 className="text-4xl sm:text-5xl font-black italic uppercase text-red-600 tracking-tight drop-shadow-[2px_4px_0px_rgba(0,0,0,1)]">
+                    <h1 className="text-4xl sm:text-5xl font-black italic uppercase text-red-500 tracking-tight drop-shadow-[2px_4px_0px_rgba(0,0,0,1)] [-webkit-text-stroke:2px_black]">
                         MODULE HUB
                     </h1>
                 </div>
@@ -71,8 +71,6 @@ export default function HomePage() {
                             {latestHeadline}
                         </p>
                     </div>
-
-                    <AlertCircle className="w-5 h-5 text-black shrink-0 hidden sm:block" />
                 </div>
 
                 {/* Comic Grid Layout */}

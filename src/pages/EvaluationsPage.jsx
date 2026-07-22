@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { getCodes, getAssignments, getEvents, addEvent, saveAssignment, getNotes } from "../apis/api";
 import { useAuth } from "../context/AuthContext";
 import { getUniqueCodesForSimulation } from "../components/GetUniqueCodesForSimulation";
+import { ArrowUpRight } from "lucide-react";
 import AddEventModal from "../components/AddEventModal";
 import AssignEvaluationModal from "../components/AssignEvaluationModal";
 
