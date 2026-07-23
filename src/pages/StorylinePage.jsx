@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Sparkles, Zap, Tornado, Triangle, Cross, Hexagon, Astroid, Skull } from "lucide-react";
+import { Sparkles, Zap, Tornado, Triangle, Cross, Hexagon, Astroid, Skull, Check, Orbit, Eclipse } from "lucide-react";
 import Navigator from "../components/Navigator";
 
 export default function StorylinePage() {
@@ -22,10 +22,17 @@ export default function StorylinePage() {
 
             {/* Main Comic Panel Card */}
             <main className="mt-20 relative z-10 w-full max-w-2xl bg-white border-4 border-black rounded-3xl p-6 sm:p-10 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+                <div className="text-center animate-fade-in ">
+                    <div className="inline-flex mx-auto items-center gap-4 bg-red-600 text-yellow-300 border-3 border-black px-4 py-2 font-black text-xl sm:text-2xl md:text-4xl uppercase tracking-tight shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -rotate-1">
+                        <Sparkles className="w-8 h-8 text-text-yellow-300" />
 
-                <div className="mb-8 border-b-2 animate-fade-in border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 py-1 font-black text-xs uppercase tracking-widest" style={{ animationDelay: "0ms" }}>
-                    <Sparkles className="w-12 h-12 text-black" />
-                    <span className="font-black ml-4 text-2xl">STORYLINE PPIF 2026</span>
+                        <span>STORYLINE PPIF 2026</span>
+                    </div>
+                </div>
+
+                <div className="mb-8 mt-16 border-b-2 animate-fade-in border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 font-black text-xs uppercase tracking-widest" style={{ animationDelay: "50ms" }}>
+                    <Orbit className="w-8 h-8 text-black" />
+                    <span className="font-black ml-4 text-2xl">BRIEFING DAY</span>
                 </div>
 
                 <div className="flex flex-col gap-16 animate-fade-in" style={{ animationDelay: "100ms" }}>
@@ -95,25 +102,25 @@ export default function StorylinePage() {
                             </span>
 
                             <div className="flex items-center gap-4 bg-yellow-400 text-black border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Variants bekerjasama memecahkan nama kelompok
+                                <Astroid className="w-3 h-3 fill-current text-black shrink-0" /> Variants bekerjasama memecahkan nama kelompok
                             </div>
                             <div className="mt-4 inline-flex items-center gap-2 bg-emerald-400 text-black border-3 border-black px-4 py-2 font-black text-sm sm:text-base uppercase tracking-tight shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] rotate-1">
-                                <Astroid className="w-3 h-3 fill-black" />
+                                <Astroid className="w-3 h-3 fill-black shrink-0" />
                                 <span>Variants mendapatkan nama kelompok!</span>
                             </div>
 
                         </div>
                     </div>
 
-                    <div className="mt-12 border-b-2 border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 py-1 font-black text-xs uppercase tracking-widest">
-                        <Sparkles className="w-12 h-12 text-black" />
-                        <span className="font-black ml-4 text-2xl">D-Day PPIF 2026</span>
+                    <div className="mt-12 border-b-2 animate-fade-in border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 font-black text-xs uppercase tracking-widest" style={{ animationDelay: "50ms" }}>
+                        <Eclipse className="w-8 h-8 text-black" />
+                        <span className="font-black ml-4 text-2xl">D-DAY</span>
                     </div>
 
                     <div id="story-prolog"> {/* STORYLINE PROLOG D-DAY */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> PROLOG
+                                <Astroid className="w-4 h-4 fill-current shrink-0 text-black" /> PROLOG
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 2 Min
@@ -143,7 +150,7 @@ export default function StorylinePage() {
                     <div id="quiz-prolog"> {/* QUIZ PROLOG */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400  text-black border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> QUIZ PROLOG
+                                <Astroid className="w-4 h-4 shrink-0 fill-current text-black" /> QUIZ PROLOG
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 2 Min
@@ -161,30 +168,30 @@ export default function StorylinePage() {
 
                                 {/* Option A */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">A</span>
+                                    <span className="flex items-center justify-center shrink-0 w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">A</span>
                                     <span>Hope Universe</span>
                                 </div>
 
                                 {/* Option B (HIGHLIGHTED CORRECT ANSWER) */}
                                 <div className="flex items-center justify-between p-2.5 rounded-lg border-2 border-black bg-emerald-300 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-extrabold text-black">
                                     <div className="flex items-center gap-3">
-                                        <span className="flex items-center justify-center w-6 h-6 rounded bg-black text-emerald-300 text-xs font-black">B</span>
+                                        <span className="flex items-center justify-center w-6 h-6 rounded shrink-0  bg-black text-emerald-300 text-xs font-black">B</span>
                                         <span>Wooden Puppet Universe</span>
                                     </div>
-                                    <span className="text-xs text-right bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
-                                        Jawaban Tepat
+                                    <span className="text-xs text-right bg-black text-white p-0.5 rounded font-black tracking-wider uppercase border border-black">
+                                        <Check className="w-4 h-4 stroke-4 text-emerald-300" />
                                     </span>
                                 </div>
 
                                 {/* Option C */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">C</span>
+                                    <span className="flex items-center justify-center shrink-0 w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">C</span>
                                     <span>Light Universe</span>
                                 </div>
 
                                 {/* Option D */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">D</span>
+                                    <span className="flex items-center justify-center shrink-0 w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">D</span>
                                     <span>Commitment Universe</span>
                                 </div>
 
@@ -195,7 +202,7 @@ export default function StorylinePage() {
                     <div id="story-1"> {/* STORYLINE 1 */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-cyan-700 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Triangle className="w-4 h-4 fill-current text-white" /> CHAPTER 1: HOPE
+                                <Triangle className="w-4 h-4 shrink-0 fill-current text-white" /> CHAPTER 1: HOPE
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 2 Min
@@ -222,10 +229,10 @@ export default function StorylinePage() {
                                 menuju tempat paling gelap, di mana bisikan Bad Virus terdengar paling kuat.
                             </span>
                             <div className="flex items-center gap-4 bg-cyan-700 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Triangle className="w-4 h-4 fill-current text-white" /> Variants beraktivitas selama durasi (20 menit)
+                                <Triangle className="w-4 h-4 shrink-0 fill-current text-white" /> Variants beraktivitas selama durasi (20 menit)
                             </div>
                             <div className="flex items-center gap-4 bg-cyan-700 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Triangle className="w-4 h-4 fill-current text-white" /> Variants yang unggul mendapat print-out Hope Stone
+                                <Triangle className="w-4 h-4 shrink-0 fill-current text-white" /> Variants yang unggul mendapat print-out Hope Stone
                             </div>
                         </div>
                     </div>
@@ -233,7 +240,7 @@ export default function StorylinePage() {
                     <div id="quiz-1"> {/* QUIZ 1 */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-cyan-700 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Triangle className="w-4 h-4 fill-current text-white" /> QUIZ 1
+                                <Triangle className="w-4 h-4 shrink-0 fill-current text-white" /> QUIZ 1
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 2 Min
@@ -251,30 +258,30 @@ export default function StorylinePage() {
 
                                 {/* Option A */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">A</span>
+                                    <span className="flex items-center justify-center shrink-0 w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">A</span>
                                     <span>Orbits</span>
                                 </div>
 
                                 {/* Option C */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">B</span>
+                                    <span className="flex items-center justify-center shrink-0 w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">B</span>
                                     <span>Bad Virus</span>
                                 </div>
 
                                 {/* Option D */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">C</span>
+                                    <span className="flex items-center justify-center shrink-0 w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">C</span>
                                     <span>Variants</span>
                                 </div>
 
                                 {/* Option B (HIGHLIGHTED CORRECT ANSWER) */}
                                 <div className="flex items-center justify-between p-2.5 rounded-lg border-2 border-black bg-emerald-300 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-extrabold text-black">
                                     <div className="flex items-center gap-3">
-                                        <span className="flex items-center justify-center w-6 h-6 rounded bg-black text-emerald-300 text-xs font-black">D</span>
+                                        <span className="flex items-center justify-center w-6 h-6 shrink-0 rounded bg-black text-emerald-300 text-xs font-black">D</span>
                                         <span>Codie</span>
                                     </div>
-                                    <span className="text-xs text-right bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
-                                        Jawaban Tepat
+                                    <span className="text-xs text-right bg-black text-white p-0.5 rounded font-black tracking-wider uppercase border border-black">
+                                        <Check className="w-4 h-4 stroke-4 text-emerald-300" />
                                     </span>
                                 </div>
 
@@ -285,7 +292,7 @@ export default function StorylinePage() {
                     <div id="story-2"> {/* STORYLINE 2 */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-orange-600 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Cross className="w-4 h-4 fill-current text-white" /> CHAPTER 2: Change
+                                <Cross className="w-4 h-4 shrink-0 fill-current text-white" /> CHAPTER 2: Change
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 2 Min
@@ -322,10 +329,10 @@ export default function StorylinePage() {
                                 dan ada yang kehilangan kata-kata di tengah jalan.
                             </span>
                             <div className="flex items-center gap-4 bg-orange-600 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Cross className="w-4 h-4 fill-current text-white" /> Variants beraktivitas selama durasi (20 menit)
+                                <Cross className="w-4 h-4 shrink-0 fill-current text-white" /> Variants beraktivitas selama durasi (20 menit)
                             </div>
                             <div className="flex items-center gap-4 bg-orange-600 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Cross className="w-4 h-4 fill-current text-white" /> Variants yang unggul mendapat print-out Change Stone
+                                <Cross className="w-4 h-4 shrink-0 fill-current text-white" /> Variants yang unggul mendapat print-out Change Stone
                             </div>
                         </div>
                     </div>
@@ -333,7 +340,7 @@ export default function StorylinePage() {
                     <div id="quiz-2"> {/* QUIZ 2 */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-orange-600 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Cross className="w-4 h-4 fill-current text-white" /> QUIZ 2
+                                <Cross className="w-4 h-4 shrink-0 fill-current text-white" /> QUIZ 2
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 2 Min
@@ -351,30 +358,30 @@ export default function StorylinePage() {
 
                                 {/* Option A */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">A</span>
+                                    <span className="flex items-center justify-center w-6 h-6 rounded shrink-0  bg-neutral-100 border border-black text-xs font-black">A</span>
                                     <span>Kesalahan terbesar adalah berjalan di universe ini</span>
                                 </div>
 
                                 {/* Option C */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">B</span>
+                                    <span className="flex items-center justify-center w-6 h-6 rounded shrink-0  bg-neutral-100 border border-black text-xs font-black">B</span>
                                     <span>Keadaan sempurna dapat ditunggu dan akan datang</span>
                                 </div>
 
                                 {/* Option B (HIGHLIGHTED CORRECT ANSWER) */}
                                 <div className="flex items-center justify-between p-2.5 rounded-lg border-2 border-black bg-emerald-300 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-extrabold text-black">
                                     <div className="flex items-center gap-3">
-                                        <span className="flex items-center justify-center w-6 h-6 rounded bg-black text-emerald-300 text-xs font-black">C</span>
+                                        <span className="flex items-center justify-center w-6 h-6 rounded shrink-0 bg-black text-emerald-300 text-xs font-black">C</span>
                                         <span>Keadaan sempurna tidak akan pernah datang</span>
                                     </div>
-                                    <span className="text-xs text-right bg-black text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
-                                        Jawaban Tepat
+                                    <span className="text-xs text-right bg-black text-white p-0.5 rounded font-black tracking-wider uppercase border border-black">
+                                        <Check className="w-4 h-4 stroke-4 text-emerald-300" />
                                     </span>
                                 </div>
 
                                 {/* Option D */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">D</span>
+                                    <span className="flex items-center justify-center w-6 h-6 shrink-0 rounded bg-neutral-100 border border-black text-xs font-black">D</span>
                                     <span>Aturan akan berubah tanpa peringatan</span>
                                 </div>
 
@@ -385,7 +392,7 @@ export default function StorylinePage() {
                     <div id="story-3"> {/* STORYLINE 3 */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-emerald-600 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Hexagon className="w-4 h-4 fill-current text-white" /> Chapter 3: Commitment
+                                <Hexagon className="w-4 h-4 shrink-0 fill-current text-white" /> Chapter 3: Commitment
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 2 Min
@@ -424,10 +431,10 @@ export default function StorylinePage() {
                                 mereka melambat dan pandangan kalian mulai kabur.
                             </span>
                             <div className="flex text-start items-center gap-4 bg-emerald-600 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Hexagon className="w-4 h-4 fill-current text-white" /> Variants beraktivitas selama durasi (20 menit)
+                                <Hexagon className="w-4 h-4 shrink-0 fill-current text-white" /> Variants beraktivitas selama durasi (20 menit)
                             </div>
                             <div className="flex items-center gap-4 bg-emerald-600 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Hexagon className="w-4 h-4 fill-current text-white" /> Variants yang unggul mendapat print-out Commitment Stone
+                                <Hexagon className="w-4 h-4 shrink-0 fill-current text-white" /> Variants yang unggul mendapat print-out Commitment Stone
                             </div>
                         </div>
                     </div>
@@ -435,7 +442,7 @@ export default function StorylinePage() {
                     <div id="quiz-3"> {/* QUIZ 3 */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-emerald-600 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Hexagon className="w-4 h-4 fill-current text-white" /> QUIZ 3
+                                <Hexagon className="w-4 h-4 shrink-0 fill-current text-white" /> QUIZ 3
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 2 Min
@@ -454,29 +461,29 @@ export default function StorylinePage() {
                                 {/* Option B (HIGHLIGHTED CORRECT ANSWER) */}
                                 <div className="flex items-center justify-between p-2.5 rounded-lg border-2 border-black bg-emerald-300 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-extrabold text-black">
                                     <div className="flex items-center gap-3">
-                                        <span className="flex items-center justify-center w-6 h-6 rounded bg-black text-emerald-300 text-xs font-black">A</span>
+                                        <span className="flex items-center justify-center w-6 h-6 rounded bg-black shrink-0 text-emerald-300 text-xs font-black">A</span>
                                         <span>Sunyi</span>
                                     </div>
-                                    <span className="text-xs bg-black text-right text-white px-2 py-0.5 rounded font-black tracking-wider uppercase border border-black">
-                                        Jawaban Tepat
+                                    <span className="text-xs text-right bg-black text-white p-0.5 rounded font-black tracking-wider uppercase border border-black">
+                                        <Check className="w-4 h-4 stroke-4 text-emerald-300" />
                                     </span>
                                 </div>
 
                                 {/* Option A */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">B</span>
+                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 shrink-0 border border-black text-xs font-black">B</span>
                                     <span>Kacau</span>
                                 </div>
 
                                 {/* Option C */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">C</span>
+                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 shrink-0 border border-black text-xs font-black">C</span>
                                     <span>Bising</span>
                                 </div>
 
                                 {/* Option D */}
                                 <div className="flex items-center gap-3 p-2.5 rounded-lg border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 border border-black text-xs font-black">D</span>
+                                    <span className="flex items-center justify-center w-6 h-6 rounded bg-neutral-100 shrink-0 border border-black text-xs font-black">D</span>
                                     <span>Gelap</span>
                                 </div>
 
@@ -487,7 +494,7 @@ export default function StorylinePage() {
                     <div id="story-bf"> {/* STORYLINE POST 3 */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Storyline Post Chapter 3
+                                <Astroid className="w-4 h-4 shrink-0 fill-current text-black" /> Post Chapter 3
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 10-12 Min
@@ -507,7 +514,7 @@ export default function StorylinePage() {
                                 ketiganya.
                             </span>
                             <div className="flex items-center gap-4 bg-yellow-400 border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Variants menyusun Hope Stone, Change Stone, dan Commitment Stone
+                                <Astroid className="w-4 h-4 shrink-0 fill-current text-black" /> Variants menyusun Hope Stone, Change Stone, dan Commitment Stone
                             </div>
 
                             <span>
@@ -527,24 +534,24 @@ export default function StorylinePage() {
                     </div>
 
                     <div className="inline-flex items-center gap-2 bg-emerald-400 text-black border-3 border-black px-4 py-2 font-black text-sm sm:text-base uppercase tracking-tight shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] rotate-1">
-                        <Astroid className="w-3 h-3 fill-black" />
+                        <Astroid className="w-3 h-3 shrink-0 fill-black" />
                         <span>BATTLE VICTORY</span>
                     </div>
 
                     <div className="inline-flex items-center gap-2 bg-emerald-400 text-black border-3 border-black px-4 py-2 font-black text-sm sm:text-base uppercase tracking-tight shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -rotate-1">
-                        <Astroid className="w-3 h-3 fill-black" />
+                        <Astroid className="w-3 h-3 shrink-0 fill-black" />
                         <span>BATTLE VICTORY</span>
                     </div>
 
                     <div className="inline-flex items-center gap-2 bg-red-600 text-yellow-300 border-3 border-black px-4 py-2 font-black text-sm sm:text-base uppercase tracking-tight shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                        <Skull className="w-6 h-6" />
+                        <Skull className="shrink-0 w-6 h-6" />
                         <span>BATTLE DEFEAt</span>
                     </div>
 
                     <div id="story-end"> {/* STORYLINE EPILOG */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Storyline EPILOG
+                                <Astroid className="w-4 h-4 shrink-0  fill-current text-black" /> Storyline EPILOG
                             </div>
                             <div className="flex text-right font-black text-xs uppercase tracking-widest">
                                 2 Min

@@ -120,13 +120,13 @@ export default function TimelinePage() {
                 <div className="w-full mx-auto mt-12">
 
                     <div className="flex items-center gap-4 mb-12 mx-4 bg-red-500 text-white border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <MessageSquareWarning className="w-4 h-4" /> Timeline bisa berubah sewaktu-waktu, informasi terbaru disampaikan di grup WA.
+                        <MessageSquareWarning className="w-4 h-4 shrink-0 stroke-[2.5px]" /> Timeline bisa berubah sewaktu-waktu, informasi terbaru disampaikan di grup WA.
                     </div>
 
                     {/* Loading State */}
                     {loading && (
                         <div className="flex flex-row items-center text-center text-gray-500 border border-gray-300 bg-gray-200 p-2 rounded-2xl animate-pulse">
-                            <Loader className="w-8 h-8 p-2 animate-spin" /> Timeline Loading...
+                            <Loader className="w-8 h-8 p-2 animate-spin shrink-0" /> Timeline Loading...
                         </div>
                     )}
 

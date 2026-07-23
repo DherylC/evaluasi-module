@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { UserKey, LogOut } from "lucide-react";
 
 export default function Navbar() {
   const { isCoordinator, logout } = useAuth();
@@ -31,6 +32,9 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto no-scrollbar py-1 px-1">
+          <NavLink to="/timeline" className={linkClass}>
+            TL
+          </NavLink>
           <NavLink to="/storyline" className={linkClass}>
             STORY
           </NavLink>
@@ -43,11 +47,12 @@ export default function Navbar() {
               onClick={logout}
               className="px-2.5 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs md:text-sm font-black uppercase tracking-wider text-black bg-yellow-400 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white transition-all transform active:translate-y-0.5 shrink-0"
             >
-              Logout
+              <LogOut className="w-4 h-4 md:w-5 md:h-5 sm:w-4.5 sm:h-4.5 shrink-0 stroke-3" />
+
             </button>
           ) : (
             <NavLink to="/login" className={linkClass}>
-              Login
+              <UserKey className="w-4 h-4 md:w-5 md:h-5 sm:w-4.5 sm:h-4.5 shrink-0 stroke-3" />
             </NavLink>
           )}
         </div>

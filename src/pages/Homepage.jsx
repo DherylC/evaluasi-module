@@ -50,7 +50,7 @@ export default function HomePage() {
                 <div className="bg-yellow-300 border-3 border-black px-6 py-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3 relative transition-transform">
                     {/* Comic Flash Tag - Positioned absolute to straddle the top border */}
                     <span className="absolute -top-4.5 left-4 shrink-0 bg-red-600 text-white font-black text-[10px] sm:text-xs uppercase px-2.5 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 -rotate-2">
-                        <Megaphone className="w-4 h-4 stroke-[2.5] animate-pulse" />
+                        <Megaphone className="w-4 h-4 shrink-0 stroke-[2.5] animate-pulse" />
                         NEWS
                     </span>
 
@@ -123,7 +123,7 @@ export default function HomePage() {
 
                             <ComicCard
                                 title="Timeline"
-                                badge="NEW!"
+                                badge="!!"
                                 badgeBg="bg-purple-500 text-white"
                                 link="/timeline"
                                 rotate="-rotate-1"
