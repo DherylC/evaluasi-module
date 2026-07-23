@@ -9,7 +9,8 @@
   font-family: 'HelveticaNowDisplay', sans-serif;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  -webkit-user-drag: none; /* WebKit browsers (Chrome, Safari, Edge) */
+  -webkit-user-drag: none;
+  /* WebKit browsers (Chrome, Safari, Edge) */
 }
 
 *::-webkit-scrollbar {
@@ -18,11 +19,12 @@
   height: 0;
 }
 
-html, body {
+html,
+body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   background-color: #f5f5f5;
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 
 }
 
@@ -34,17 +36,27 @@ body::-webkit-scrollbar {
 }
 
 /* In index.css or App.css */
-#story-act-1, #story-prolog, #quiz-prolog,
-#story-1, #quiz-1, #story-2, #quiz-2, 
-#story-3, #quiz-3, #story-bf, #story-end {
+#story-act-1,
+#story-prolog,
+#quiz-prolog,
+#story-1,
+#quiz-1,
+#story-2,
+#quiz-2,
+#story-3,
+#quiz-3,
+#story-bf,
+#story-end {
   scroll-margin-top: 120px;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(8px); /* Adjust distance as needed */
+    transform: translateY(8px);
+    /* Adjust distance as needed */
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -53,6 +65,20 @@ body::-webkit-scrollbar {
 
 .animate-fade-in {
   animation: fadeInUp 0.25s ease-out both;
+}
+
+@keyframes halftone-move {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: 32px 32px;
+  }
+}
+
+.animate-halftone {
+  animation: halftone-move 4s linear infinite;
 }
 
 

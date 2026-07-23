@@ -25,17 +25,6 @@ export default function HomePage() {
     return (
         <div className="select-none relative min-h-screen bg-red-50 px-4 py-6 sm:py-8  font-sans overflow-hidden">
 
-            {/* Inline keyframe for diagonal halftone dot movement */}
-            <style>{`
-                @keyframes halftone-move {
-                    0% { background-position: 0px 0px; }
-                    100% { background-position: 32px 32px; }
-                }
-                .animate-halftone {
-                    animation: halftone-move 4s linear infinite;
-                }
-            `}</style>
-
             {/* Moving Background Halftone Dot Pattern */}
             <div
                 className="absolute inset-0 opacity-15 pointer-events-none animate-halftone"
@@ -58,10 +47,10 @@ export default function HomePage() {
                 </div>
 
                 {/* --- LATEST NEWS HEADLINE BANNER --- */}
-                <div className="bg-yellow-300 border-3 border-black p-3 rounded-2xl shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3 relative overflow-hidden transition-transform">
-                    {/* Comic Flash Tag */}
-                    <span className="shrink-0 bg-red-600 text-white font-black text-[10px] sm:text-xs uppercase px-2.5 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5">
-                        <Megaphone className="w-3.5 h-3.5 stroke-[2.5] animate-pulse" />
+                <div className="bg-yellow-300 border-3 border-black px-6 py-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3 relative transition-transform">
+                    {/* Comic Flash Tag - Positioned absolute to straddle the top border */}
+                    <span className="absolute -top-4.5 left-4 shrink-0 bg-red-600 text-white font-black text-[10px] sm:text-xs uppercase px-2.5 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 -rotate-2">
+                        <Megaphone className="w-4 h-4 stroke-[2.5] animate-pulse" />
                         NEWS
                     </span>
 
@@ -80,8 +69,8 @@ export default function HomePage() {
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="Evaluasi"
-                            badge="SIMUL 2 UPDATE"
-                            badgeBg="bg-red-500 text-white"
+                            badge="SIMUL 2 UPDATE!"
+                            badgeBg="bg-emerald-500 text-white"
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
@@ -116,6 +105,7 @@ export default function HomePage() {
                             />
                         </div>
 
+                        {/*
                         <div className="animate-fade-in" style={{ animationDelay: '150ms' }}>
 
                             <ComicCard
@@ -127,11 +117,29 @@ export default function HomePage() {
                                 desc={<LinkIcon size={16} />}
                             />
                         </div>
+                        */}
+
+                        <div className="animate-fade-in" style={{ animationDelay: '150ms' }}>
+
+                            <ComicCard
+                                title="Timeline"
+                                badge="NEW!"
+                                badgeBg="bg-purple-500 text-white"
+                                link="/timeline"
+                                rotate="-rotate-1"
+                                isCompact
+                                desc="View Events"
+
+                            />
+                        </div>
+
 
                     </div>
 
                     {/* BOTTOM ROW: 2 Columns (Compact Height) */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
+
+
                         <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
 
                             <ComicCard
@@ -149,8 +157,8 @@ export default function HomePage() {
 
                             <ComicCard
                                 title="Storyline"
-                                badge="!!!"
-                                badgeBg="bg-emerald-500 text-white"
+                                badge="UJIAN!"
+                                badgeBg="bg-red-500 text-white"
                                 link="/storyline"
                                 rotate="rotate-1"
                                 isCompact

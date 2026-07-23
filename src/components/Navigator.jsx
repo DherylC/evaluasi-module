@@ -87,7 +87,7 @@ export default function MobileHorizontalNav() {
 
     return (
         <div className="select-none fixed bottom-3 left-0 right-0 z-50 px-3 pointer-events-none">
-            <div className="max-w-md mx-auto bg-yellow-400 border-3 border-black p-2 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 pointer-events-auto">
+            <div className="max-w-md mx-auto bg-yellow-300 border-3 border-black p-2 rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 pointer-events-auto">
 
                 {/* Left Arrow */}
                 <button

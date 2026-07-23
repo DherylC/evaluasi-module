@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { Toaster } from "react-hot-toast";
+
 import Navbar from "./components/Navbar";
 import Homepage from "./pages/Homepage.jsx";
 import EvaluationsPage from "./pages/EvaluationsPage";
@@ -9,6 +10,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import FlowPage from "./pages/FlowPage.jsx";
 import StorylinePage from "./pages/StorylinePage.jsx";
+import TimelinePage from "./pages/TimelinePage.jsx";
 
 export default function App() {
   return (
@@ -34,10 +36,10 @@ export default function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/flow" element={<FlowPage />} />
           <Route path="/storyline" element={<StorylinePage />} />
+          <Route path="/timeline" element={<TimelinePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
-
     </AuthProvider>
   );
 }

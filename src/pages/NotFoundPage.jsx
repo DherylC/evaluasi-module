@@ -12,7 +12,7 @@ export default function NotFoundPage() {
 
             {/* Background Halftone Pattern / Comic Rays */}
             <div
-                className="absolute inset-0 opacity-15 pointer-events-none"
+                className="absolute inset-0 opacity-15 pointer-events-none animate-halftone"
                 style={{
                     backgroundImage: 'radial-gradient(#000 2px, transparent 2px)',
                     backgroundSize: '16px 16px'

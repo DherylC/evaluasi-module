@@ -13,7 +13,7 @@ export default function LoginPage() {
         e.preventDefault();
         const success = login(username, password);
         if (success) {
-            navigate("/evaluations");
+            navigate("/");
         } else {
             setError("Invalid username or password");
         }
@@ -29,7 +29,7 @@ export default function LoginPage() {
 
             {/* Halftone Dot Pattern Overlay */}
             <div
-                className="absolute inset-0 opacity-15 pointer-events-none"
+                className="absolute inset-0 opacity-15 pointer-events-none animate-halftone"
                 style={{
                     backgroundImage: "radial-gradient(#000 2px, transparent 2px)",
                     backgroundSize: "16px 16px"
@@ -53,7 +53,7 @@ export default function LoginPage() {
 
                 {error && (
                     <div className="mb-4 rounded-xl bg-red-500 border-3 border-black p-2.5 text-center text-xs font-black text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                        ⚠️ {error}
+                        Error: {error}
                     </div>
                 )}
 
@@ -68,7 +68,7 @@ export default function LoginPage() {
                             onChange={(e) => setUsername(e.target.value)}
                             className="w-full rounded-xl border-3 border-black px-3.5 py-2 text-sm font-bold placeholder:text-gray-400 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors"
                             placeholder="Enter username"
-                            required
+
                         />
                     </div>
 
@@ -82,7 +82,7 @@ export default function LoginPage() {
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full rounded-xl border-3 border-black px-3.5 py-2 text-sm font-bold  placeholder:text-gray-400 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors"
                             placeholder="Enter password"
-                            required
+
                         />
                     </div>
 

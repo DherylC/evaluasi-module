@@ -13,7 +13,7 @@ export default function StorylinePage() {
 
             {/* Background Halftone Pattern / Comic Rays */}
             <div
-                className="absolute inset-0 opacity-15 pointer-events-none"
+                className="absolute inset-0 opacity-15 pointer-events-none animate-halftone"
                 style={{
                     backgroundImage: 'radial-gradient(#000 2px, transparent 2px)',
                     backgroundSize: '16px 16px'
@@ -94,7 +94,7 @@ export default function StorylinePage() {
                                 menuju misi utama dapat dimulai.
                             </span>
 
-                            <div className="flex items-center gap-4 bg-yellow-500 text-black border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            <div className="flex items-center gap-4 bg-yellow-400 text-black border-2 border-black px-3 py-4 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Astroid className="w-4 h-4 fill-current text-black" /> Variants bekerjasama memecahkan nama kelompok
                             </div>
                             <div className="mt-4 inline-flex items-center gap-2 bg-emerald-400 text-black border-3 border-black px-4 py-2 font-black text-sm sm:text-base uppercase tracking-tight shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] rotate-1">
