@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useMemo } from "react";
 import { Loader, Sparkles, MessageSquareWarning } from "lucide-react";
-import { getTimelineEvents } from "../apis/timelineApi";
+import { getTimelineEvents } from "../apis/timelineapi";
 
 // Helper to parse dates formatted as MM/DD/YYYY (American input from Sheet)
 function parseEventDate(dateStr) {
