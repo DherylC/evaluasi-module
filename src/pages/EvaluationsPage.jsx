@@ -61,12 +61,23 @@ export default function EvaluationsPage() {
 
     const loadAll = async () => {
         try {
-            const [e, c, a, n] = await Promise.all([getEvents(), getCodes(), getAssignments(), getNotes()]);
+            const [e, c, a, n] = await Promise.all([
+                getEvents(),
+                getCodes(),
+                getAssignments(),
+                getNotes()
+            ]);
+
             setEvents(e);
             setCodes(c);
             setAssignments(a);
             setNotes(n);
-            setSelectedEvent((prev) => prev ?? (e.length > 0 ? e[0].name : null));
+
+            // Always default to the last item in the array
+            if (e.length > 0) {
+                const lastEvent = e[e.length - 1];
+                setSelectedEvent((prev) => prev ?? lastEvent.name);
+            }
         } catch (err) {
             console.error("Failed to load evaluation data:", err);
         }

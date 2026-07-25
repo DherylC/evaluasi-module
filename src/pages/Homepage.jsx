@@ -69,12 +69,12 @@ export default function HomePage() {
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="Evaluasi"
-                            badge="SIMUL 2 UPDATE!"
-                            badgeBg="bg-emerald-500 text-white"
+                            badge="UJIAN MODULE UPDATE!"
+                            badgeBg="bg-red-500 text-white"
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
-                            desc="Last Updated: Simulasi 2 (20 Juli 2026)"
+                            desc="Last Updated: Ujian Akhir Module (24 Juli 2026)"
                         />
                     </div>
 
@@ -123,7 +123,7 @@ export default function HomePage() {
 
                             <ComicCard
                                 title="Timeline"
-                                badge="!!"
+
                                 badgeBg="bg-purple-500 text-white"
                                 link="/timeline"
                                 rotate="-rotate-1"
@@ -157,12 +157,12 @@ export default function HomePage() {
 
                             <ComicCard
                                 title="Storyline"
-                                badge="UJIAN!"
-                                badgeBg="bg-red-500 text-white"
+                                badge="IMPORTANT!"
+                                badgeBg="bg-yellow-500 text-black"
                                 link="/storyline"
                                 rotate="rotate-1"
                                 isCompact
-                                desc="Jump through the Multiverse!"
+                                desc="Know the Flow"
 
                             />
                         </div>

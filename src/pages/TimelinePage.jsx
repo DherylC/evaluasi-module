@@ -54,26 +54,32 @@ export default function TimelinePage() {
         fetchTimeline();
     }, []);
 
-    // Find the index of the event closest to current date (today)
+    // Find the index of the event on the next closest date (starting tomorrow)
     const closestIndex = useMemo(() => {
         if (!events.length) return -1;
 
-        const now = new Date().getTime();
+        // Get the exact end of today (23:59:59.999)
+        const endOfToday = new Date();
+        endOfToday.setHours(23, 59, 59, 999);
+        const endOfTodayTime = endOfToday.getTime();
+
         let minDiff = Infinity;
         let closestIdx = -1;
 
         events.forEach((item, idx) => {
             const eventTime = parseEventDate(item.date).getTime();
-            const diff = eventTime - now;
 
-            // Only consider events that are today or in the future
-            if (diff >= 0 && diff < minDiff) {
+            // Calculate difference from end of today instead of current moment
+            const diff = eventTime - endOfTodayTime;
+
+            // Only consider events occurring starting strictly after today
+            if (diff > 0 && diff < minDiff) {
                 minDiff = diff;
                 closestIdx = idx;
             }
         });
 
-        // Fallback: If all events are in the past, default to the last event (or 0)
+        // Fallback: If no future dates exist, point to the last event in the list
         if (closestIdx === -1) {
             closestIdx = events.length - 1;
         }
