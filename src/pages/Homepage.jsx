@@ -8,7 +8,7 @@ export default function HomePage() {
     const [latestHeadline, setLatestHeadline] = useState("Loading latest news...");
 
     useEffect(() => {
-        document.title = "ModuleHub | PPIF 2026";
+        document.title = "Module 101";
 
         getLatestNews().then((data) => {
             if (data && data.length > 0) {
@@ -42,7 +42,7 @@ export default function HomePage() {
                         PPIF 2026
                     </span>
                     <h1 className="text-4xl -rotate-1 sm:text-5xl font-black italic uppercase text-red-500 tracking-tight drop-shadow-[2px_4px_0px_rgba(0,0,0,1)] [-webkit-text-stroke:2px_black]">
-                        MODULE HUB
+                        MODULE 101
                     </h1>
                 </div>
 
@@ -78,10 +78,41 @@ export default function HomePage() {
                         />
                     </div>
 
+                    {/* ROW 2: 2 Columns (Compact Height) */}
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
 
-                    {/* MIDDLE ROW: 3 Columns */}
-                    <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
+
                         <div className="animate-fade-in" style={{ animationDelay: '50ms' }}>
+
+                            <ComicCard
+                                title="Regulasi"
+                                badge="PATUHI!"
+                                badgeBg="bg-red-500 text-white"
+                                link="/regulations"
+                                rotate="rotate-1"
+                                desc="Regulasi Orbits, dll"
+                                isCompact
+                            />
+                        </div>
+
+
+                        <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
+
+                            <ComicCard
+                                title="Timeline"
+                                badgeBg="bg-yellow-500 text-black"
+                                link="/timeline"
+                                rotate="rotate-1"
+                                isCompact
+                                desc="View Events"
+                            />
+                        </div>
+
+                    </div>
+
+                    {/* ROW 3: 3 Columns */}
+                    <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
+                        <div className="animate-fade-in" style={{ animationDelay: '150ms' }}>
 
                             <ComicCard
                                 title="Aktivitas"
@@ -93,7 +124,7 @@ export default function HomePage() {
                             />
                         </div>
 
-                        <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
+                        <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
 
                             <ComicCard
                                 title="Cheat Sheet"
@@ -119,28 +150,25 @@ export default function HomePage() {
                         </div>
                         */}
 
-                        <div className="animate-fade-in" style={{ animationDelay: '150ms' }}>
+                        <div className="animate-fade-in" style={{ animationDelay: '250ms' }}>
 
                             <ComicCard
-                                title="Timeline"
-
+                                title="CONTENT"
                                 badgeBg="bg-purple-500 text-white"
-                                link="/timeline"
+                                link="/"
                                 rotate="-rotate-1"
                                 isCompact
-                                desc="View Events"
 
+                                desc="Coming Soon"
                             />
                         </div>
-
-
                     </div>
 
-                    {/* BOTTOM ROW: 2 Columns (Compact Height) */}
+
+                    {/* ROW 4: 2 Columns (Compact Height) */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
 
-
-                        <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
+                        <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
 
                             <ComicCard
                                 title="Flow Briefing Day"
@@ -153,11 +181,11 @@ export default function HomePage() {
                         </div>
 
 
-                        <div className="animate-fade-in" style={{ animationDelay: '250ms' }}>
+                        <div className="animate-fade-in" style={{ animationDelay: '350ms' }}>
 
                             <ComicCard
                                 title="Storyline"
-                                badge="IMPORTANT!"
+                                badge="!!"
                                 badgeBg="bg-yellow-500 text-black"
                                 link="/storyline"
                                 rotate="rotate-1"
@@ -183,60 +211,104 @@ function ComicCard({
     rotate = "",
     isSmall = false,
     isWide = false,
-    isCompact = false, // Added Compact prop
-    desc
+    isCompact = false,
+    isSquished = false,
+    desc,
 }) {
-    // Dynamic height class assignment
-    const heightClass = isSmall
-        ? "min-h-27.5 sm:min-h-32.5 p-3"
-        : isCompact
-            ? "min-h-24 sm:min-h-28 p-3"  // Shorter, sleek height for bottom row
-            : isWide
-                ? "min-h-30"
-                : "min-h-35 sm:min-h-40";
+    // Height and vertical padding classes
+    const heightClass = isSquished
+        ? "h-11 sm:h-12 py-1 px-3 flex-row items-center justify-between"
+        : isSmall
+            ? "min-h-27.5 sm:min-h-32.5 p-3 flex-col justify-between"
+            : isCompact
+                ? "min-h-24 sm:min-h-28 p-3 flex-col justify-between"
+                : isWide
+                    ? "min-h-30 flex-col justify-between p-4"
+                    : "flex-col justify-between p-4";
 
     const content = (
         <div
-            className={`group relative flex flex-col justify-between rounded-2xl bg-white p-4 border-3 sm:border-4 border-black 
+            className={`group relative flex rounded-2xl bg-white border-3 sm:border-4 border-black 
         shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] 
         transition-all duration-150 transform hover:-translate-y-1 hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5
         ${rotate} ${heightClass}`}
         >
-            {/* Card Internal Halftone Dot Pattern Background */}
+            {/* Card Internal Halftone Pattern */}
             <div
                 className="absolute inset-0 opacity-5 pointer-events-none rounded-xl"
                 style={{
-                    backgroundImage: "radial-gradient(circle, #000 25%, transparent 25%)",
-                    backgroundSize: "8px 8px"
+                    backgroundImage:
+                        "radial-gradient(circle, #000 25%, transparent 25%)",
+                    backgroundSize: "8px 8px",
                 }}
             />
 
-            {/* Comic Badge */}
-            <div className="flex justify-between items-start mb-1">
-                <h2 className={`font-black uppercase tracking-tight text-black leading-tight group-hover:text-red-600 transition-colors ${isSmall || isCompact ? "text-xs sm:text-sm" : "text-base sm:text-lg"
-                    }`}>
-                    {title}
-                </h2>
-                {badge && (
-                    <span className={`shrink-0 text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 border-2 border-black shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] -rotate-3 ${badgeBg}`}>
-                        {badge}
-                    </span>
-                )}
-            </div>
+            {isSquished ? (
+                /* Single-Line Layout */
+                <>
+                    <div className="flex items-center gap-1.5 min-w-0 pr-2">
+                        <h2 className="font-black uppercase tracking-tight text-black text-xs sm:text-sm truncate group-hover:text-red-600 transition-colors">
+                            {title}
+                        </h2>
+                        {badge && (
+                            <span
+                                className={`shrink-0 text-[8px] sm:text-[9px] font-black uppercase px-1.5 py-0.5 border-1.5 border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] -rotate-2 ${badgeBg}`}
+                            >
+                                {badge}
+                            </span>
+                        )}
+                    </div>
 
-            {/* Description or Action Arrow */}
-            <div className="flex justify-between items-end mt-auto">
-                {desc ? (
-                    <p className="text-[10px] sm:text-xs text-gray-500 font-bold line-clamp-1">{desc}</p>
-                ) : (
-                    <span className="text-[10px] text-gray-400 font-extrabold italic"></span>
-                )}
-                <span className="text-xs sm:text-sm font-black text-black group-hover:translate-x-1 transition-transform ml-1">
-                    →
-                </span>
-            </div>
+                    <div className="flex items-center shrink-0 gap-1">
+                        {desc && (
+                            <span className="text-[10px] text-gray-500 font-bold flex items-center">
+                                {desc}
+                            </span>
+                        )}
+                        <span className="text-xs sm:text-sm font-black text-black group-hover:translate-x-1 transition-transform">
+                            →
+                        </span>
+                    </div>
+                </>
+            ) : (
+                /* Normal Multi-Line Layout */
+                <>
+                    <div className="flex justify-between items-start mb-1">
+                        <h2
+                            className={`font-black uppercase tracking-tight text-black leading-tight group-hover:text-red-600 transition-colors ${isSmall || isCompact ? "text-xs sm:text-sm" : "text-base sm:text-lg"
+                                }`}
+                        >
+                            {title}
+                        </h2>
+                        {badge && (
+                            <span
+                                className={`shrink-0 text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 border-2 border-black shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] -rotate-3 ${badgeBg}`}
+                            >
+                                {badge}
+                            </span>
+                        )}
+                    </div>
+
+                    <div className="flex justify-between items-end mt-auto">
+                        {desc ? (
+                            <p className="text-[10px] sm:text-xs text-gray-500 font-bold line-clamp-1">
+                                {desc}
+                            </p>
+                        ) : (
+                            <span className="text-[10px] text-gray-400 font-extrabold italic" />
+                        )}
+                        <span className="text-xs sm:text-sm font-black text-black group-hover:translate-x-1 transition-transform ml-1">
+                            →
+                        </span>
+                    </div>
+                </>
+            )}
         </div>
     );
 
-    return link ? <Link to={link}>{content}</Link> : <div className="cursor-pointer">{content}</div>;
+    return link ? (
+        <Link to={link}>{content}</Link>
+    ) : (
+        <div className="cursor-pointer">{content}</div>
+    );
 }

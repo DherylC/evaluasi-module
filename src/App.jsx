@@ -11,6 +11,8 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 import FlowPage from "./pages/FlowPage.jsx";
 import StorylinePage from "./pages/StorylinePage.jsx";
 import TimelinePage from "./pages/TimelinePage.jsx";
+import RegulationsPage from "./pages/RegulationsPage.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 export default function App() {
   return (
@@ -28,7 +30,9 @@ export default function App() {
         }}
       />
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
+
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/evaluations" element={<EvaluationsPage />} />
@@ -37,6 +41,7 @@ export default function App() {
           <Route path="/flow" element={<FlowPage />} />
           <Route path="/storyline" element={<StorylinePage />} />
           <Route path="/timeline" element={<TimelinePage />} />
+          <Route path="/regulations" element={<RegulationsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

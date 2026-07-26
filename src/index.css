@@ -81,6 +81,10 @@ body::-webkit-scrollbar {
   animation: halftone-move 4s linear infinite;
 }
 
+strong {
+  font-weight: 800;
+}
+
 
 /* ==========================================================================
    Helvetica Now Display - Full Font Face Declarations
