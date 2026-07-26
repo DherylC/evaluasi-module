@@ -158,7 +158,7 @@ export default function RegulationsPage() {
                         {/* Comic Header Title */}
                         <div className="text-center">
                             <h2
-                                className="inline-block text-3xl sm:text-4xl md:text-5xl font-black text-white -rotate-1 uppercase px-4 py-1"
+                                className="animate-fade-in inline-block text-3xl sm:text-4xl md:text-5xl font-black text-white -rotate-1 uppercase px-4 py-1"
                                 style={{
                                     textShadow:
                                         "5px 5px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000",
@@ -169,7 +169,7 @@ export default function RegulationsPage() {
                         </div>
 
                         {/* Cards Grid */}
-                        <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="grid sm:grid-cols-2 gap-4 animate-fade-in" style={{ animationDelay: "100ms" }}>
                             {section.cards.map((card) => {
                                 const widthClass = card.fullWidth ? "sm:col-span-2" : "col-span-1";
 
