@@ -74,7 +74,7 @@ export default function HomePage() {
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
-                            desc="Last Updated: Ujian Akhir Module (24 Juli 2026)"
+                            desc="Last Updated: Simulasi III (27 Juli 2026)"
                         />
                     </div>
 
