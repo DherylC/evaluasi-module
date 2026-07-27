@@ -96,8 +96,8 @@ export default function AllEvaluationsPage() {
                             <button
                                 key={cat}
                                 onClick={() => setSelectedFilter(cat)}
-                                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${selectedFilter === cat
-                                    ? "bg-red-400 text-white"
+                                className={`rounded-full px-3 py-1 text-xs transition-colors ${selectedFilter === cat
+                                    ? "bg-red-400 text-white font-extrabold"
                                     : "bg-red-100 text-red-500 hover:bg-red-200"
                                     }`}
                             >

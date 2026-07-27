@@ -176,14 +176,14 @@ export default function AssignEvaluationModal({
                     onClick={onClose}
                     className="flex-1 rounded-full bg-red-200 py-2 text-sm font-semibold text-red-900 hover:bg-red-300"
                 >
-                    cancel
+                    Cancel
                 </button>
                 <button
                     type="button"
                     onClick={handleSubmit}
                     className="flex-1 rounded-full bg-green-300 py-2 text-sm font-semibold text-green-900 hover:bg-green-400"
                 >
-                    submit
+                    Submit
                 </button>
             </div>
         </Modal>

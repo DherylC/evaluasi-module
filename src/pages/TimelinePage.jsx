@@ -58,10 +58,10 @@ export default function TimelinePage() {
     const closestIndex = useMemo(() => {
         if (!events.length) return -1;
 
-        // Get the exact end of today (23:59:59.999)
-        const endOfToday = new Date();
-        endOfToday.setHours(23, 59, 59, 999);
-        const endOfTodayTime = endOfToday.getTime();
+        // Get the exact start of today (00:00:00.000)
+        const startOfToday = new Date();
+        startOfToday.setHours(0, 0, 0, 0);
+        const startOfTodayTime = startOfToday.getTime();
 
         let minDiff = Infinity;
         let closestIdx = -1;
@@ -69,17 +69,17 @@ export default function TimelinePage() {
         events.forEach((item, idx) => {
             const eventTime = parseEventDate(item.date).getTime();
 
-            // Calculate difference from end of today instead of current moment
-            const diff = eventTime - endOfTodayTime;
+            // Calculate difference from the start of today
+            const diff = eventTime - startOfTodayTime;
 
-            // Only consider events occurring starting strictly after today
-            if (diff > 0 && diff < minDiff) {
+            // >= 0 includes today's event, and finds the smallest future gap
+            if (diff >= 0 && diff < minDiff) {
                 minDiff = diff;
                 closestIdx = idx;
             }
         });
 
-        // Fallback: If no future dates exist, point to the last event in the list
+        // Fallback: If all events are in the past, point to the last event in the list
         if (closestIdx === -1) {
             closestIdx = events.length - 1;
         }

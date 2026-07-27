@@ -200,8 +200,8 @@ export default function EvaluationsPage() {
                                 <button
                                     key={e.name}
                                     onClick={() => setSelectedEvent(e.name)}
-                                    className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors whitespace-nowrap ${selectedEvent === e.name
-                                        ? "bg-red-400 text-white"
+                                    className={`rounded-full px-4 py-1.5 text-sm transition-colors whitespace-nowrap ${selectedEvent === e.name
+                                        ? "bg-red-400 text-white font-extrabold"
                                         : "bg-red-100 text-red-500 hover:bg-red-200"
                                         }`}
                                 >

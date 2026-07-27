@@ -69,7 +69,7 @@ export default function HomePage() {
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="Evaluasi"
-                            badge="UJIAN MODULE UPDATE!"
+                            badge="SIMUL 3 UPDATE!"
                             badgeBg="bg-red-500 text-white"
                             link="/evaluations"
                             rotate="rotate-1"
@@ -153,13 +153,12 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '250ms' }}>
 
                             <ComicCard
-                                title="CONTENT"
+                                title="INTERFACE"
                                 badgeBg="bg-purple-500 text-white"
-                                link="/"
+                                link="https://game-ppif.umn.ac.id/admin"
                                 rotate="-rotate-1"
                                 isCompact
-
-                                desc="Coming Soon"
+                                desc="WIP"
                             />
                         </div>
                     </div>
