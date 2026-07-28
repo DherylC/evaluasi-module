@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { postAction } from "../apis/api"; // Adjust import path to your api helper if needed
 
 const AuthContext = createContext(null);
 
@@ -11,18 +12,28 @@ export function AuthProvider({ children }) {
         return localStorage.getItem("coordPassword") || "";
     });
 
-    const login = (username, password) => {
-        const expectedUsername = import.meta.env.VITE_LOGIN_USN;
-        const expectedPassword = import.meta.env.VITE_LOGIN_PASSWORD;
+    const login = async (username, password) => {
+        try {
+            // Ask Apps Script to verify credentials
+            const res = await postAction({
+                action: "login",
+                username: username.trim(),
+                password: password.trim()
+            });
 
-        if (username === expectedUsername && password === expectedPassword) {
-            setIsCoordinator(true);
-            setSavedPassword(password);
-            localStorage.setItem("isCoordinator", "true");
-            localStorage.setItem("coordPassword", password);
-            return true;
+            if (res && res.success) {
+                setIsCoordinator(true);
+                setSavedPassword(password.trim());
+
+                localStorage.setItem("isCoordinator", "true");
+                localStorage.setItem("coordPassword", password.trim());
+                return true;
+            }
+            return false;
+        } catch (err) {
+            console.error("Login request failed:", err);
+            return false;
         }
-        return false;
     };
 
     const logout = () => {
@@ -33,7 +44,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ isCoordinator, password: savedPassword, login, logout }}>
+        <AuthContext.Provider value={{ isCoordinator, isAuthenticated: isCoordinator, password: savedPassword, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

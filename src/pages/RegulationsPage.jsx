@@ -27,25 +27,25 @@ const REGULATION_SECTIONS = [
             {
                 id: 4,
                 fullWidth: false,
-                rule: "Wajib menggunakan KTM selama Rangkaian maupun bertugas.",
+                rule: "WAJIB menggunakan KTM selama Rangkaian maupun bertugas.",
                 consequence: "Konsekuensi: Ditegur dan diminta untuk menggunakan.",
             },
             {
                 id: 5,
                 fullWidth: false,
-                rule: "Wajib menggunakan pakaian sesuai dengan peraturan Divisi dan peraturan kampus.",
+                rule: "WAJIB menggunakan pakaian sesuai dengan peraturan Divisi dan peraturan kampus.",
                 consequence: "Konsekuensi: Dicatat.",
             },
             {
                 id: 6,
                 fullWidth: false,
-                rule: "Wajib mencatat seluruh hal-hal penting yang disampaikan di rapat divisi dan pleno.",
+                rule: "WAJIB mencatat seluruh hal-hal penting yang disampaikan di rapat divisi dan pleno.",
                 consequence: "Konsekuensi: Ditegur dan diminta catat bagian yang kurang.",
             },
             {
                 id: 7,
                 fullWidth: false,
-                rule: "Wajib bertutur kata dan menggunakan gestur tubuh yang baik.",
+                rule: "WAJIB bertutur kata dan menggunakan gestur tubuh yang baik.",
                 consequence: "Konsekuensi: Ditegur oleh Koordinator.",
             },
             {
@@ -105,19 +105,19 @@ const REGULATION_SECTIONS = [
             {
                 id: 17,
                 fullWidth: false,
-                rule: "Seluruh panitia PPIF 2026 yang berambut panjang WAJIB diikat atau menggunakan bando.",
+                rule: "Rambut panjang WAJIB diikat atau menggunakan bando.",
                 consequence: "Bando atau ikat rambut harus berwarna hitam polos, tidak bermotif, dan tidak beraksesoris.",
             },
             {
                 id: 18,
                 fullWidth: false,
-                rule: "Seluruh panitia PPIF WAJIB bertanggung jawab atas dirinya dan divisi yang dipegang.",
+                rule: "WAJIB bertanggung jawab atas dirinya dan divisi yang dipegang.",
                 consequence: "Konsekuensi: Ditegur oleh koordinator divisi masing masing.",
             },
             {
                 id: 19,
                 fullWidth: true,
-                rule: "Seluruh panitia WAJIB menjaga kondusivitas dan ketertiban selama acara PPIF berlangsung.",
+                rule: "WAJIB menjaga kondusivitas dan ketertiban selama acara PPIF berlangsung.",
             },
         ],
     },
@@ -157,22 +157,19 @@ export default function RegulationsPage() {
                     <section key={idx} className="space-y-6">
                         {/* Comic Header Title */}
                         <div className="text-center">
-                            <h2
-                                className="animate-fade-in inline-block text-3xl sm:text-4xl md:text-5xl font-black text-white -rotate-1 uppercase px-4 py-1"
-                                style={{
-                                    textShadow:
-                                        "5px 5px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000",
-                                }}
-                            >
+
+                            <h1 className="animate-fade-in py-2 text-4xl sm:text-5xl md:text-5xl -rotate-1 font-black italic uppercase text-white tracking-tight drop-shadow-[2px_4px_0px_rgba(0,0,0,1)] [-webkit-text-stroke:1.5px_black]">
                                 {section.title}
-                            </h2>
+                            </h1>
+
+
                         </div>
 
                         {/* Cards Grid */}
                         <div className="grid sm:grid-cols-2 gap-4" >
                             {section.cards.map((card) => {
                                 const widthClass = card.fullWidth ? "sm:col-span-2" : "col-span-1";
-                                const delay = `${idx * 50}ms`;
+                                const delay = `${card.id * 50}ms`;
 
                                 // Check if this card has a consequence block
                                 const hasConsequence = Boolean(card.consequence);

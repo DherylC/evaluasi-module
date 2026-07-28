@@ -6,22 +6,45 @@ export default function LoginPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const { login } = useAuth();
-    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const success = login(username, password);
-        if (success) {
-            navigate("/");
-        } else {
-            setError("Invalid username or password");
-        }
-    };
+    const { login, isAuthenticated } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         document.title = "Coordinator Login";
-    }, []);
+        if (isAuthenticated) {
+            navigate("/", { replace: true });
+        }
+    }, [isAuthenticated, navigate]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
+
+        const cleanUsername = username.trim();
+        const cleanPassword = password.trim();
+
+        if (!cleanUsername || !cleanPassword) {
+            setError("Please fill in both fields");
+            return;
+        }
+
+        setIsLoading(true);
+
+        try {
+            const success = await login(cleanUsername, cleanPassword);
+            if (success) {
+                navigate("/", { replace: true });
+            } else {
+                setError("Invalid username or password");
+                setIsLoading(false);
+            }
+        } catch (err) {
+            setError(err.message || "An unexpected error occurred");
+            setIsLoading(false);
+        }
+    };
 
     return (
         /* flex-1 lets it stretch to fill all vertical space below the Navbar */
@@ -66,9 +89,9 @@ export default function LoginPage() {
                             type="text"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            className="w-full rounded-xl border-3 border-black px-3.5 py-2 text-sm font-bold placeholder:text-gray-400 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors"
+                            disabled={isLoading}
+                            className="w-full rounded-xl border-3 border-black px-3.5 py-2 text-sm font-bold placeholder:text-gray-400 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors disabled:opacity-50"
                             placeholder="Enter username"
-
                         />
                     </div>
 
@@ -80,17 +103,18 @@ export default function LoginPage() {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full rounded-xl border-3 border-black px-3.5 py-2 text-sm font-bold  placeholder:text-gray-400 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors"
+                            disabled={isLoading}
+                            className="w-full rounded-xl border-3 border-black px-3.5 py-2 text-sm font-bold placeholder:text-gray-400 focus:outline-none focus:bg-yellow-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors disabled:opacity-50"
                             placeholder="Enter password"
-
                         />
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full rounded-xl bg-red-500 hover:bg-red-600 border-3 border-black py-3 text-sm font-black uppercase tracking-wider text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 transition-all mt-2"
+                        disabled={isLoading}
+                        className="w-full rounded-xl bg-red-500 hover:bg-red-600 border-3 border-black py-3 text-sm font-black uppercase tracking-wider text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 transition-all mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        Sign In
+                        {isLoading ? "AUTHENTICATING..." : "Sign In"}
                     </button>
                 </form>
 

@@ -41,10 +41,27 @@ export function clearApiCache(key = null) {
     localStorage.removeItem("cache_codes");
     localStorage.removeItem("cache_assignments");
     localStorage.removeItem("cache_events");
+    localStorage.removeItem("cache_notes");
   }
 }
 
 // --- FETCH FUNCTIONS WITH CACHING ---
+// Low-level helper for handling POST payloads & response parsing
+export async function postAction(data) {
+  const res = await fetch(SCRIPT_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const responseData = await res.json();
+  if (!res.ok || responseData.error) {
+    throw new Error(responseData.error ?? "Request failed");
+  }
+  return responseData;
+}
 
 export async function getCodes(forceRefresh = false) {
   if (!forceRefresh) {
@@ -106,7 +123,7 @@ export async function getNotes(forceRefresh = false) {
 
 export async function addEvent(password, name, date) {
   const res = await postAction(password, { action: "addEvent", name, date });
-  clearApiCache("cache_events"); // Invalidate cache so new fetch gets fresh data
+  clearApiCache("cache_events");
   return res;
 }
 
@@ -117,7 +134,7 @@ export async function addCode(password, category, code, note) {
     code,
     note,
   });
-  clearApiCache("cache_codes"); // Invalidate cache so new fetch gets fresh data
+  clearApiCache("cache_codes");
   return res;
 }
 
@@ -135,20 +152,6 @@ export async function saveAssignment(
     codes,
     notes,
   });
-  clearApiCache("cache_assignments"); // Invalidate cache so new fetch gets fresh data
+  clearApiCache("cache_assignments");
   return res;
-}
-
-async function postAction(password, payload) {
-  const res = await fetch(SCRIPT_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-    },
-    body: JSON.stringify({ password, ...payload }),
-  });
-
-  const data = await res.json();
-  if (!res.ok || data.error) throw new Error(data.error ?? "Request failed");
-  return data;
 }
