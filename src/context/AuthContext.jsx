@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { postAction } from "../apis/api"; // Adjust import path to your api helper if needed
+import { postAction } from "../apis/api"; // Updated import path if needed
 
 const AuthContext = createContext(null);
 
@@ -13,20 +13,24 @@ export function AuthProvider({ children }) {
     });
 
     const login = async (username, password) => {
+        const cleanPassword = password.trim();
+        const cleanUsername = username.trim();
+
         try {
-            // Ask Apps Script to verify credentials
-            const res = await postAction({
+            // Pass cleanPassword as the 1st argument (for postAction),
+            // and the payload object as the 2nd argument.
+            const res = await postAction(cleanPassword, {
                 action: "login",
-                username: username.trim(),
-                password: password.trim()
+                username: cleanUsername,
+                password: cleanPassword
             });
 
             if (res && res.success) {
                 setIsCoordinator(true);
-                setSavedPassword(password.trim());
+                setSavedPassword(cleanPassword);
 
                 localStorage.setItem("isCoordinator", "true");
-                localStorage.setItem("coordPassword", password.trim());
+                localStorage.setItem("coordPassword", cleanPassword);
                 return true;
             }
             return false;

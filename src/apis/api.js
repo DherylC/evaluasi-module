@@ -1,7 +1,7 @@
 // src/lib/api.js
 
 const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL;
-const CACHE_TTL = 5 * 60 * 1000; // 10 minutes in milliseconds
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes in milliseconds (Note: 5 * 60 * 1000 is 5 mins)
 
 // Helper: Get cached data if it's still fresh
 function getFromCache(key) {
@@ -46,14 +46,21 @@ export function clearApiCache(key = null) {
 }
 
 // --- FETCH FUNCTIONS WITH CACHING ---
+
 // Low-level helper for handling POST payloads & response parsing
-export async function postAction(data) {
+// Updated signature to accept password and payload, merging them together
+export async function postAction(password, payload = {}) {
+  const bodyData = {
+    password,
+    ...payload,
+  };
+
   const res = await fetch(SCRIPT_URL, {
     method: "POST",
     headers: {
       "Content-Type": "text/plain;charset=utf-8",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(bodyData),
   });
 
   const responseData = await res.json();

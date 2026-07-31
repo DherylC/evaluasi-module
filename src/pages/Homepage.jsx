@@ -1,11 +1,97 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Megaphone, AlertCircle, LinkIcon } from "lucide-react";
+import {
+    Megaphone, AlertCircle, LinkIcon, Trophy,
+    Users,
+    Calendar,
+    Presentation,
+    BookOpen,
+    FileSpreadsheet,
+    Layers,
+    Globe,
+    ListTodo,
+    FileText,
+    ArrowRight,
+    ExternalLink,
+} from "lucide-react";
 import { getLatestNews } from "../apis/fetchnews";
 
 export default function HomePage() {
 
     const [latestHeadline, setLatestHeadline] = useState("Loading latest news...");
+
+    const linksData = [
+        {
+            title: "Recap Penugasan Terbaik",
+            url: "#",
+            icon: Trophy,
+            subtitle: "Google Sheets",
+            category: "Briefing Day",
+        },
+        {
+            title: "DATA ABSENSI PESERTA PPIF 2025",
+            url: "#",
+            icon: Users,
+            subtitle: "Google Sheets",
+            category: "Briefing Day",
+        },
+        {
+            title: "RUNDOWN HARI H",
+            url: "#",
+            icon: Calendar,
+            subtitle: "Google Sheets",
+            category: "Briefing Day",
+        },
+        {
+            title: "PPT FIX DOMINATION DAY",
+            url: "#",
+            icon: Presentation,
+            subtitle: "Google Slides",
+            category: "Briefing Day",
+        },
+        {
+            title: "Modul Penugasan PPIF 2025",
+            url: "#",
+            icon: BookOpen,
+            subtitle: "PDF · Document",
+            category: "Briefing Day",
+        },
+        {
+            title: "Spreedsheet Hasil Penugasan Striders",
+            url: "#",
+            icon: FileSpreadsheet,
+            subtitle: "Google Sheets",
+            category: "D-Day",
+        },
+        {
+            title: "DATA KELOMPOK PESERTA PPIF 2026",
+            url: "#",
+            icon: Layers,
+            subtitle: "Google Sheets",
+            category: "D-Day",
+        },
+        {
+            title: "WEBSITE PPIF 2025",
+            url: "#",
+            icon: Globe,
+            subtitle: "Web Link",
+            category: "D-Day",
+        },
+        {
+            title: "Form Pengumpulan Kelompok Tercepat",
+            url: "#",
+            icon: ListTodo,
+            subtitle: "Google Form",
+            category: "D-Day",
+        },
+        {
+            title: "Modul Pemecahan Nama Kelompok ",
+            url: "#",
+            icon: FileText,
+            subtitle: "PDF · Document",
+            category: "D-Day",
+        },
+    ];
 
     useEffect(() => {
         document.title = "Module 101";
@@ -65,25 +151,22 @@ export default function HomePage() {
                 {/* Comic Grid Layout */}
                 <div className="flex flex-col gap-4 sm:gap-5">
 
-                    {/* TOP ROW: Full Width */}
+                    {/* TOP ROW: Full Width Evaluasi */}
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="Evaluasi"
-                            badge="SIMUL 3 UPDATE!"
+                            badge="SIMUL 4 UPDATE!"
                             badgeBg="bg-red-500 text-white"
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
-                            desc="Last Updated: Simulasi III (27 Juli 2026)"
+                            desc="Last Updated: Simulasi IV (31 Juli 2026)"
                         />
                     </div>
 
                     {/* ROW 2: 2 Columns (Compact Height) */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
-
-
                         <div className="animate-fade-in" style={{ animationDelay: '50ms' }}>
-
                             <ComicCard
                                 title="Regulasi"
                                 badge="PATUHI!"
@@ -95,9 +178,7 @@ export default function HomePage() {
                             />
                         </div>
 
-
                         <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
-
                             <ComicCard
                                 title="Timeline"
                                 badgeBg="bg-yellow-500 text-black"
@@ -107,13 +188,11 @@ export default function HomePage() {
                                 desc="View Events"
                             />
                         </div>
-
                     </div>
 
                     {/* ROW 3: 3 Columns */}
                     <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
                         <div className="animate-fade-in" style={{ animationDelay: '150ms' }}>
-
                             <ComicCard
                                 title="Aktivitas"
                                 badgeBg="bg-cyan-400"
@@ -125,7 +204,6 @@ export default function HomePage() {
                         </div>
 
                         <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
-
                             <ComicCard
                                 title="Cheat Sheet"
                                 badgeBg="bg-emerald-400"
@@ -136,22 +214,7 @@ export default function HomePage() {
                             />
                         </div>
 
-                        {/*
-                        <div className="animate-fade-in" style={{ animationDelay: '150ms' }}>
-
-                            <ComicCard
-                                title="Dokum"
-                                badgeBg="bg-orange-400"
-                                link="https://drive.google.com/drive/folders/1i1YFCatTLwU204fpFWFw8vIN0MsfkJkW?usp=drive_link"
-                                rotate="-rotate-2"
-                                isCompact
-                                desc={<LinkIcon size={16} />}
-                            />
-                        </div>
-                        */}
-
                         <div className="animate-fade-in" style={{ animationDelay: '250ms' }}>
-
                             <ComicCard
                                 title="INTERFACE"
                                 badgeBg="bg-purple-500 text-white"
@@ -163,12 +226,9 @@ export default function HomePage() {
                         </div>
                     </div>
 
-
                     {/* ROW 4: 2 Columns (Compact Height) */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
-
                         <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
-
                             <ComicCard
                                 title="Flow Briefing Day"
                                 badgeBg="bg-yellow-400"
@@ -179,9 +239,7 @@ export default function HomePage() {
                             />
                         </div>
 
-
                         <div className="animate-fade-in" style={{ animationDelay: '350ms' }}>
-
                             <ComicCard
                                 title="Storyline"
                                 badge="!!"
@@ -190,11 +248,70 @@ export default function HomePage() {
                                 rotate="rotate-1"
                                 isCompact
                                 desc="Know the Flow"
-
                             />
                         </div>
-
                     </div>
+
+                    {/* PINK PAGE ROW LIST (GROUPED BY DAY 1 & DAY 2 INSIDE SINGLE COMIC PANEL) */}
+                    <div className="hidden relative rounded-2xl bg-white border-3 sm:border-4 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
+
+                        <div className="relative z-10 space-y-12 py-2">
+                            {["Briefing Day", "D-Day"].map((category) => {
+                                const filteredLinks = linksData.filter((item) => item.category === category);
+                                if (filteredLinks.length === 0) return null;
+
+                                return (
+                                    <div key={category} className="space-y-4">
+                                        {/* Category Section Tag */}
+                                        <div className="inline-block bg-yellow-300 px-4 py-0.5 text-[12px] sm:text-[14px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
+                                            {category}
+                                        </div>
+
+                                        {/* Link Rows */}
+                                        <div className="space-y-2 divide-black/10">
+                                            {filteredLinks.map((item, index) => {
+                                                const IconComponent = item.icon;
+                                                return (
+                                                    <a
+                                                        key={index}
+                                                        href={item.url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="group block w-full py-2.5 px-2 transition-colors hover:bg-yellow-50 rounded-xl"
+                                                    >
+                                                        <div className="flex items-center justify-between gap-3">
+                                                            {/* Left Side: Icon & Titles */}
+                                                            <div className="flex items-center gap-3.5 min-w-0">
+                                                                <div className="shrink-0 p-3 rounded-xl border border-black group-hover:border-red-500 transition-all duration-200">
+                                                                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-black group-hover:text-red-600 stroke-2 transition-all duration-200" />
+                                                                </div>
+                                                                <div className="min-w-0">
+                                                                    <h3 className="text-xs sm:text-sm font-extrabold uppercase text-black truncate group-hover:text-red-600 transition-all duration-200">
+                                                                        {item.title}
+                                                                    </h3>
+                                                                    {item.subtitle && (
+                                                                        <p className="text-[11px] text-gray-500 mt-0.5">
+                                                                            {item.subtitle}
+                                                                        </p>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+
+                                                            {/* Right Side: Action Arrow */}
+                                                            <div className="shrink-0">
+                                                                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-2 text-black group-hover:translate-x-1 transition-transform" />
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -214,7 +331,6 @@ function ComicCard({
     isSquished = false,
     desc,
 }) {
-    // Height and vertical padding classes
     const heightClass = isSquished
         ? "h-11 sm:h-12 py-1 px-3 flex-row items-center justify-between"
         : isSmall
@@ -232,7 +348,6 @@ function ComicCard({
         transition-all duration-150 transform hover:-translate-y-1 hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5
         ${rotate} ${heightClass}`}
         >
-            {/* Card Internal Halftone Pattern */}
             <div
                 className="absolute inset-0 opacity-5 pointer-events-none rounded-xl"
                 style={{
@@ -243,7 +358,6 @@ function ComicCard({
             />
 
             {isSquished ? (
-                /* Single-Line Layout */
                 <>
                     <div className="flex items-center gap-1.5 min-w-0 pr-2">
                         <h2 className="font-black uppercase tracking-tight text-black text-xs sm:text-sm truncate group-hover:text-red-600 transition-colors">
@@ -270,7 +384,6 @@ function ComicCard({
                     </div>
                 </>
             ) : (
-                /* Normal Multi-Line Layout */
                 <>
                     <div className="flex justify-between items-start mb-1">
                         <h2
