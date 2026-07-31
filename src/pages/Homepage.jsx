@@ -15,38 +15,19 @@ import {
     ExternalLink,
 } from "lucide-react";
 import { getLatestNews } from "../apis/fetchnews";
+import { useAuth } from "../context/AuthContext";
 
 export default function HomePage() {
 
     const [latestHeadline, setLatestHeadline] = useState("Loading latest news...");
+    const { isCoordinator, password } = useAuth();
 
     const linksData = [
-        {
-            title: "Recap Penugasan Terbaik",
-            url: "#",
-            icon: Trophy,
-            subtitle: "Google Sheets",
-            category: "Briefing Day",
-        },
         {
             title: "DATA ABSENSI PESERTA PPIF 2025",
             url: "#",
             icon: Users,
             subtitle: "Google Sheets",
-            category: "Briefing Day",
-        },
-        {
-            title: "RUNDOWN HARI H",
-            url: "#",
-            icon: Calendar,
-            subtitle: "Google Sheets",
-            category: "Briefing Day",
-        },
-        {
-            title: "PPT FIX DOMINATION DAY",
-            url: "#",
-            icon: Presentation,
-            subtitle: "Google Slides",
             category: "Briefing Day",
         },
         {
@@ -57,9 +38,47 @@ export default function HomePage() {
             category: "Briefing Day",
         },
         {
+            title: "Form Pengumpulan Kelompok Tercepat",
+            url: "#",
+            icon: ListTodo,
+            subtitle: "Google Form",
+            category: "Briefing Day",
+        },
+        {
+            title: "Modul Pemecahan Nama Kelompok ",
+            url: "#",
+            icon: FileText,
+            subtitle: "PDF · Document",
+            category: "Briefing Day",
+        },
+        {
+            title: "Recap Penugasan Terbaik",
+            url: "#",
+            icon: Trophy,
+            subtitle: "Google Sheets",
+            category: "Briefing Day",
+        },
+
+
+        {
+            title: "PPT FIX DOMINATION DAY",
+            url: "#",
+            icon: Presentation,
+            subtitle: "Google Slides",
+            category: "Briefing Day",
+        },
+
+        {
             title: "Spreedsheet Hasil Penugasan Striders",
             url: "#",
             icon: FileSpreadsheet,
+            subtitle: "Google Sheets",
+            category: "Briefing Day",
+        },
+        {
+            title: "RUNDOWN HARI H",
+            url: "#",
+            icon: Calendar,
             subtitle: "Google Sheets",
             category: "D-Day",
         },
@@ -68,7 +87,7 @@ export default function HomePage() {
             url: "#",
             icon: Layers,
             subtitle: "Google Sheets",
-            category: "D-Day",
+            category: "Briefing Day",
         },
         {
             title: "WEBSITE PPIF 2025",
@@ -77,19 +96,27 @@ export default function HomePage() {
             subtitle: "Web Link",
             category: "D-Day",
         },
+
         {
-            title: "Form Pengumpulan Kelompok Tercepat",
-            url: "#",
-            icon: ListTodo,
-            subtitle: "Google Form",
-            category: "D-Day",
+            title: "List kelompok dan Ruangan Module",
+            url: "https://docs.google.com/spreadsheets/d/1lXsjlj2kwVsfSoQw827wKcrRy__tYG61N0nQPoZ9pW0/edit?usp=drive_link",
+            icon: FileText,
+            subtitle: "Google Sheets",
+            category: "Coordinator",
         },
         {
-            title: "Modul Pemecahan Nama Kelompok ",
-            url: "#",
+            title: "Absensi Rangkaian Module",
+            url: "https://docs.google.com/spreadsheets/d/1ayDaNK-e5Jk951ORNdqNQ6TSvmD6h9eKxWd3_042SXo/edit?usp=drive_link",
             icon: FileText,
-            subtitle: "PDF · Document",
-            category: "D-Day",
+            subtitle: "Google Sheets",
+            category: "Coordinator",
+        },
+        {
+            title: "Evaluasi Rangkaian Module",
+            url: "/evaluations",
+            icon: FileText,
+            subtitle: "Page",
+            category: "Coordinator",
         },
     ];
 
@@ -156,7 +183,7 @@ export default function HomePage() {
                         <ComicCard
                             title="Evaluasi"
                             badge="SIMUL 4 UPDATE!"
-                            badgeBg="bg-red-500 text-white"
+                            badgeBg="bg-cyan-700 text-white"
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
@@ -170,7 +197,7 @@ export default function HomePage() {
                             <ComicCard
                                 title="Regulasi"
                                 badge="PATUHI!"
-                                badgeBg="bg-red-500 text-white"
+                                badgeBg="bg-red-600 text-white"
                                 link="/regulations"
                                 rotate="rotate-1"
                                 desc="Regulasi Orbits, dll"
@@ -181,7 +208,8 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
                             <ComicCard
                                 title="Timeline"
-                                badgeBg="bg-yellow-500 text-black"
+                                badge="Make Time!"
+                                badgeBg="bg-yellow-400 text-black"
                                 link="/timeline"
                                 rotate="rotate-1"
                                 isCompact
@@ -242,7 +270,7 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '350ms' }}>
                             <ComicCard
                                 title="Storyline"
-                                badge="!!"
+                                badge=""
                                 badgeBg="bg-yellow-500 text-black"
                                 link="/storyline"
                                 rotate="rotate-1"
@@ -252,7 +280,71 @@ export default function HomePage() {
                         </div>
                     </div>
 
-                    {/* PINK PAGE ROW LIST (GROUPED BY DAY 1 & DAY 2 INSIDE SINGLE COMIC PANEL) */}
+                    {/* COORDINATOR PANEL */}
+                    {isCoordinator &&
+                        <div className="animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-6 p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
+                            style={{ animationDelay: '400ms' }}>
+
+                            <div className="relative z-10">
+                                {["Coordinator"].map((category) => {
+                                    const filteredLinks = linksData.filter((item) => item.category === category);
+                                    if (filteredLinks.length === 0) return null;
+
+                                    return (
+                                        <div key={category} className="space-y-4">
+                                            {/* Category Section Tag */}
+                                            <div className="inline-block bg-yellow-300 ml-2 px-4 py-0.5 text-[12px] sm:text-[16px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
+                                                {category}
+                                            </div>
+
+                                            {/* Link Rows */}
+                                            <div className="space-y divide-black/10">
+                                                {filteredLinks.map((item, index) => {
+                                                    const IconComponent = item.icon;
+                                                    return (
+                                                        <a
+                                                            key={index}
+                                                            href={item.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="group block w-full p-4 transition-colors hover:bg-yellow-50 rounded-xl"
+                                                        >
+                                                            <div className="flex items-center justify-between gap-3">
+                                                                {/* Left Side: Icon & Titles */}
+                                                                <div className="flex items-center gap-3.5 min-w-0">
+                                                                    <div className="shrink-0 p-3 rounded-xl border border-black group-hover:border-red-500 transition-all duration-200">
+                                                                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-black group-hover:text-red-600 stroke-2 transition-all duration-200" />
+                                                                    </div>
+                                                                    <div className="min-w-0">
+                                                                        <h3 className="text-xs sm:text-sm font-extrabold uppercase text-black truncate group-hover:text-red-600 transition-all duration-200">
+                                                                            {item.title}
+                                                                        </h3>
+                                                                        {item.subtitle && (
+                                                                            <p className="text-[11px] text-gray-500 mt-0.5">
+                                                                                {item.subtitle}
+                                                                            </p>
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+
+                                                                {/* Right Side: Action Arrow */}
+                                                                <div className="shrink-0">
+                                                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-2 text-black group-hover:translate-x-0.5 transition-transform" />
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+
+                        </div>
+                    }
+
+                    {/* PAGE ROW LIST (GROUPED BY DAY 1 & DAY 2 INSIDE SINGLE COMIC PANEL) */}
                     <div className="hidden relative rounded-2xl bg-white border-3 sm:border-4 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
 
                         <div className="relative z-10 space-y-12 py-2">
@@ -310,6 +402,7 @@ export default function HomePage() {
                                 );
                             })}
                         </div>
+
                     </div>
 
                 </div>
