@@ -24,6 +24,20 @@ export default function HomePage() {
 
     const linksData = [
         {
+            title: "PENUGASAN PESERTA PPIF 2026",
+            url: "https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view",
+            icon: Presentation,
+            subtitle: "PDF · Document",
+            category: "Gladi Kotor",
+        },
+        {
+            title: "ABSENSI PESERTA PPIF 2026",
+            url: "https://docs.google.com/spreadsheets/d/1pzWvfVVcGIrLhnzSh9eRX12EwfzVDK6Nb3t3g_DndM4/edit?usp=sharing",
+            icon: ListTodo,
+            subtitle: "Google Sheets",
+            category: "Gladi Kotor",
+        },
+        {
             title: "DATA ABSENSI PESERTA PPIF 2025",
             url: "#",
             icon: Users,
@@ -98,26 +112,26 @@ export default function HomePage() {
         },
 
         {
-            title: "List kelompok dan Ruangan Module",
+            title: "List Ruangan Module",
             url: "https://docs.google.com/spreadsheets/d/1lXsjlj2kwVsfSoQw827wKcrRy__tYG61N0nQPoZ9pW0/edit?usp=drive_link",
             icon: FileText,
             subtitle: "Google Sheets",
-            category: "Coordinator",
+            category: "Coordinator Panel",
         },
         {
             title: "Absensi Rangkaian Module",
             url: "https://docs.google.com/spreadsheets/d/1ayDaNK-e5Jk951ORNdqNQ6TSvmD6h9eKxWd3_042SXo/edit?usp=drive_link",
             icon: FileText,
             subtitle: "Google Sheets",
-            category: "Coordinator",
+            category: "Coordinator Panel",
         },
         {
-            title: "Evaluasi Rangkaian Module",
-            url: "/evaluations",
-            icon: FileText,
-            subtitle: "Page",
-            category: "Coordinator",
-        },
+            title: "DATABASE WEBSITE MODULE",
+            url: "https://docs.google.com/spreadsheets/d/1ErMG6pXKr_LohkcvUl6R83pc7a46yVITq_xj_Wo9awg/edit?usp=sharing",
+            icon: Layers,
+            subtitle: "Google Sheets",
+            category: "Coordinator Panel",
+        }
     ];
 
     useEffect(() => {
@@ -148,7 +162,6 @@ export default function HomePage() {
             />
 
             <div className="pt-16 relative z-10 mx-auto max-w-xl flex flex-col gap-6">
-
                 {/* Hero Title Banner */}
                 <div className="relative text-center my-2">
                     <span className="inline-block -rotate-2 bg-yellow-400 px-4 py-1 text-xs font-black uppercase text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-2">
@@ -173,6 +186,67 @@ export default function HomePage() {
                             {latestHeadline}
                         </p>
                     </div>
+                </div>
+
+                <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
+                >
+
+                    <div className="relative z-10 space-y-8">
+                        {["Gladi Kotor"].map((category) => {
+                            const filteredLinks = linksData.filter((item) => item.category === category);
+                            if (filteredLinks.length === 0) return null;
+
+                            return (
+                                <div key={category} className="md:space-y-4 space-y-2">
+                                    {/* Category Section Tag */}
+                                    <div className="inline-block bg-yellow-300 ml-2 px-4 py-0.5 text-[12px] md:text-[16px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
+                                        {category}
+                                    </div>
+
+                                    {/* Link Rows */}
+                                    <div className="space-y divide-black/10">
+                                        {filteredLinks.map((item, index) => {
+                                            const IconComponent = item.icon;
+                                            return (
+                                                <a
+                                                    key={index}
+                                                    href={item.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="group block w-full p-4 transition-colors hover:bg-yellow-50 active:bg-yellow-50 rounded-xl"
+                                                >
+                                                    <div className="flex items-center justify-between gap-3">
+                                                        {/* Left Side: Icon & Titles */}
+                                                        <div className="flex items-center gap-3.5 min-w-0">
+                                                            <div className="shrink-0 p-3 rounded-xl border  group-hover:border-red-500 group-active:border-red-500 transition-all duration-200">
+                                                                <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-red-600 group-active:text-red-600 stroke-2 transition-all duration-200" />
+                                                            </div>
+                                                            <div className="min-w-0">
+                                                                <h3 className="text-xs sm:text-sm font-extrabold uppercase group-hover:text-red-600 group-active:text-red-600 transition-all duration-200">
+                                                                    {item.title}
+                                                                </h3>
+                                                                {item.subtitle && (
+                                                                    <p className="text-[11px] text-gray-500 mt-0.5">
+                                                                        {item.subtitle}
+                                                                    </p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Right Side: Action Arrow */}
+                                                        <div className="shrink-0">
+                                                            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-2 text-black group-hover:translate-x-0.5 transition-transform" />
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
                 </div>
 
                 {/* Comic Grid Layout */}
@@ -258,9 +332,9 @@ export default function HomePage() {
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
                         <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
                             <ComicCard
-                                title="Flow Briefing Day"
+                                title="Briefing Day"
                                 badgeBg="bg-yellow-400"
-                                link="/flow"
+                                link="/briefing-day"
                                 rotate="-rotate-1"
                                 isCompact
                                 desc="Zoom Meeting 101"
@@ -282,18 +356,18 @@ export default function HomePage() {
 
                     {/* COORDINATOR PANEL */}
                     {isCoordinator &&
-                        <div className="animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-6 p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
+                        <div className="animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
                             style={{ animationDelay: '400ms' }}>
 
-                            <div className="relative z-10">
-                                {["Coordinator"].map((category) => {
+                            <div className="relative z-10 space-y-8">
+                                {["Coordinator Panel"].map((category) => {
                                     const filteredLinks = linksData.filter((item) => item.category === category);
                                     if (filteredLinks.length === 0) return null;
 
                                     return (
-                                        <div key={category} className="space-y-4">
+                                        <div key={category} className="md:space-y-4 space-y-2">
                                             {/* Category Section Tag */}
-                                            <div className="inline-block bg-yellow-300 ml-2 px-4 py-0.5 text-[12px] sm:text-[16px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
+                                            <div className="inline-block bg-yellow-300 ml-2 px-4 py-0.5 text-[12px] md:text-[16px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
                                                 {category}
                                             </div>
 
@@ -307,16 +381,16 @@ export default function HomePage() {
                                                             href={item.url}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
-                                                            className="group block w-full p-4 transition-colors hover:bg-yellow-50 rounded-xl"
+                                                            className="group block w-full p-4 transition-colors hover:bg-yellow-50 active:bg-yellow-50 rounded-xl"
                                                         >
                                                             <div className="flex items-center justify-between gap-3">
                                                                 {/* Left Side: Icon & Titles */}
                                                                 <div className="flex items-center gap-3.5 min-w-0">
-                                                                    <div className="shrink-0 p-3 rounded-xl border border-black group-hover:border-red-500 transition-all duration-200">
-                                                                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-black group-hover:text-red-600 stroke-2 transition-all duration-200" />
+                                                                    <div className="shrink-0 p-3 rounded-xl border  group-hover:border-red-500 group-active:border-red-500 transition-all duration-200">
+                                                                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-red-600 group-active:text-red-600 stroke-2 transition-all duration-200" />
                                                                     </div>
                                                                     <div className="min-w-0">
-                                                                        <h3 className="text-xs sm:text-sm font-extrabold uppercase text-black truncate group-hover:text-red-600 transition-all duration-200">
+                                                                        <h3 className="text-xs sm:text-sm font-extrabold uppercase group-hover:text-red-600 group-active:text-red-600 transition-all duration-200">
                                                                             {item.title}
                                                                         </h3>
                                                                         {item.subtitle && (
@@ -345,22 +419,23 @@ export default function HomePage() {
                     }
 
                     {/* PAGE ROW LIST (GROUPED BY DAY 1 & DAY 2 INSIDE SINGLE COMIC PANEL) */}
-                    <div className="hidden relative rounded-2xl bg-white border-3 sm:border-4 border-black p-3 sm:p-5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
+                        style={{ animationDelay: '400ms' }}>
 
-                        <div className="relative z-10 space-y-12 py-2">
+                        <div className="relative z-10 space-y-8">
                             {["Briefing Day", "D-Day"].map((category) => {
                                 const filteredLinks = linksData.filter((item) => item.category === category);
                                 if (filteredLinks.length === 0) return null;
 
                                 return (
-                                    <div key={category} className="space-y-4">
+                                    <div key={category} className="md:space-y-4 space-y-2">
                                         {/* Category Section Tag */}
-                                        <div className="inline-block bg-yellow-300 px-4 py-0.5 text-[12px] sm:text-[14px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
+                                        <div className="inline-block bg-yellow-300 ml-2 px-4 py-0.5 text-[12px] md:text-[16px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
                                             {category}
                                         </div>
 
                                         {/* Link Rows */}
-                                        <div className="space-y-2 divide-black/10">
+                                        <div className="space-y divide-black/10">
                                             {filteredLinks.map((item, index) => {
                                                 const IconComponent = item.icon;
                                                 return (
@@ -369,16 +444,16 @@ export default function HomePage() {
                                                         href={item.url}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="group block w-full py-2.5 px-2 transition-colors hover:bg-yellow-50 rounded-xl"
+                                                        className="group block w-full p-4 transition-colors hover:bg-yellow-50 active:bg-yellow-50 rounded-xl"
                                                     >
                                                         <div className="flex items-center justify-between gap-3">
                                                             {/* Left Side: Icon & Titles */}
                                                             <div className="flex items-center gap-3.5 min-w-0">
-                                                                <div className="shrink-0 p-3 rounded-xl border border-black group-hover:border-red-500 transition-all duration-200">
-                                                                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-black group-hover:text-red-600 stroke-2 transition-all duration-200" />
+                                                                <div className="shrink-0 p-3 rounded-xl border  group-hover:border-red-500 group-active:border-red-500 transition-all duration-200">
+                                                                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-red-600 group-active:text-red-600 stroke-2 transition-all duration-200" />
                                                                 </div>
                                                                 <div className="min-w-0">
-                                                                    <h3 className="text-xs sm:text-sm font-extrabold uppercase text-black truncate group-hover:text-red-600 transition-all duration-200">
+                                                                    <h3 className="text-xs sm:text-sm font-extrabold uppercase group-hover:text-red-600 group-active:text-red-600 transition-all duration-200">
                                                                         {item.title}
                                                                     </h3>
                                                                     {item.subtitle && (
@@ -391,7 +466,7 @@ export default function HomePage() {
 
                                                             {/* Right Side: Action Arrow */}
                                                             <div className="shrink-0">
-                                                                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-2 text-black group-hover:translate-x-1 transition-transform" />
+                                                                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-2 text-black group-hover:translate-x-0.5 transition-transform" />
                                                             </div>
                                                         </div>
                                                     </a>
@@ -404,7 +479,6 @@ export default function HomePage() {
                         </div>
 
                     </div>
-
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ import EvaluationsPage from "./pages/EvaluationsPage";
 import AllEvaluationsPage from "./pages/AllEvaluationsPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
-import FlowPage from "./pages/FlowPage.jsx";
+import BriefingDayPage from "./pages/BriefingDayPage.jsx";
 import StorylinePage from "./pages/StorylinePage.jsx";
 import TimelinePage from "./pages/TimelinePage.jsx";
 import RegulationsPage from "./pages/RegulationsPage.jsx";
@@ -38,7 +38,7 @@ export default function App() {
           <Route path="/evaluations" element={<EvaluationsPage />} />
           <Route path="/all-evaluations" element={<AllEvaluationsPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/flow" element={<FlowPage />} />
+          <Route path="/briefing-day" element={<BriefingDayPage />} />
           <Route path="/storyline" element={<StorylinePage />} />
           <Route path="/timeline" element={<TimelinePage />} />
           <Route path="/regulations" element={<RegulationsPage />} />

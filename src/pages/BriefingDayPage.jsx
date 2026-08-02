@@ -27,10 +27,20 @@ export default function FlowPage() {
                 </div>
 
                 <div className="flex flex-col gap-12 animate-fade-in" style={{ animationDelay: "100ms" }}>
+                    <div className="relative aspect-video w-full max-w-2xl overflow-hidden rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <iframe
+                            src="https://drive.google.com/file/d/1eUY7d_SoUmhQA_i7qwMxhCbsfGl3QxPk/preview"
+                            className="h-full w-full"
+                            allow="autoplay; fullscreen"
+                            allowFullScreen
+                            title="Google Drive Video Player"
+                        />
+                    </div>
+
                     <div> {/* part 1 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Pembukaan Briefing Day di ZOOM
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Pembukaan Briefing Day di ZOOM
                             </div>
                         </div>
 
@@ -49,7 +59,7 @@ export default function FlowPage() {
                     <div> {/* part 2 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Penayangan Trailer Storyline Act 1: The Signal
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Penayangan Trailer Storyline Act 1: The Signal
                             </div>
                         </div>
 
@@ -68,7 +78,7 @@ export default function FlowPage() {
                     <div> {/* part 3 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Breakout Room : Perkenalan Kelompok
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Breakout Room : Perkenalan Kelompok
                             </div>
                         </div>
 
@@ -84,7 +94,7 @@ export default function FlowPage() {
                     <div> {/* part 4 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Bridging Menuju Aktivitas Pemecahan Nama Kelompok
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Bridging Menuju Aktivitas Pemecahan Nama Kelompok
                             </div>
                         </div>
 
@@ -100,7 +110,7 @@ export default function FlowPage() {
                     <div> {/* part 5 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Aktivitas Pemecahan Nama Kelompok
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Aktivitas Pemecahan Nama Kelompok
                             </div>
                         </div>
 
@@ -120,7 +130,7 @@ export default function FlowPage() {
                     <div> {/* part 6 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="w-4 h-4 fill-current text-black" /> Reveal Nama Kelompok
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Reveal Nama Kelompok
                             </div>
                         </div>
 
