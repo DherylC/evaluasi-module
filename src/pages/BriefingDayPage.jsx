@@ -27,14 +27,19 @@ export default function FlowPage() {
                 </div>
 
                 <div className="flex flex-col gap-12 animate-fade-in" style={{ animationDelay: "100ms" }}>
-                    <div className="relative aspect-video w-full max-w-2xl overflow-hidden rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                        <iframe
-                            src="https://drive.google.com/file/d/1eUY7d_SoUmhQA_i7qwMxhCbsfGl3QxPk/preview"
-                            className="h-full w-full"
-                            allow="autoplay; fullscreen"
-                            allowFullScreen
-                            title="Google Drive Video Player"
-                        />
+
+                    {/* Minimal YouTube Video Embed */}
+                    <div className="w-full max-w-4xl mx-auto my-6">
+                        <div className="relative w-full aspect-video rounded-2xl border-3 sm:border-4 border-black bg-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                            <iframe
+                                src="https://www.youtube-nocookie.com/embed/gVbVVIT-zkA?controls=0&modestbranding=1&rel=0&disablekb=1"
+                                title="YouTube video player"
+                                className="absolute inset-0 w-full h-full border-0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allowFullScreen
+                            />
+                        </div>
                     </div>
 
                     <div> {/* part 1 */}

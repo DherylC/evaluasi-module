@@ -24,6 +24,13 @@ export default function HomePage() {
 
     const linksData = [
         {
+            title: "ABSENSI PESERTA PPIF 2026",
+            url: "https://docs.google.com/spreadsheets/d/1pzWvfVVcGIrLhnzSh9eRX12EwfzVDK6Nb3t3g_DndM4/edit?usp=sharing",
+            icon: ListTodo,
+            subtitle: "Google Sheets",
+            category: "Gladi Kotor",
+        },
+        {
             title: "PENUGASAN PESERTA PPIF 2026",
             url: "https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view",
             icon: Presentation,
@@ -31,12 +38,13 @@ export default function HomePage() {
             category: "Gladi Kotor",
         },
         {
-            title: "ABSENSI PESERTA PPIF 2026",
-            url: "https://docs.google.com/spreadsheets/d/1pzWvfVVcGIrLhnzSh9eRX12EwfzVDK6Nb3t3g_DndM4/edit?usp=sharing",
-            icon: ListTodo,
-            subtitle: "Google Sheets",
+            title: "Website Aktivitas PPIF 2026",
+            url: "https://game-ppif.umn.ac.id/admin",
+            icon: Globe,
+            subtitle: "Web Link",
             category: "Gladi Kotor",
         },
+
         {
             title: "DATA ABSENSI PESERTA PPIF 2025",
             url: "#",
