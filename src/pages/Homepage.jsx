@@ -62,14 +62,14 @@ export default function HomePage() {
             title: "Website Aktivitas PPIF 2026",
             url: "https://game-ppif.umn.ac.id/admin",
             icon: Globe,
-            subtitle: "Web Link",
+            subtitle: "Link",
             category: "Gladi Kotor",
         },
         {
             title: "Rundown D-Day PPIF 2026",
             url: "",
-            icon: Globe,
-            subtitle: "Lihat Detail Rundown",
+            icon: FileText,
+            subtitle: "View",
             category: "Gladi Kotor",
             type: "modal",
             modalContent: (
@@ -253,9 +253,7 @@ export default function HomePage() {
                     </div>
                 </div>
 
-                <div className="animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
-                >
-
+                <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
                     <div className="relative z-10 space-y-8">
                         {["Gladi Kotor"].map((category) => {
                             const filteredLinks = linksData.filter((item) => item.category === category);
@@ -288,16 +286,31 @@ export default function HomePage() {
                 {/* Comic Grid Layout */}
                 <div className="flex flex-col gap-4 sm:gap-5">
 
+                    {/* TOP ROW: Full Width PENUGASAN */}
+                    <div className="hidden animate-fade-in" style={{ animationDelay: '0ms' }}>
+                        <ComicCard
+                            title="PENUGASAN SCRATCH"
+                            badge="DL: 7 Agustus 2026, 18.00 WIB"
+                            badgeBg="bg-yellow-400 text-black"
+                            link="https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view"
+                            rotate="rotate-1"
+                            isWide
+                            bgColor="bg-yellow-200"
+                            borderColor="border-yellow-500"
+                            desc="WAJIB dikerjakan hari ini juga."
+                        />
+                    </div>
+
                     {/* TOP ROW: Full Width Evaluasi */}
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="Evaluasi"
-                            badge="SIMUL 4 UPDATE!"
-                            badgeBg="bg-cyan-700 text-white"
+                            badge="Update Gladi Kotor!"
+                            badgeBg="bg-orange-400 text-white"
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
-                            desc="Last Updated: Simulasi IV (31 Juli 2026)"
+                            desc="Last Updated: Gladi Kotor (3 Agu 2026)"
                         />
                     </div>
 
@@ -516,6 +529,7 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
+
             {modalState.isOpen && (
                 <Modal
                     open={modalState.isOpen}  // <-- Passing 'isOpen'
@@ -543,6 +557,8 @@ function ComicCard({
     isCompact = false,
     isSquished = false,
     desc,
+    bgColor = "bg-white",
+    borderColor = "border-black",
 }) {
     const heightClass = isSquished
         ? "h-11 sm:h-12 py-1 px-3 flex-row items-center justify-between"
@@ -556,7 +572,7 @@ function ComicCard({
 
     const content = (
         <div
-            className={`group relative flex rounded-2xl bg-white border-3 sm:border-4 border-black 
+            className={`group relative flex rounded-2xl ${bgColor} border-3 sm:border-4 ${borderColor}
         shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] 
         transition-all duration-150 transform hover:-translate-y-1 hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5
         ${rotate} ${heightClass}`}
