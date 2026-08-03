@@ -16,11 +16,32 @@ import {
 } from "lucide-react";
 import { getLatestNews } from "../apis/fetchnews";
 import { useAuth } from "../context/AuthContext";
+import ModalLinkItem from "../components/ModalLinkItem";
+import Modal from "../components/Modal";
 
 export default function HomePage() {
 
     const [latestHeadline, setLatestHeadline] = useState("Loading latest news...");
     const { isCoordinator, password } = useAuth();
+
+    const [modalState, setModalState] = useState({
+        isOpen: false,
+        title: "",
+        content: null,
+    });
+
+    // 2. Define the missing function!
+    const openContentModal = (title, content) => {
+        setModalState({
+            isOpen: true,
+            title: title,
+            content: content,
+        });
+    };
+
+    const closeModal = () => {
+        setModalState((prev) => ({ ...prev, isOpen: false }));
+    };
 
     const linksData = [
         {
@@ -45,17 +66,40 @@ export default function HomePage() {
             category: "Gladi Kotor",
         },
         {
+            title: "Rundown D-Day PPIF 2026",
+            url: "",
+            icon: Globe,
+            subtitle: "Lihat Detail Rundown",
+            category: "Gladi Kotor",
+            type: "modal",
+            modalContent: (
+                <div className="space-y-4">
+                    {/* Local asset reference */}
+                    <img
+                        src="/rundown/rundown.jpeg" // points to public/images/rundown-2026.png
+                        alt="Rundown D-Day PPIF 2026"
+                        className="w-full h-auto rounded-xl border-2 border-black object-contain"
+                    />
+                    <p className="text-xs text-center font-bold text-gray-600">
+                        *Jadwal dapat berubah sewaktu-waktu sesuai kondisi di lapangan.
+                    </p>
+                </div>
+            ),
+        },
+
+        {
             title: "GUIDEBOOK Aktivitas D-Day",
             url: "https://drive.google.com/file/d/1CmM_1GazDIHLDsamQo9HSqTZVEBGLZwq/view",
             icon: FileText,
             subtitle: "PDF · Document",
             category: "Gladi Kotor",
-        }, {
+        },
+        {
             title: "GUIDEBOOK Pemecahan Nama Kelompok",
             url: "https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view",
             icon: FileText,
             subtitle: "PDF · Document",
-            category: "Gladi Kotor",
+            category: "GK",
         },
 
         {
@@ -219,49 +263,20 @@ export default function HomePage() {
 
                             return (
                                 <div key={category} className="md:space-y-4 space-y-2">
-                                    {/* Category Section Tag */}
+                                    {/* Category Tag */}
                                     <div className="inline-block bg-yellow-300 ml-2 px-4 py-0.5 text-[12px] md:text-[16px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
                                         {category}
                                     </div>
 
-                                    {/* Link Rows */}
+                                    {/* Link / Modal List */}
                                     <div className="space-y divide-black/10">
-                                        {filteredLinks.map((item, index) => {
-                                            const IconComponent = item.icon;
-                                            return (
-                                                <a
-                                                    key={index}
-                                                    href={item.url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="group block w-full p-4 transition-colors hover:bg-yellow-50 active:bg-yellow-50 rounded-xl"
-                                                >
-                                                    <div className="flex items-center justify-between gap-3">
-                                                        {/* Left Side: Icon & Titles */}
-                                                        <div className="flex items-center gap-3.5 min-w-0">
-                                                            <div className="shrink-0 p-3 rounded-xl border  group-hover:border-red-500 group-active:border-red-500 transition-all duration-200">
-                                                                <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-red-600 group-active:text-red-600 stroke-2 transition-all duration-200" />
-                                                            </div>
-                                                            <div className="min-w-0">
-                                                                <h3 className="text-xs sm:text-sm font-extrabold uppercase group-hover:text-red-600 group-active:text-red-600 transition-all duration-200">
-                                                                    {item.title}
-                                                                </h3>
-                                                                {item.subtitle && (
-                                                                    <p className="text-[11px] text-gray-500 mt-0.5">
-                                                                        {item.subtitle}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
-
-                                                        {/* Right Side: Action Arrow */}
-                                                        <div className="shrink-0">
-                                                            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-2 text-black group-hover:translate-x-0.5 transition-transform" />
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            );
-                                        })}
+                                        {filteredLinks.map((item, index) => (
+                                            <ModalLinkItem
+                                                key={index}
+                                                item={item}
+                                                onOpenModal={(title, content) => openContentModal(title, content)}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
                             );
@@ -501,7 +516,18 @@ export default function HomePage() {
                     </div>
                 </div>
             </div>
+            {modalState.isOpen && (
+                <Modal
+                    open={modalState.isOpen}  // <-- Passing 'isOpen'
+                    title={modalState.title}
+                    onClose={closeModal}
+                >
+                    {modalState.content}
+                </Modal>
+            )}
         </div>
+
+
     );
 }
 
