@@ -35,13 +35,26 @@ export default function HomePage() {
             url: "https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view",
             icon: Presentation,
             subtitle: "PDF · Document",
-            category: "Gladi Kotor",
+            category: "GK",
         },
         {
             title: "Website Aktivitas PPIF 2026",
             url: "https://game-ppif.umn.ac.id/admin",
             icon: Globe,
             subtitle: "Web Link",
+            category: "Gladi Kotor",
+        },
+        {
+            title: "GUIDEBOOK Aktivitas D-Day",
+            url: "https://drive.google.com/file/d/1CmM_1GazDIHLDsamQo9HSqTZVEBGLZwq/view",
+            icon: FileText,
+            subtitle: "PDF · Document",
+            category: "Gladi Kotor",
+        }, {
+            title: "GUIDEBOOK Pemecahan Nama Kelompok",
+            url: "https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view",
+            icon: FileText,
+            subtitle: "PDF · Document",
             category: "Gladi Kotor",
         },
 
@@ -196,7 +209,7 @@ export default function HomePage() {
                     </div>
                 </div>
 
-                <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
+                <div className="animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
                 >
 
                     <div className="relative z-10 space-y-8">
@@ -306,7 +319,7 @@ export default function HomePage() {
                             <ComicCard
                                 title="Aktivitas"
                                 badgeBg="bg-cyan-400"
-                                link="https://drive.google.com/drive/folders/18lObZbLYvojYfhG0n_QgVvaa5S7tLnzk?usp=drive_link"
+                                link="https://drive.google.com/file/d/1CmM_1GazDIHLDsamQo9HSqTZVEBGLZwq/view"
                                 rotate="-rotate-1"
                                 isCompact
                                 desc={<LinkIcon size={16} />}
@@ -485,7 +498,6 @@ export default function HomePage() {
                                 );
                             })}
                         </div>
-
                     </div>
                 </div>
             </div>
