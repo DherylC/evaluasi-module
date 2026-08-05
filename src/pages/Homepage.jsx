@@ -44,19 +44,24 @@ export default function HomePage() {
     };
 
     const linksData = [
+
+        // ABSENSI --------------------------------------------------------------------
+
         {
             title: "ABSENSI PESERTA PPIF 2026",
             url: "https://docs.google.com/spreadsheets/d/1pzWvfVVcGIrLhnzSh9eRX12EwfzVDK6Nb3t3g_DndM4/edit?usp=sharing",
             icon: ListTodo,
-            subtitle: "Google Sheets",
-            category: "Gladi Kotor",
+            subtitle: "Tolong diisi sesuai harinya (Briefing Day)",
+            category: "Gladi Kotor - Briefing",
         },
+
+
         {
-            title: "PENUGASAN PESERTA PPIF 2026",
+            title: "MODUL PENUGASAN PESERTA PPIF 2026",
             url: "https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view",
             icon: Presentation,
             subtitle: "PDF · Document",
-            category: "GK",
+            category: "Gladi Kotor - Briefing",
         },
         {
             title: "Website Aktivitas PPIF 2026",
@@ -64,6 +69,47 @@ export default function HomePage() {
             icon: Globe,
             subtitle: "Link",
             category: "Gladi Kotor",
+        },
+
+
+        // GUIDEBOOKS --------------------------------------------------------------------
+        {
+            title: "GUIDEBOOK Pemecahan Nama Kelompok",
+            url: "https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view",
+            icon: FileText,
+            subtitle: "PDF · Document",
+            category: "Gladi Kotor - Briefing",
+        },
+        {
+            title: "GUIDEBOOK Aktivitas D-Day",
+            url: "https://drive.google.com/file/d/1ZhrTnr1SNBR5uwfpcupUsGA8QxEyi0E4/view",
+            icon: FileText,
+            subtitle: "PDF · Document",
+            category: "Gladi Kotor",
+        },
+
+
+        // RUNDOWN --------------------------------------------------------------------
+        {
+            title: "Rundown Briefing Day PPIF 2026",
+            url: "",
+            icon: FileText,
+            subtitle: "View",
+            category: "Gladi Kotor - Briefing",
+            type: "modal",
+            modalContent: (
+                <div className="space-y-4">
+                    {/* Local asset reference */}
+                    <img
+                        src="/rundown/rundown-briefing.jpeg" // points to public/images/rundown-2026.png
+                        alt="Rundown Briefing Day PPIF 2026"
+                        className="w-full h-auto rounded-xl border-2 border-black object-contain"
+                    />
+                    <p className="text-xs text-center font-bold text-gray-600">
+                        *Jadwal dapat berubah sewaktu-waktu sesuai kondisi di lapangan.
+                    </p>
+                </div>
+            ),
         },
         {
             title: "Rundown D-Day PPIF 2026",
@@ -76,7 +122,7 @@ export default function HomePage() {
                 <div className="space-y-4">
                     {/* Local asset reference */}
                     <img
-                        src="/rundown/rundown.jpeg" // points to public/images/rundown-2026.png
+                        src="/rundown/rundown-dday.jpeg"
                         alt="Rundown D-Day PPIF 2026"
                         className="w-full h-auto rounded-xl border-2 border-black object-contain"
                     />
@@ -87,20 +133,6 @@ export default function HomePage() {
             ),
         },
 
-        {
-            title: "GUIDEBOOK Aktivitas D-Day",
-            url: "https://drive.google.com/file/d/1CmM_1GazDIHLDsamQo9HSqTZVEBGLZwq/view",
-            icon: FileText,
-            subtitle: "PDF · Document",
-            category: "Gladi Kotor",
-        },
-        {
-            title: "GUIDEBOOK Pemecahan Nama Kelompok",
-            url: "https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view",
-            icon: FileText,
-            subtitle: "PDF · Document",
-            category: "GK",
-        },
 
         {
             title: "DATA ABSENSI PESERTA PPIF 2025",
@@ -255,7 +287,7 @@ export default function HomePage() {
 
                 <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
                     <div className="relative z-10 space-y-8">
-                        {["Gladi Kotor"].map((category) => {
+                        {["Gladi Kotor - Briefing"].map((category) => {
                             const filteredLinks = linksData.filter((item) => item.category === category);
                             if (filteredLinks.length === 0) return null;
 
@@ -280,7 +312,6 @@ export default function HomePage() {
                             );
                         })}
                     </div>
-
                 </div>
 
                 {/* Comic Grid Layout */}
@@ -291,7 +322,7 @@ export default function HomePage() {
                         <ComicCard
                             title="PENUGASAN SCRATCH"
                             badge="DL: 7 Agustus 2026, 18.00 WIB"
-                            badgeBg="bg-yellow-400 text-black"
+                            badgeBg="bg-red-600 text-white"
                             link="https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view"
                             rotate="rotate-1"
                             isWide
@@ -540,8 +571,6 @@ export default function HomePage() {
                 </Modal>
             )}
         </div>
-
-
     );
 }
 
@@ -647,9 +676,32 @@ function ComicCard({
         </div>
     );
 
-    return link ? (
-        <Link to={link}>{content}</Link>
-    ) : (
-        <div className="cursor-pointer">{content}</div>
+    const isExternal = link?.startsWith("http://") || link?.startsWith("https://");
+
+    if (isExternal) {
+        return (
+            <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-inherit no-underline"
+            >
+                {content}
+            </a>
+        );
+    }
+
+    if (link) {
+        return (
+            <Link to={link} className="block w-full">
+                {content}
+            </Link>
+        );
+    }
+
+    return (
+        <div onClick={onClick} className="cursor-pointer w-full">
+            {content}
+        </div>
     );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react"; // adjust import path as needed
+import { ArrowRight } from "lucide-react";
 
 export default function ModalLinkItem({ item, onOpenModal }) {
     const IconComponent = item.icon;
@@ -15,20 +15,20 @@ export default function ModalLinkItem({ item, onOpenModal }) {
     };
 
     const sharedContent = (
-        <div className="flex items-center justify-between gap-3 text-left">
+        <div className="flex items-center justify-between gap-3 text-left pointer-events-none">
             {/* Left Side: Icon & Titles */}
             <div className="flex items-center gap-3.5 min-w-0">
                 {IconComponent && (
                     <div className="shrink-0 p-3 rounded-xl border border-black/10 group-hover:border-red-500 transition-all duration-200">
-                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-red-600 group-active:text-red-600 stroke-2 transition-all duration-200" />
+                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-red-600 stroke-2 transition-all duration-200" />
                     </div>
                 )}
                 <div className="min-w-0">
-                    <h3 className="text-xs sm:text-sm font-extrabold uppercase text-black group-hover:text-red-600 transition-all duration-200">
+                    <h3 className="text-xs sm:text-sm font-extrabold uppercase text-black group-hover:text-red-600 transition-all duration-200 truncate">
                         {item.title}
                     </h3>
                     {item.subtitle && (
-                        <p className="text-[11px] text-gray-500 mt-0.5">
+                        <p className="text-[11px] text-gray-500 mt-0.5 truncate">
                             {item.subtitle}
                         </p>
                     )}
@@ -43,7 +43,7 @@ export default function ModalLinkItem({ item, onOpenModal }) {
     );
 
     const baseClasses =
-        "group block w-full p-4 transition-colors hover:bg-yellow-50 active:bg-yellow-50 rounded-xl cursor-pointer";
+        "group block w-full p-4 transition-colors hover:bg-yellow-50 active:bg-yellow-100 rounded-xl cursor-pointer select-none touch-manipulation";
 
     if (isModal) {
         return (

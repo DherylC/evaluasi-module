@@ -119,8 +119,6 @@ export default function TimelinePage() {
                         <span className="w-3 h-3 rounded-full bg-yellow-400 animate-ping" />
                         <span>TIMELINE PPIF 2026</span>
                     </div>
-                    <span className="font-bold tracking-normal mt-2 text-sm">*akan diisi dokumentasi juga, stay tuned!</span>
-
                 </div>
 
                 <div className="w-full mx-auto mt-12">

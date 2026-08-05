@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { SunIcon, Astroid, Tornado } from "lucide-react";
+import LinkCard from "../components/LinkCard";
 
 export default function FlowPage() {
 
@@ -21,10 +22,16 @@ export default function FlowPage() {
 
             {/* Main Comic Panel Card */}
             <main className="mt-20 relative z-10 w-full max-w-2xl bg-white border-4 border-black rounded-3xl p-6 sm:p-10 mb-20 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+
                 <div className="mb-8 border-b-2 border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 py-1 font-black text-xs uppercase tracking-widest animate-fade-in">
                     <Tornado className="w-12 h-12 fill-current text-black" />
                     <span className="font-black ml-4 text-2xl">Flow Briefing Day</span>
                 </div>
+
+                <LinkCard
+                    url="https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view"
+                    text="Guidebook Aktivitas & Flow Briefing Day"
+                />
 
                 <div className="flex flex-col gap-12 animate-fade-in" style={{ animationDelay: "100ms" }}>
 
@@ -32,15 +39,16 @@ export default function FlowPage() {
                     <div className="w-full max-w-4xl mx-auto my-6">
                         <div className="relative w-full aspect-video rounded-2xl border-3 sm:border-4 border-black bg-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
                             <iframe
-                                src="https://www.youtube-nocookie.com/embed/gVbVVIT-zkA?controls=0&modestbranding=1&rel=0&disablekb=1"
+                                src="https://www.youtube-nocookie.com/embed/gVbVVIT-zkA?controls=1&modestbranding=1&rel=0&disablekb=1"
                                 title="YouTube video player"
                                 className="absolute inset-0 w-full h-full border-0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                                 referrerPolicy="strict-origin-when-cross-origin"
                                 allowFullScreen
                             />
                         </div>
                     </div>
+
 
                     <div> {/* part 1 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">

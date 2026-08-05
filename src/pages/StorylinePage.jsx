@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Sparkles, Zap, Tornado, Triangle, Cross, Hexagon, Astroid, Skull, Check, Orbit, Eclipse } from "lucide-react";
 import Navigator from "../components/Navigator";
+import LinkCard from "../components/LinkCard";
 
 export default function StorylinePage() {
 
@@ -22,12 +23,22 @@ export default function StorylinePage() {
 
             {/* Main Comic Panel Card */}
             <main className="mt-20 relative z-10 w-full max-w-2xl bg-white border-4 border-black rounded-3xl p-6 sm:p-10 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
-                <div className="text-center animate-fade-in ">
+                <div className="text-center mb-10 animate-fade-in ">
                     <div className="inline-flex mx-auto items-center gap-4 bg-red-600 text-yellow-300 border-3 border-black px-4 py-2 font-black text-xl sm:text-2xl md:text-4xl uppercase tracking-tight shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -rotate-1">
                         <Sparkles className="w-8 h-8 text-text-yellow-300" />
-
                         <span>STORYLINE PPIF 2026</span>
                     </div>
+                </div>
+
+                <div className="flex flex-col gap-4 animate-fade-in" style={{ animationDelay: "100ms" }}>
+                    <LinkCard
+                        url="https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view"
+                        text="Guidebook Aktivitas Briefing Day"
+                    />
+                    <LinkCard
+                        url="https://drive.google.com/file/d/1ZhrTnr1SNBR5uwfpcupUsGA8QxEyi0E4/view"
+                        text="Guidebook Aktivitas D-Day"
+                    />
                 </div>
 
                 <div className="mb-8 mt-16 border-b-2 animate-fade-in border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 font-black text-xs uppercase tracking-widest" style={{ animationDelay: "50ms" }}>
