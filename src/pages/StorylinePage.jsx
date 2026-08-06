@@ -60,7 +60,7 @@ export default function StorylinePage() {
                             </div>
                         </div>
 
-                        <InfoCard text="Storyline ini akan dibawakan oleh Developer di Main Room Zoom. Module tidak membawakannya namun harus memahami." />
+                        <InfoCard text="Storyline Briefing Day boleh dibawakan dengan membaca script. Namun pastikan TIDAK TERLIHAT oleh Peserta. Yang peserta lihat hanyalah komik dari Website PPIF." />
 
                         {/* Message Description */}
                         <div className="flex flex-col gap-4 text-justify font text-gray-800 text-sm sm:text-base leading-relaxed">
