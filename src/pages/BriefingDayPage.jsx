@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { SunIcon, Astroid, Tornado, ExternalLink, ArrowUpRight, Link, Lightbulb, Info } from "lucide-react";
 import LinkCard from "../components/LinkCard";
+import InfoCard from "../components/InfoCard";
 import CodeListTable from "../components/CodeListTable";
 
 export default function FlowPage() {
@@ -37,10 +38,18 @@ export default function FlowPage() {
                                 <Lightbulb className="shrink-0 w-4 h-4 stroke-3 text-black" />Guidebook & Tutorial
                             </div>
                         </div>
-                        <LinkCard
-                            url="https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view"
-                            text="Guidebook Aktivitas & Flow Briefing Day"
-                        />
+
+                        <div className="flex flex-col gap-4">
+                            <LinkCard
+                                url="https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view"
+                                text="Guidebook Aktivitas & Flow Briefing Day"
+                            />
+                            <LinkCard
+                                url="https://drive.google.com/drive/folders/1v4-_5FHDpaRQ1RjAWRTIZ9uVYcQ9Dpxu"
+                                text="Asset PFP & Background Zoom"
+                            />
+                        </div>
+
                         {/* Minimal YouTube Video Embed */}
                         <div className="w-full max-w-4xl mx-auto my-6">
                             <div className="relative w-full aspect-video rounded-2xl border-3 sm:border-4 border-black bg-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
@@ -140,11 +149,10 @@ export default function FlowPage() {
                             </div>
                         </div>
 
-                        <div className="flex mb-3 text-xs flex-row place-items-center text-gray-500 border border-gray-300 bg-gray-200 p-2 rounded-2xl">
-                            <Info className="shrink-0 w-10 h-10 pl-2 pr-3" />
-                            Module harus paling pertama masuk Breakout Room. Saat peserta berdatangan langsung disapa dengan hangat,
-                            lalu INTERAKSI dan ajak ngobrol selama menunggu Rundown selanjutnya.
-                        </div>
+                        <InfoCard
+                            text="Module harus paling pertama masuk Breakout Room. Saat peserta berdatangan langsung disapa dengan hangat,
+                            lalu INTERAKSI dan ajak ngobrol selama menunggu Rundown selanjutnya."
+                        />
 
                         {/* Message Description */}
                         <p className="text-justify font text-gray-800 text-sm sm:text-base leading-relaxed">
@@ -178,11 +186,10 @@ export default function FlowPage() {
                             </div>
                         </div>
 
-                        <div className="flex mb-3 text-xs flex-row place-items-center text-gray-500 border border-gray-300 bg-gray-200 p-2 rounded-2xl">
-                            <Info className="shrink-0 w-10 h-10 pl-2 pr-3" />
-                            Selama Nama Kelompok belum terpecahkan, Module DILARANG menyebutkan Nama Kelompok, harus menggunakan nomor kelompok.
-                            Pastikan tidak keceplosan.
-                        </div>
+                        <InfoCard
+                            text="Selama Nama Kelompok belum terpecahkan, Module DILARANG menyebutkan Nama Kelompok, harus menggunakan nomor kelompok.
+                            Pastikan tidak keceplosan."
+                        />
 
                         {/* Message Description */}
                         <p className="text-justify font text-gray-800 text-sm sm:text-base leading-relaxed">
@@ -204,10 +211,9 @@ export default function FlowPage() {
                             </div>
                         </div>
 
-                        <div className="flex mb-3 text-xs flex-row place-items-center text-gray-500 border border-gray-300 bg-gray-200 p-2 rounded-2xl">
-                            <Info className="shrink-0 w-10 h-10 pl-2 pr-3" />
-                            Mulai saat ini, Module wajib menyebutkan Nama Kelompok asli mereka, sudah tidak diperkenankan menyebutkan nomor kelompok.
-                        </div>
+                        <InfoCard
+                            text="Mulai saat ini, Module wajib menyebutkan Nama Kelompok asli mereka, sudah tidak diperkenankan menyebutkan nomor kelompok."
+                        />
 
                         {/* Message Description */}
                         <p className="text-justify font text-gray-800 text-sm sm:text-base leading-relaxed">

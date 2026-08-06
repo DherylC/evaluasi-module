@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Sparkles, Zap, Tornado, Triangle, Cross, Hexagon, Astroid, Skull, Check, Orbit, Eclipse } from "lucide-react";
 import Navigator from "../components/Navigator";
 import LinkCard from "../components/LinkCard";
+import InfoCard from "../components/InfoCard";
 
 export default function StorylinePage() {
 
@@ -47,6 +48,7 @@ export default function StorylinePage() {
                 </div>
 
                 <div className="flex flex-col gap-16 animate-fade-in" style={{ animationDelay: "100ms" }}>
+
                     <div id="story-act-1"> {/* STORYLINE ACT 1 BRIEFING DAY */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
 
@@ -57,6 +59,8 @@ export default function StorylinePage() {
                                 Briefing Day
                             </div>
                         </div>
+
+                        <InfoCard text="Storyline ini akan dibawakan oleh Developer di Main Room Zoom. Module tidak membawakannya namun harus memahami." />
 
                         {/* Message Description */}
                         <div className="flex flex-col gap-4 text-justify font text-gray-800 text-sm sm:text-base leading-relaxed">
@@ -127,6 +131,7 @@ export default function StorylinePage() {
                         <Eclipse className="w-8 h-8 text-black" />
                         <span className="font-black ml-4 text-2xl">D-DAY</span>
                     </div>
+
 
                     <div id="story-prolog"> {/* STORYLINE PROLOG D-DAY */}
                         <div className="flex flex-row items-baseline justify-between border-b-4 border-black pb-4 mb-4">
