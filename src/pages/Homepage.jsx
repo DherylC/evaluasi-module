@@ -52,7 +52,7 @@ export default function HomePage() {
             url: "https://docs.google.com/spreadsheets/d/1pzWvfVVcGIrLhnzSh9eRX12EwfzVDK6Nb3t3g_DndM4/edit?usp=sharing",
             icon: ListTodo,
             subtitle: "Tolong diisi sesuai harinya (Briefing Day)",
-            category: "Gladi Kotor - Briefing",
+            category: "Gladi Kotor",
         },
 
 
@@ -61,7 +61,7 @@ export default function HomePage() {
             url: "https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view",
             icon: Presentation,
             subtitle: "PDF · Document",
-            category: "GK",
+            category: "Gladi Kotor - Briefing",
         },
         {
             title: "Website Aktivitas PPIF 2026",
@@ -78,7 +78,7 @@ export default function HomePage() {
             url: "https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view",
             icon: FileText,
             subtitle: "PDF · Document",
-            category: "Gladi Kotor - Briefing",
+            category: "Gladi Kotor",
         },
         {
             title: "GUIDEBOOK Aktivitas D-Day",
@@ -95,7 +95,7 @@ export default function HomePage() {
             url: "",
             icon: FileText,
             subtitle: "View",
-            category: "Gladi Kotor - Briefing",
+            category: "Gladi Kotor",
             type: "modal",
             modalContent: (
                 <div className="space-y-4">
@@ -285,7 +285,7 @@ export default function HomePage() {
                     </div>
                 </div>
 
-                <div className="animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
+                <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
                     <div className="relative z-10 space-y-8">
                         {["Gladi Kotor - Briefing"].map((category) => {
                             const filteredLinks = linksData.filter((item) => item.category === category);
@@ -318,13 +318,12 @@ export default function HomePage() {
                 <div className="flex flex-col gap-4 sm:gap-5">
 
                     {/* TOP ROW: Full Width PENUGASAN */}
-                    <div className="hidden animate-fade-in" style={{ animationDelay: '0ms' }}>
+                    <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="PENUGASAN SCRATCH"
-                            badge="DL: 7 Agustus 2026, 18.00 WIB"
+                            badge="DL: 7 Agustus 2026, 21.00 WIB"
                             badgeBg="bg-red-600 text-white"
                             link="https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view"
-                            rotate="rotate-1"
                             isWide
                             bgColor="bg-yellow-200"
                             borderColor="border-yellow-500"
