@@ -19,8 +19,16 @@ import { useAuth } from "../context/AuthContext";
 import ModalLinkItem from "../components/ModalLinkItem";
 import Modal from "../components/Modal";
 import Countdown from "../components/Countdown";
+import urls from "../urls.json"
 
 export default function HomePage() {
+
+    // Countdown Configuration
+    const countdownDay = "2026-08-11"
+    const countdownTime = "13:00:00"
+    const countdownEvent = "Gladi Bersih Briefing Day"
+    const countdownDoneMessage = "Event Ongoing"
+    const countdownHide = false
 
     const [latestHeadline, setLatestHeadline] = useState("Loading latest news...");
     const { isCoordinator, password } = useAuth();
@@ -46,47 +54,66 @@ export default function HomePage() {
 
     const linksData = [
 
-        // ABSENSI --------------------------------------------------------------------
+        // DATA & ABSENSI --------------------------------------------------------------------
 
         {
             title: "ABSENSI PESERTA PPIF 2026",
             url: "https://docs.google.com/spreadsheets/d/1pzWvfVVcGIrLhnzSh9eRX12EwfzVDK6Nb3t3g_DndM4/edit?usp=sharing",
             icon: ListTodo,
             subtitle: "Tolong diisi sesuai harinya (Briefing Day)",
-            category: "Gladi Kotor",
+            category: "Gladi Bersih - Briefing",
         },
-
+        {
+            title: "Data Peserta Dummy PPIF 2026",
+            url: "",
+            icon: FileText,
+            subtitle: "View",
+            category: "Gladi Bersih - Briefing",
+            type: "modal",
+            modalContent: (
+                <div className="space-y-4">
+                    <img
+                        src="/dummy.jpeg"
+                        alt="Data Peserta Dummy PPIF 2026"
+                        className="w-full h-auto rounded-xl border-2 border-black object-contain"
+                    />
+                    <p className="text-xs text-center font-bold text-gray-600">
+                        *Plotting peserta dapat berubah sewaktu-waktu sesuai kondisi di lapangan.
+                    </p>
+                </div>
+            ),
+        },
 
         {
             title: "MODUL PENUGASAN PESERTA PPIF 2026",
-            url: "https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view",
+            url: urls.guidebookPenugasan,
             icon: Presentation,
             subtitle: "PDF · Document",
-            category: "Gladi Kotor - Briefing",
+            category: "Gladi Bersih - Briefing",
         },
         {
             title: "Website Aktivitas PPIF 2026",
-            url: "https://game-ppif.umn.ac.id/admin",
+            url: urls.webAktivitasAdmin,
             icon: Globe,
             subtitle: "Link",
-            category: "Gladi Kotor",
+            category: "Gladi Bersih - D-Day",
         },
 
 
         // GUIDEBOOKS --------------------------------------------------------------------
         {
             title: "GUIDEBOOK Pemecahan Nama Kelompok",
-            url: "https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view",
+            url: urls.guidebookBriefing,
             icon: FileText,
             subtitle: "PDF · Document",
-            category: "Gladi Kotor",
+            category: "Gladi Bersih - Briefing",
         },
         {
             title: "GUIDEBOOK Aktivitas D-Day",
-            url: "https://drive.google.com/file/d/1ZhrTnr1SNBR5uwfpcupUsGA8QxEyi0E4/view",
+            url: urls.guidebookAktivitas,
             icon: FileText,
             subtitle: "PDF · Document",
-            category: "Gladi Kotor",
+            category: "Gladi Bersih - D-Day",
         },
 
 
@@ -96,13 +123,12 @@ export default function HomePage() {
             url: "",
             icon: FileText,
             subtitle: "View",
-            category: "Gladi Kotor",
+            category: "Gladi Bersih - Briefing",
             type: "modal",
             modalContent: (
                 <div className="space-y-4">
-                    {/* Local asset reference */}
                     <img
-                        src="/rundown/rundown-briefing.jpeg" // points to public/images/rundown-2026.png
+                        src="/rundown/rundown-briefing.jpeg"
                         alt="Rundown Briefing Day PPIF 2026"
                         className="w-full h-auto rounded-xl border-2 border-black object-contain"
                     />
@@ -117,11 +143,10 @@ export default function HomePage() {
             url: "",
             icon: FileText,
             subtitle: "View",
-            category: "Gladi Kotor",
+            category: "Gladi Bersih - D-Day",
             type: "modal",
             modalContent: (
                 <div className="space-y-4">
-                    {/* Local asset reference */}
                     <img
                         src="/rundown/rundown-dday.jpeg"
                         alt="Rundown D-Day PPIF 2026"
@@ -134,66 +159,31 @@ export default function HomePage() {
             ),
         },
 
-
+        // HASIL PENUGASAN & AKTIVITAS
         {
-            title: "DATA ABSENSI PESERTA PPIF 2025",
+            title: "Spreedsheet Hasil Penugasan Striders",
             url: "#",
-            icon: Users,
+            icon: FileSpreadsheet,
             subtitle: "Google Sheets",
-            category: "Briefing Day",
-        },
-        {
-            title: "Modul Penugasan PPIF 2025",
-            url: "#",
-            icon: BookOpen,
-            subtitle: "PDF · Document",
-            category: "Briefing Day",
+            category: "Gladi Bersih - Briefing",
         },
         {
             title: "Form Pengumpulan Kelompok Tercepat",
             url: "#",
             icon: ListTodo,
             subtitle: "Google Form",
-            category: "Briefing Day",
-        },
-        {
-            title: "Modul Pemecahan Nama Kelompok ",
-            url: "#",
-            icon: FileText,
-            subtitle: "PDF · Document",
-            category: "Briefing Day",
+            category: "Gladi Bersih - Briefing",
         },
         {
             title: "Recap Penugasan Terbaik",
             url: "#",
             icon: Trophy,
             subtitle: "Google Sheets",
-            category: "Briefing Day",
+            category: "Gladi Bersih - D-Day",
         },
 
 
-        {
-            title: "PPT FIX DOMINATION DAY",
-            url: "#",
-            icon: Presentation,
-            subtitle: "Google Slides",
-            category: "Briefing Day",
-        },
-
-        {
-            title: "Spreedsheet Hasil Penugasan Striders",
-            url: "#",
-            icon: FileSpreadsheet,
-            subtitle: "Google Sheets",
-            category: "Briefing Day",
-        },
-        {
-            title: "RUNDOWN HARI H",
-            url: "#",
-            icon: Calendar,
-            subtitle: "Google Sheets",
-            category: "D-Day",
-        },
+        // TEMPORARY
         {
             title: "DATA KELOMPOK PESERTA PPIF 2026",
             url: "#",
@@ -201,14 +191,8 @@ export default function HomePage() {
             subtitle: "Google Sheets",
             category: "Briefing Day",
         },
-        {
-            title: "WEBSITE PPIF 2025",
-            url: "#",
-            icon: Globe,
-            subtitle: "Web Link",
-            category: "D-Day",
-        },
 
+        // COORDINATOR PANEL LINKS --------------------------------------------------------------------
         {
             title: "List Ruangan Module",
             url: "https://docs.google.com/spreadsheets/d/1lXsjlj2kwVsfSoQw827wKcrRy__tYG61N0nQPoZ9pW0/edit?usp=drive_link",
@@ -288,7 +272,7 @@ export default function HomePage() {
 
                 <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
                     <div className="relative z-10 space-y-8">
-                        {["Gladi Kotor - Briefing"].map((category) => {
+                        {["Gladi Bersih - Briefing"].map((category) => {
                             const filteredLinks = linksData.filter((item) => item.category === category);
                             if (filteredLinks.length === 0) return null;
 
@@ -319,12 +303,12 @@ export default function HomePage() {
                 <div className="flex flex-col gap-4 sm:gap-5">
 
                     {/* TOP ROW: Full Width PENUGASAN */}
-                    <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
+                    <div className="hidden animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="PENUGASAN SCRATCH"
                             badge="DL: 6 Agu 2026, 21.00 WIB"
                             badgeBg="bg-red-600 text-white"
-                            link="https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view"
+                            link={urls.guidebookPenugasan}
                             isWide
                             bgColor="bg-yellow-200"
                             borderColor="border-yellow-500"
@@ -333,9 +317,10 @@ export default function HomePage() {
                     </div>
 
                     <Countdown
-                        targetDate="2026-08-06T21:00:00"
-                        event="DEADLINE PENUGASAN SCRATCh"
-                        doneMessage="Waktu sudah habis!"
+                        targetDate={countdownDay + "T" + countdownTime}
+                        event={countdownEvent}
+                        doneMessage={countdownDoneMessage}
+                        hide={countdownHide}
                     />
 
                     {/* TOP ROW: Full Width Evaluasi */}
@@ -356,11 +341,10 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '50ms' }}>
                             <ComicCard
                                 title="Regulasi"
-                                badge="PATUHI!"
                                 badgeBg="bg-red-600 text-white"
                                 link="/regulations"
                                 rotate="rotate-1"
-                                desc="Regulasi Orbits, dll"
+                                desc="Regulasi Orbits & Module"
                                 isCompact
                             />
                         </div>
@@ -369,7 +353,7 @@ export default function HomePage() {
                             <ComicCard
                                 title="Timeline"
                                 badge="Make Time!"
-                                badgeBg="bg-yellow-400 text-black"
+                                badgeBg="bg-red-500 text-white"
                                 link="/timeline"
                                 rotate="rotate-1"
                                 isCompact
@@ -382,12 +366,13 @@ export default function HomePage() {
                     <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
                         <div className="animate-fade-in" style={{ animationDelay: '150ms' }}>
                             <ComicCard
-                                title="Aktivitas"
-                                badgeBg="bg-cyan-400"
-                                link="https://drive.google.com/file/d/1CmM_1GazDIHLDsamQo9HSqTZVEBGLZwq/view"
+                                title="Guidebook"
+                                badge="!"
+                                badgeBg="bg-yellow-400"
+                                link="/guidebooks"
                                 rotate="-rotate-1"
                                 isCompact
-                                desc={<LinkIcon size={16} />}
+                                desc="View All"
                             />
                         </div>
 
@@ -405,11 +390,12 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '250ms' }}>
                             <ComicCard
                                 title="INTERFACE"
-                                badgeBg="bg-purple-500 text-white"
-                                link="https://game-ppif.umn.ac.id/admin"
+                                badge="!"
+                                badgeBg="bg-yellow-400"
+                                link="/interface"
                                 rotate="-rotate-1"
                                 isCompact
-                                desc="WIP"
+                                desc="View Links"
                             />
                         </div>
                     </div>

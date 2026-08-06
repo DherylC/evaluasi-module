@@ -3,6 +3,7 @@ import { SunIcon, Astroid, Tornado, ExternalLink, ArrowUpRight, Link, Lightbulb,
 import LinkCard from "../components/LinkCard";
 import InfoCard from "../components/InfoCard";
 import CodeListTable from "../components/CodeListTable";
+import urls from "../urls.json"
 
 export default function FlowPage() {
 
@@ -41,11 +42,11 @@ export default function FlowPage() {
 
                         <div className="flex flex-col gap-4">
                             <LinkCard
-                                url="https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view"
+                                url={urls.guidebookBriefing}
                                 text="Guidebook Aktivitas & Flow Briefing Day"
                             />
                             <LinkCard
-                                url="https://drive.google.com/drive/folders/1v4-_5FHDpaRQ1RjAWRTIZ9uVYcQ9Dpxu"
+                                url={urls.assetZoom}
                                 text="Asset PFP & Background Zoom"
                             />
                         </div>
@@ -76,7 +77,7 @@ export default function FlowPage() {
                         </p>
 
                         <LinkCard
-                            url="https://ppif.umn.ac.id/home"
+                            url={urls.webBriefing}
                             text="PAGE PEMECAHAN NAMA KELOMPOK"
                         />
 

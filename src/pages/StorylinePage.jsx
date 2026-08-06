@@ -3,6 +3,7 @@ import { Sparkles, Zap, Tornado, Triangle, Cross, Hexagon, Astroid, Skull, Check
 import Navigator from "../components/Navigator";
 import LinkCard from "../components/LinkCard";
 import InfoCard from "../components/InfoCard";
+import urls from "../urls.json"
 
 export default function StorylinePage() {
 
@@ -33,11 +34,11 @@ export default function StorylinePage() {
 
                 <div className="flex flex-col gap-4 animate-fade-in" style={{ animationDelay: "100ms" }}>
                     <LinkCard
-                        url="https://drive.google.com/file/d/1c4D5w6QBa_VIURDM_PsC5t-Ff8rwH6AR/view"
-                        text="Guidebook Aktivitas Briefing Day"
+                        url={urls.guidebookBriefing}
+                        text="Guidebook Pemecahan Nama Kelompok"
                     />
                     <LinkCard
-                        url="https://drive.google.com/file/d/1ZhrTnr1SNBR5uwfpcupUsGA8QxEyi0E4/view"
+                        url={urls.guidebookAktivitas}
                         text="Guidebook Aktivitas D-Day"
                     />
                 </div>

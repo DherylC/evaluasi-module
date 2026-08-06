@@ -12,7 +12,7 @@ export default function LinkCard({
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group flex items-center justify-between p-2 sm:p-4 bg-linear-to-l from-yellow-400 to-yellow-300 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150 active:translate-x-1 active:translate-y-1 cursor-pointer`}
+            className={`select-none group flex items-center justify-between p-2 sm:p-4 bg-linear-to-l from-yellow-400 to-yellow-300 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150 active:translate-x-1 active:translate-y-1 cursor-pointer`}
         >
             <div className="flex items-center gap-3">
                 <div className="p-2 bg-white rounded-lg border-2 border-black">

@@ -13,6 +13,8 @@ import StorylinePage from "./pages/StorylinePage.jsx";
 import TimelinePage from "./pages/TimelinePage.jsx";
 import RegulationsPage from "./pages/RegulationsPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import InterfacePage from "./pages/InterfacePage.jsx";
+import GuidebookPage from "./pages/GuidebookPage.jsx";
 
 export default function App() {
   return (
@@ -42,6 +44,8 @@ export default function App() {
           <Route path="/storyline" element={<StorylinePage />} />
           <Route path="/timeline" element={<TimelinePage />} />
           <Route path="/regulations" element={<RegulationsPage />} />
+          <Route path="/interface" element={<InterfacePage />} />
+          <Route path="/guidebooks" element={<GuidebookPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
