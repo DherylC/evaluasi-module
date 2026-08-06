@@ -321,7 +321,7 @@ export default function HomePage() {
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="PENUGASAN SCRATCH"
-                            badge="DL: 7 Agustus 2026, 21.00 WIB"
+                            badge="DL: 6 Agustus 2026, 21.00 WIB"
                             badgeBg="bg-red-600 text-white"
                             link="https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view"
                             isWide
