@@ -31,7 +31,7 @@ export default function CodeListTable({ codes = CODES }) {
     };
 
     return (
-        <div className="w-full max-w-xl mx-auto my-4 bg-white border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+        <div className="w-full max-w-xl mx-auto bg-white border-2 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 bg-amber-400 border-b-2 border-black text-black">
                 <div className="flex items-center gap-2">

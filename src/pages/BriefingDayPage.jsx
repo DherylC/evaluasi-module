@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { SunIcon, Astroid, Tornado, ExternalLink, ArrowUpRight, Link, Lightbulb } from "lucide-react";
+import { SunIcon, Astroid, Tornado, ExternalLink, ArrowUpRight, Link, Lightbulb, Info } from "lucide-react";
 import LinkCard from "../components/LinkCard";
 import CodeListTable from "../components/CodeListTable";
 
@@ -56,12 +56,15 @@ export default function FlowPage() {
                         </div>
 
                     </div>
-                    <div> {/* parts */}
-                        <div className="flex items-center justify-between mb-4">
+                    <div className="flex flex-col gap-4"> {/* parts */}
+                        <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2 bg-blue-300  border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                                 <Link className="shrink-0 w-4 h-4 stroke-3 text-black" />Link & Codes
                             </div>
                         </div>
+                        <p className="text-justify font text-gray-800 text-sm sm:text-base leading-relaxed">
+                            Note: Tekan Codie yang glitched, geser semua panel komik, lalu masukkan KODE ke dalam website sesuai dengan nomor/nama kelompok kamu.
+                        </p>
 
                         <LinkCard
                             url="https://ppif.umn.ac.id/home"
@@ -73,10 +76,29 @@ export default function FlowPage() {
                     </div>
 
 
+                    <div className="mt-12 border-b-2 border-black border-dashed pb-8 flex flex-row items-center w-full justify-center gap-2 px-3 py-1 font-black text-xs uppercase tracking-widest animate-fade-in">
+                        <Tornado className="w-12 h-12 fill-current text-black" />
+                        <span className="font-black ml-4 text-2xl">FLOW Briefing Day</span>
+                    </div>
+
+                    <div> {/* part 1 */}
+                        <div className="flex flex-col items-start gap-2 mb-4">
+                            <p className="text-justify font text-gray-800 text-sm sm:text-base leading-relaxed">
+                                Perhatikan indikator tiap sesi, apakah Module sudah bertugas atau masih mengikuti alur Main Room:
+                            </p>
+                            <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <Astroid className="shrink-0 w-4 h-4 text-black" />Module hanya mengikuti
+                            </div>
+                            <div className="flex items-center gap-2 bg-red-500 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-white" />Module In Charge
+                            </div>
+                        </div>
+                    </div>
+
                     <div> {/* part 1 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Pembukaan Briefing Day di ZOOM
+                                <Astroid className="shrink-0 w-4 h-4 text-black" />Pembukaan Briefing Day di ZOOM
                             </div>
                         </div>
 
@@ -95,7 +117,7 @@ export default function FlowPage() {
                     <div> {/* part 2 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
                             <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Penayangan Trailer Storyline Act 1: The Signal
+                                <Astroid className="shrink-0 w-4 h-4 text-black" />Penayangan Trailer Storyline Act 1: The Signal
                             </div>
                         </div>
 
@@ -113,9 +135,15 @@ export default function FlowPage() {
 
                     <div> {/* part 3 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
-                            <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Breakout Room : Perkenalan Kelompok
+                            <div className="flex items-center gap-2 bg-red-500 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-white" />Breakout Room : Perkenalan Kelompok
                             </div>
+                        </div>
+
+                        <div className="flex mb-3 text-xs flex-row place-items-center text-gray-500 border border-gray-300 bg-gray-200 p-2 rounded-2xl">
+                            <Info className="shrink-0 w-10 h-10 pl-2 pr-3" />
+                            Module harus paling pertama masuk Breakout Room. Saat peserta berdatangan langsung disapa dengan hangat,
+                            lalu INTERAKSI dan ajak ngobrol selama menunggu Rundown selanjutnya.
                         </div>
 
                         {/* Message Description */}
@@ -129,8 +157,8 @@ export default function FlowPage() {
                     </div>
                     <div> {/* part 4 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
-                            <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Bridging Menuju Aktivitas Pemecahan Nama Kelompok
+                            <div className="flex items-center gap-2 bg-red-500 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-white" />Bridging Menuju Aktivitas Pemecahan Nama Kelompok
                             </div>
                         </div>
 
@@ -145,9 +173,15 @@ export default function FlowPage() {
                     </div>
                     <div> {/* part 5 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
-                            <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Aktivitas Pemecahan Nama Kelompok
+                            <div className="flex items-center gap-2 bg-red-500 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-white" />Aktivitas Pemecahan Nama Kelompok
                             </div>
+                        </div>
+
+                        <div className="flex mb-3 text-xs flex-row place-items-center text-gray-500 border border-gray-300 bg-gray-200 p-2 rounded-2xl">
+                            <Info className="shrink-0 w-10 h-10 pl-2 pr-3" />
+                            Selama Nama Kelompok belum terpecahkan, Module DILARANG menyebutkan Nama Kelompok, harus menggunakan nomor kelompok.
+                            Pastikan tidak keceplosan.
                         </div>
 
                         {/* Message Description */}
@@ -165,9 +199,14 @@ export default function FlowPage() {
                     </div>
                     <div> {/* part 6 */}
                         <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
-                            <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                <Astroid className="shrink-0 w-4 h-4 fill-current text-black" />Reveal Nama Kelompok
+                            <div className="flex items-center gap-2 bg-red-500 text-white border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <Astroid className="shrink-0 w-4 h-4 fill-current text-white" />Reveal Nama Kelompok
                             </div>
+                        </div>
+
+                        <div className="flex mb-3 text-xs flex-row place-items-center text-gray-500 border border-gray-300 bg-gray-200 p-2 rounded-2xl">
+                            <Info className="shrink-0 w-10 h-10 pl-2 pr-3" />
+                            Mulai saat ini, Module wajib menyebutkan Nama Kelompok asli mereka, sudah tidak diperkenankan menyebutkan nomor kelompok.
                         </div>
 
                         {/* Message Description */}
@@ -177,6 +216,19 @@ export default function FlowPage() {
                             pulih dan identitas kelompok resmi terbuka. Nama universe masing-masing kelompok akan
                             muncul di layar sebagai identitas baru yang akan mereka gunakan selama rangkaian PPIF
                             2026 berlangsung.
+                        </p>
+                    </div>
+
+                    <div> {/* part 6 */}
+                        <div className="flex items-center justify-between border-b-4 border-black pb-4 mb-4">
+                            <div className="flex items-center gap-2 bg-yellow-400 border-2 border-black px-3 py-1 font-black text-xs uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <Astroid className="shrink-0 w-4 h-4 text-black" />Kembali ke Main Room
+                            </div>
+                        </div>
+
+                        {/* Message Description */}
+                        <p className="text-justify font text-gray-800 text-sm sm:text-base leading-relaxed">
+                            Semua Peserta dalam Breakout Room akan diarahkan kembali ke Main Room Zoom untuk mengikuti sesi penutup Briefing Day. Pada sesi ini, seluruh peserta akan diberikan informasi tambahan terkait teknis kegiatan PPIF 2026, pengumuman penting, dll.
                         </p>
                     </div>
                 </div>

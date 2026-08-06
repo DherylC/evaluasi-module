@@ -61,7 +61,7 @@ export default function HomePage() {
             url: "https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view",
             icon: Presentation,
             subtitle: "PDF · Document",
-            category: "Gladi Kotor - Briefing",
+            category: "GK",
         },
         {
             title: "Website Aktivitas PPIF 2026",
@@ -285,7 +285,7 @@ export default function HomePage() {
                     </div>
                 </div>
 
-                <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
+                <div className="animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
                     <div className="relative z-10 space-y-8">
                         {["Gladi Kotor - Briefing"].map((category) => {
                             const filteredLinks = linksData.filter((item) => item.category === category);
@@ -341,7 +341,7 @@ export default function HomePage() {
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
-                            desc="Last Updated: Gladi Kotor (3 Agu 2026)"
+                            desc="Last Updated: Gladi Kotor - Briefing Day (6 Agu 2026)"
                         />
                     </div>
 
@@ -413,7 +413,8 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
                             <ComicCard
                                 title="Briefing Day"
-                                badgeBg="bg-yellow-400"
+                                badge="UPDATED"
+                                badgeBg="bg-green-600 text-white"
                                 link="/briefing-day"
                                 rotate="-rotate-1"
                                 isCompact
