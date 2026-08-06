@@ -18,6 +18,7 @@ import { getLatestNews } from "../apis/fetchnews";
 import { useAuth } from "../context/AuthContext";
 import ModalLinkItem from "../components/ModalLinkItem";
 import Modal from "../components/Modal";
+import Countdown from "../components/Countdown";
 
 export default function HomePage() {
 
@@ -321,7 +322,7 @@ export default function HomePage() {
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="PENUGASAN SCRATCH"
-                            badge="DL: 6 Agustus 2026, 21.00 WIB"
+                            badge="DL: 6 Agu 2026, 21.00 WIB"
                             badgeBg="bg-red-600 text-white"
                             link="https://drive.google.com/file/d/19AsgPWilotRj67ZHIVHGe_mUx-5hywVP/view"
                             isWide
@@ -330,6 +331,12 @@ export default function HomePage() {
                             desc="WAJIB dikerjakan hari ini juga."
                         />
                     </div>
+
+                    <Countdown
+                        targetDate="2026-08-06T21:00:00"
+                        event="DEADLINE PENUGASAN SCRATCh"
+                        doneMessage="Waktu sudah habis!"
+                    />
 
                     {/* TOP ROW: Full Width Evaluasi */}
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
