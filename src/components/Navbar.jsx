@@ -35,11 +35,11 @@ export default function Navbar() {
           <NavLink to="/timeline" className={linkClass}>
             TL
           </NavLink>
-          <NavLink to="/storyline" className={linkClass}>
-            STORY
+          <NavLink to="/guidebooks" className={linkClass}>
+            DOCS
           </NavLink>
-          <NavLink to="/evaluations" className={linkClass}>
-            EVAL
+          <NavLink to="/interface" className={linkClass}>
+            WEB
           </NavLink>
 
           {isCoordinator ? (

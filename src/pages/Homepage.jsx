@@ -10,9 +10,11 @@ import {
     Layers,
     Globe,
     ListTodo,
-    FileText,
+    File,
     ArrowRight,
     ExternalLink,
+    ChevronRight,
+    Table2
 } from "lucide-react";
 import { getLatestNews } from "../apis/fetchnews";
 import { useAuth } from "../context/AuthContext";
@@ -25,10 +27,11 @@ export default function HomePage() {
 
     // Countdown Configuration
     const countdownDay = "2026-08-11"
-    const countdownTime = "13:00:00"
+    const countdownTime = "13:30:00"
     const countdownEvent = "Gladi Bersih Briefing Day"
     const countdownDoneMessage = "Event Ongoing"
     const countdownHide = false
+    const countdownHideWhenDue = true
 
     const [latestHeadline, setLatestHeadline] = useState("Loading latest news...");
     const { isCoordinator, password } = useAuth();
@@ -55,25 +58,24 @@ export default function HomePage() {
     const linksData = [
 
         // DATA & ABSENSI --------------------------------------------------------------------
-
         {
             title: "ABSENSI PESERTA PPIF 2026",
             url: "https://docs.google.com/spreadsheets/d/1pzWvfVVcGIrLhnzSh9eRX12EwfzVDK6Nb3t3g_DndM4/edit?usp=sharing",
             icon: ListTodo,
-            subtitle: "Tolong diisi sesuai harinya (Briefing Day)",
-            category: "Gladi Bersih - Briefing",
+            subtitle: "Diisi sesuai harinya",
+            category: "Gladi Bersih",
         },
         {
-            title: "Data Peserta Dummy PPIF 2026",
+            title: "Data Peserta Dummy Gladi Bersih",
             url: "",
-            icon: FileText,
+            icon: File,
             subtitle: "View",
-            category: "Gladi Bersih - Briefing",
+            category: "Gladi Bersih",
             type: "modal",
             modalContent: (
                 <div className="space-y-4">
                     <img
-                        src="/dummy.jpeg"
+                        src="../dummy/dummy.jpeg"
                         alt="Data Peserta Dummy PPIF 2026"
                         className="w-full h-auto rounded-xl border-2 border-black object-contain"
                     />
@@ -84,36 +86,27 @@ export default function HomePage() {
             ),
         },
 
-        {
-            title: "MODUL PENUGASAN PESERTA PPIF 2026",
-            url: urls.guidebookPenugasan,
-            icon: Presentation,
-            subtitle: "PDF · Document",
-            category: "Gladi Bersih - Briefing",
-        },
-        {
-            title: "Website Aktivitas PPIF 2026",
-            url: urls.webAktivitasAdmin,
-            icon: Globe,
-            subtitle: "Link",
-            category: "Gladi Bersih - D-Day",
-        },
-
-
         // GUIDEBOOKS --------------------------------------------------------------------
         {
             title: "GUIDEBOOK Pemecahan Nama Kelompok",
             url: urls.guidebookBriefing,
-            icon: FileText,
-            subtitle: "PDF · Document",
-            category: "Gladi Bersih - Briefing",
+            icon: File,
+            subtitle: "Document",
+            category: "Guidebooks",
         },
         {
             title: "GUIDEBOOK Aktivitas D-Day",
             url: urls.guidebookAktivitas,
-            icon: FileText,
-            subtitle: "PDF · Document",
-            category: "Gladi Bersih - D-Day",
+            icon: File,
+            subtitle: "Document",
+            category: "Guidebooks",
+        },
+        {
+            title: "MODUL PENUGASAN PESERTA PPIF 2026",
+            url: urls.guidebookPenugasan,
+            icon: Presentation,
+            subtitle: "Document",
+            category: "Guidebooks",
         },
 
 
@@ -121,9 +114,9 @@ export default function HomePage() {
         {
             title: "Rundown Briefing Day PPIF 2026",
             url: "",
-            icon: FileText,
+            icon: File,
             subtitle: "View",
-            category: "Gladi Bersih - Briefing",
+            category: "Gladi Bersih",
             type: "modal",
             modalContent: (
                 <div className="space-y-4">
@@ -141,14 +134,14 @@ export default function HomePage() {
         {
             title: "Rundown D-Day PPIF 2026",
             url: "",
-            icon: FileText,
+            icon: File,
             subtitle: "View",
-            category: "Gladi Bersih - D-Day",
+            category: "Gladi Bersih",
             type: "modal",
             modalContent: (
                 <div className="space-y-4">
                     <img
-                        src="/rundown/rundown-dday.jpeg"
+                        src="/rundown/rundown.jpeg"
                         alt="Rundown D-Day PPIF 2026"
                         className="w-full h-auto rounded-xl border-2 border-black object-contain"
                     />
@@ -159,27 +152,49 @@ export default function HomePage() {
             ),
         },
 
+        {
+            title: "Website BRIEFING DAY",
+            url: urls.webBriefing,
+            icon: Globe,
+            subtitle: <LinkIcon className="h-3 w-3" />,
+            category: "Gladi Bersih",
+        },
+        {
+            title: "Kode Website BRIEFING DAY",
+            url: "/briefing-day",
+            icon: Globe,
+            subtitle: <LinkIcon className="h-3 w-3" />,
+            category: "Gladi Bersih",
+        },
+        {
+            title: "Website Aktivitas D-Day",
+            url: urls.webAktivitasAdmin,
+            icon: Globe,
+            subtitle: <LinkIcon className="h-3 w-3" />,
+            category: "Gladi Bersih",
+        },
+
         // HASIL PENUGASAN & AKTIVITAS
         {
-            title: "Spreedsheet Hasil Penugasan Striders",
-            url: "#",
-            icon: FileSpreadsheet,
-            subtitle: "Google Sheets",
-            category: "Gladi Bersih - Briefing",
-        },
-        {
-            title: "Form Pengumpulan Kelompok Tercepat",
-            url: "#",
-            icon: ListTodo,
-            subtitle: "Google Form",
-            category: "Gladi Bersih - Briefing",
-        },
-        {
-            title: "Recap Penugasan Terbaik",
+            title: "DUMMY - Pemecah Nama Kelompok Tercepat",
             url: "#",
             icon: Trophy,
-            subtitle: "Google Sheets",
-            category: "Gladi Bersih - D-Day",
+            subtitle: "*Waktu akan direkam oleh website PPIF.",
+            category: "Awarding",
+        },
+        {
+            title: "DUMMY - Sheets Hasil Penugasan Variants",
+            url: "#",
+            icon: Table2,
+            subtitle: "*Module akan cek tugas Peserta disini.",
+            category: "Awarding",
+        },
+        {
+            title: "DUMMY - Recap Penugasan Terbaik",
+            url: "#",
+            icon: Trophy,
+            subtitle: "*Pemenang akan dipilih oleh Devs.",
+            category: "Awarding",
         },
 
 
@@ -196,14 +211,14 @@ export default function HomePage() {
         {
             title: "List Ruangan Module",
             url: "https://docs.google.com/spreadsheets/d/1lXsjlj2kwVsfSoQw827wKcrRy__tYG61N0nQPoZ9pW0/edit?usp=drive_link",
-            icon: FileText,
+            icon: File,
             subtitle: "Google Sheets",
             category: "Coordinator Panel",
         },
         {
             title: "Absensi Rangkaian Module",
             url: "https://docs.google.com/spreadsheets/d/1ayDaNK-e5Jk951ORNdqNQ6TSvmD6h9eKxWd3_042SXo/edit?usp=drive_link",
-            icon: FileText,
+            icon: File,
             subtitle: "Google Sheets",
             category: "Coordinator Panel",
         },
@@ -232,7 +247,7 @@ export default function HomePage() {
     }, []);
 
     return (
-        <div className="select-none relative min-h-screen bg-red-50 px-4 py-6 sm:py-8  font-sans overflow-hidden">
+        <div className="select-none relative min-h-screen bg-red-50 px-4 py-6 sm:py-8 font-sans overflow-hidden">
 
             {/* Moving Background Halftone Dot Pattern */}
             <div
@@ -270,21 +285,33 @@ export default function HomePage() {
                     </div>
                 </div>
 
-                <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
-                    <div className="relative z-10 space-y-8">
-                        {["Gladi Bersih - Briefing"].map((category) => {
-                            const filteredLinks = linksData.filter((item) => item.category === category);
-                            if (filteredLinks.length === 0) return null;
+                <Countdown
+                    targetDate={countdownDay + "T" + countdownTime}
+                    event={countdownEvent}
+                    doneMessage={countdownDoneMessage}
+                    hide={countdownHide}
+                    hideWhenDue={countdownHideWhenDue}
+                />
 
-                            return (
-                                <div key={category} className="md:space-y-4 space-y-2">
+                <div className="space-y-6">
+                    {["Gladi Bersih", "Awarding", "Guidebooks"].map((category, idx) => {
+                        const filteredLinks = linksData.filter((item) => item.category === category);
+                        if (filteredLinks.length === 0) return null;
+
+                        return (
+                            <div
+                                key={category}
+                                className="animate-fade-in relative rounded-2xl bg-white border-3 border-black p-2 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
+                                style={{ animationDelay: `${idx * 100}ms` }}
+                            >
+                                <div className="relative z-10 space-y-3">
                                     {/* Category Tag */}
-                                    <div className="inline-block bg-yellow-300 ml-2 px-4 py-0.5 text-[12px] md:text-[16px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
+                                    <div className="inline-block mt-2 ml-2 bg-yellow-300 px-4 py-0.5 text-[12px] md:text-[16px] font-black uppercase text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] -rotate-1">
                                         {category}
                                     </div>
 
                                     {/* Link / Modal List */}
-                                    <div className="space-y divide-black/10">
+                                    <div className="divide-y divide-black/10">
                                         {filteredLinks.map((item, index) => (
                                             <ModalLinkItem
                                                 key={index}
@@ -294,9 +321,9 @@ export default function HomePage() {
                                         ))}
                                     </div>
                                 </div>
-                            );
-                        })}
-                    </div>
+                            </div>
+                        );
+                    })}
                 </div>
 
                 {/* Comic Grid Layout */}
@@ -316,12 +343,7 @@ export default function HomePage() {
                         />
                     </div>
 
-                    <Countdown
-                        targetDate={countdownDay + "T" + countdownTime}
-                        event={countdownEvent}
-                        doneMessage={countdownDoneMessage}
-                        hide={countdownHide}
-                    />
+
 
                     {/* TOP ROW: Full Width Evaluasi */}
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
@@ -332,7 +354,7 @@ export default function HomePage() {
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
-                            desc="Last Updated: Gladi Kotor - Briefing Day (6 Agu 2026)"
+                            desc="Last Updated: Gladi Kotor - Briefing Day (06 Agu 2026)"
                         />
                     </div>
 
@@ -343,7 +365,7 @@ export default function HomePage() {
                                 title="Regulasi"
                                 badgeBg="bg-red-600 text-white"
                                 link="/regulations"
-                                rotate="rotate-1"
+                                rotate="rotate-0"
                                 desc="Regulasi Orbits & Module"
                                 isCompact
                             />
@@ -352,7 +374,6 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
                             <ComicCard
                                 title="Timeline"
-                                badge="Make Time!"
                                 badgeBg="bg-red-500 text-white"
                                 link="/timeline"
                                 rotate="rotate-1"
@@ -367,7 +388,7 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '150ms' }}>
                             <ComicCard
                                 title="Guidebook"
-                                badge="!"
+                                badge=""
                                 badgeBg="bg-yellow-400"
                                 link="/guidebooks"
                                 rotate="-rotate-1"
@@ -390,7 +411,7 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '250ms' }}>
                             <ComicCard
                                 title="INTERFACE"
-                                badge="!"
+                                badge=""
                                 badgeBg="bg-yellow-400"
                                 link="/interface"
                                 rotate="-rotate-1"
@@ -405,7 +426,7 @@ export default function HomePage() {
                         <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
                             <ComicCard
                                 title="Briefing Day"
-                                badge="UPDATED"
+                                badge=""
                                 badgeBg="bg-green-600 text-white"
                                 link="/briefing-day"
                                 rotate="-rotate-1"
@@ -429,7 +450,7 @@ export default function HomePage() {
 
                     {/* COORDINATOR PANEL */}
                     {isCoordinator &&
-                        <div className="animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
+                        <div className="animate-fade-in relative rounded-2xl bg-white border-3 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
                             style={{ animationDelay: '400ms' }}>
 
                             <div className="relative z-10 space-y-8">
@@ -492,7 +513,7 @@ export default function HomePage() {
                     }
 
                     {/* PAGE ROW LIST (GROUPED BY DAY 1 & DAY 2 INSIDE SINGLE COMIC PANEL) */}
-                    <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 sm:border-4 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
+                    <div className="hidden animate-fade-in relative rounded-2xl bg-white border-3 border-black pt-4 p-2 sm:pt-6 sm:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
                         style={{ animationDelay: '400ms' }}>
 
                         <div className="relative z-10 space-y-8">
@@ -594,7 +615,7 @@ function ComicCard({
 
     const content = (
         <div
-            className={`group relative flex rounded-2xl ${bgColor} border-3 sm:border-4 ${borderColor}
+            className={`group relative flex rounded-2xl ${bgColor} border-3 ${borderColor}
         shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] 
         transition-all duration-150 transform hover:-translate-y-1 hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5
         ${rotate} ${heightClass}`}
@@ -611,7 +632,7 @@ function ComicCard({
             {isSquished ? (
                 <>
                     <div className="flex items-center gap-1.5 min-w-0 pr-2">
-                        <h2 className="font-black uppercase tracking-tight text-black text-xs sm:text-sm truncate group-hover:text-red-600 transition-colors">
+                        <h2 className="font-black uppercase tracking-tight text-black text-xs sm:text-sm group-hover:text-red-600 transition-colors">
                             {title}
                         </h2>
                         {badge && (
@@ -630,7 +651,7 @@ function ComicCard({
                             </span>
                         )}
                         <span className="text-xs sm:text-sm font-black text-black group-hover:translate-x-1 transition-transform">
-                            →
+                            <ChevronRight className="h-3 w-3 stroke-3" />
                         </span>
                     </div>
                 </>
@@ -661,7 +682,7 @@ function ComicCard({
                             <span className="text-[10px] text-gray-400 font-extrabold italic" />
                         )}
                         <span className="text-xs sm:text-sm font-black text-black group-hover:translate-x-1 transition-transform ml-1">
-                            →
+                            <ChevronRight className="h-3 w-3 stroke-3" />
                         </span>
                     </div>
                 </>

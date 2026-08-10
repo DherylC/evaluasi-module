@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 // Target date prop default: change this to your desired future date/time
-export default function Countdown({ targetDate = "2026-08-06T21:00:00", event = "EVENT", doneMessage = "DONE!", hide = false }) {
+export default function Countdown({
+    targetDate = "2026-08-06T21:00:00",
+    event = "EVENT",
+    doneMessage = "DONE!",
+    hide = false,
+    hideWhenDue = false
+}) {
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
     const [prevTime, setPrevTime] = useState(timeLeft);
 
@@ -33,7 +39,7 @@ export default function Countdown({ targetDate = "2026-08-06T21:00:00", event = 
 
     if (timeLeft.isFinished) {
         return (
-            <div className={`relative w-full max-w-xl mx-auto my-6 p-6 bg-red-500 border-4 border-black rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-center ${hide ? 'hidden' : ''}`}>
+            <div className={`${hideWhenDue ? "hidden" : ""} relative w-full max-w-xl mx-auto my-6 p-6 bg-red-500 border-4 border-black rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-center ${hide ? 'hidden' : ''}`}>
                 <div className="absolute -top-4 sm:-top-5 left-1/2 -translate-x-1/2 z-10">
                     <span className="inline-block bg-yellow-400 text-black text-xs sm:text-sm font-black uppercase tracking-wider px-4 py-1 sm:py-1.5 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -rotate-1 whitespace-nowrap">
                         {event}

@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 export default function ModalLinkItem({ item, onOpenModal }) {
     const IconComponent = item.icon;
@@ -20,15 +20,15 @@ export default function ModalLinkItem({ item, onOpenModal }) {
             <div className="flex items-center gap-3.5 min-w-0">
                 {IconComponent && (
                     <div className="shrink-0 p-3 rounded-xl border border-black/10 group-hover:border-red-500 transition-all duration-200">
-                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-red-600 stroke-2 transition-all duration-200" />
+                        <IconComponent className="w-4 h-4 sm:w-6 sm:h-6 group-hover:text-red-600 stroke-2 transition-all duration-200" />
                     </div>
                 )}
                 <div className="min-w-0">
-                    <h3 className="text-xs sm:text-sm font-extrabold uppercase text-black group-hover:text-red-600 transition-all duration-200 truncate">
+                    <h3 className="text-xs sm:text-sm font-extrabold uppercase text-black group-hover:text-red-600 transition-all duration-200">
                         {item.title}
                     </h3>
                     {item.subtitle && (
-                        <p className="text-[11px] text-gray-500 mt-0.5 truncate">
+                        <p className="text-[11px] text-gray-500 mt-0.5">
                             {item.subtitle}
                         </p>
                     )}
@@ -37,7 +37,7 @@ export default function ModalLinkItem({ item, onOpenModal }) {
 
             {/* Right Side: Action Arrow */}
             <div className="shrink-0">
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-2 text-black group-hover:translate-x-0.5 transition-transform" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-2 text-black group-hover:translate-x-0.5 transition-transform" />
             </div>
         </div>
     );
