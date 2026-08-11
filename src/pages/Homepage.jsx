@@ -26,9 +26,9 @@ import urls from "../urls.json"
 export default function HomePage() {
 
     // Countdown Configuration
-    const countdownDay = "2026-08-11"
-    const countdownTime = "13:30:00"
-    const countdownEvent = "Gladi Bersih Briefing Day"
+    const countdownDay = "2026-08-12"
+    const countdownTime = "12:30:00"
+    const countdownEvent = "FINAL! Gladi Bersih D-Day"
     const countdownDoneMessage = "Event Ongoing"
     const countdownHide = false
     const countdownHideWhenDue = true
@@ -176,11 +176,25 @@ export default function HomePage() {
 
         // HASIL PENUGASAN & AKTIVITAS
         {
-            title: "DUMMY - Pemecah Nama Kelompok Tercepat",
+            title: "Pemecah Nama Kelompok Tercepat",
             url: "#",
             icon: Trophy,
-            subtitle: "*Waktu akan direkam oleh website PPIF.",
+            subtitle: "View",
+            type: "modal",
             category: "Awarding",
+
+            modalContent: (
+                <div className="space-y-4">
+                    <img
+                        src="/awarding/result-briefing.jpeg"
+                        alt="Rundown D-Day PPIF 2026"
+                        className="w-full h-auto rounded-xl border-2 border-black object-contain"
+                    />
+                    <p className="text-xs text-center font-bold text-gray-600">
+                        Persiapkan diri siapa tau dipanggil saat Gladi D-Day!
+                    </p>
+                </div>
+            ),
         },
         {
             title: "DUMMY - Sheets Hasil Penugasan Variants",
@@ -343,18 +357,16 @@ export default function HomePage() {
                         />
                     </div>
 
-
-
                     {/* TOP ROW: Full Width Evaluasi */}
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="Evaluasi"
-                            badge="Update Gladi Kotor!"
-                            badgeBg="bg-orange-400 text-white"
+                            badge="Update Gladi Bersih!"
+                            badgeBg="bg-emerald-600 text-white"
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
-                            desc="Last Updated: Gladi Kotor - Briefing Day (06 Agu 2026)"
+                            desc="Last Updated: Gladi Bersih - Briefing Day (11 Agu 2026)"
                         />
                     </div>
 
