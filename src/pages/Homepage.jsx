@@ -26,12 +26,12 @@ import urls from "../urls.json"
 export default function HomePage() {
 
     // Countdown Configuration
-    const countdownDay = "2026-08-12"
-    const countdownTime = "12:30:00"
-    const countdownEvent = "FINAL! Gladi Bersih D-Day"
+    const countdownDay = "2026-08-15"
+    const countdownTime = "10:00:00"
+    const countdownEvent = "BRIEFING DAY PPIF 2026"
     const countdownDoneMessage = "Event Ongoing"
     const countdownHide = false
-    const countdownHideWhenDue = true
+    const countdownHideWhenDue = false
 
     const [latestHeadline, setLatestHeadline] = useState("Loading latest news...");
     const { isCoordinator, password } = useAuth();
@@ -307,7 +307,7 @@ export default function HomePage() {
                     hideWhenDue={countdownHideWhenDue}
                 />
 
-                <div className="space-y-6">
+                <div className="hidden space-y-6">
                     {["Gladi Bersih", "Awarding", "Guidebooks"].map((category, idx) => {
                         const filteredLinks = linksData.filter((item) => item.category === category);
                         if (filteredLinks.length === 0) return null;
@@ -360,13 +360,15 @@ export default function HomePage() {
                     {/* TOP ROW: Full Width Evaluasi */}
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
-                            title="Evaluasi"
-                            badge="Update Gladi Bersih!"
+                            title="Evaluasi Akhir"
+                            badge="FINAL EVALUATIONS!"
                             badgeBg="bg-emerald-600 text-white"
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
-                            desc="Last Updated: Gladi Bersih - Briefing Day (11 Agu 2026)"
+                            borderColor="border-emerald-600"
+                            bgColor="bg-emerald-100"
+                            desc="Last Updated: Gladi Bersih - D-Day (12 Agu 2026)"
                         />
                     </div>
 
