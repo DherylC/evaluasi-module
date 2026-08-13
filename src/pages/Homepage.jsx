@@ -22,6 +22,7 @@ import ModalLinkItem from "../components/ModalLinkItem";
 import Modal from "../components/Modal";
 import Countdown from "../components/Countdown";
 import urls from "../urls.json"
+import InfoCard from "../components/InfoCard";
 
 export default function HomePage() {
 
@@ -42,7 +43,6 @@ export default function HomePage() {
         content: null,
     });
 
-    // 2. Define the missing function!
     const openContentModal = (title, content) => {
         setModalState({
             isOpen: true,
@@ -59,54 +59,28 @@ export default function HomePage() {
 
         // DATA & ABSENSI --------------------------------------------------------------------
         {
-            title: "ABSENSI PESERTA PPIF 2026",
-            url: "https://docs.google.com/spreadsheets/d/1pzWvfVVcGIrLhnzSh9eRX12EwfzVDK6Nb3t3g_DndM4/edit?usp=sharing",
+            title: "DATA & ABSENSI PESERTA PPIF 2026",
+            url: "https://docs.google.com/spreadsheets/d/1SPCO-5yW_FXor9v2duZslzLIdYBsR0_NC2nu_naDguI/edit?usp=drivesdk",
             icon: ListTodo,
-            subtitle: "Diisi sesuai harinya",
-            category: "Gladi Bersih",
-        },
-        {
-            title: "Data Peserta Dummy Gladi Bersih",
-            url: "",
-            icon: File,
-            subtitle: "View",
-            category: "Gladi Bersih",
-            type: "modal",
-            modalContent: (
-                <div className="space-y-4">
-                    <img
-                        src="../dummy/dummy.jpeg"
-                        alt="Data Peserta Dummy PPIF 2026"
-                        className="w-full h-auto rounded-xl border-2 border-black object-contain"
-                    />
-                    <p className="text-xs text-center font-bold text-gray-600">
-                        *Plotting peserta dapat berubah sewaktu-waktu sesuai kondisi di lapangan.
-                    </p>
-                </div>
-            ),
+            subtitle: "Dilarang modifikasi apapun selain dropdown.",
+            category: "PPIF 2026",
         },
 
-        // GUIDEBOOKS --------------------------------------------------------------------
         {
-            title: "GUIDEBOOK Pemecahan Nama Kelompok",
-            url: urls.guidebookBriefing,
-            icon: File,
-            subtitle: "Document",
-            category: "Guidebooks",
-        },
-        {
-            title: "GUIDEBOOK Aktivitas D-Day",
-            url: urls.guidebookAktivitas,
-            icon: File,
-            subtitle: "Document",
-            category: "Guidebooks",
-        },
-        {
-            title: "MODUL PENUGASAN PESERTA PPIF 2026",
-            url: urls.guidebookPenugasan,
-            icon: Presentation,
-            subtitle: "Document",
-            category: "Guidebooks",
+            title: "Sheets Hasil Penugasan Variants",
+            url: "#",
+            icon: Table2,
+            subtitle: "View",
+            type: "modal",
+            category: "PPIF 2026",
+
+            modalContent: (
+                <div className="space-y-4">
+                    <InfoCard
+                        text="Content Pending. Menunggu data dirilis terlabih dahulu.."
+                    />
+                </div>
+            )
         },
 
 
@@ -152,6 +126,30 @@ export default function HomePage() {
             ),
         },
 
+        // GUIDEBOOKS --------------------------------------------------------------------
+        {
+            title: "GUIDEBOOK Pemecahan Nama Kelompok",
+            url: urls.guidebookBriefing,
+            icon: File,
+            subtitle: "Document",
+            category: "Guidebooks",
+        },
+        {
+            title: "GUIDEBOOK Aktivitas D-Day",
+            url: urls.guidebookAktivitas,
+            icon: File,
+            subtitle: "Document",
+            category: "Guidebooks",
+        },
+        {
+            title: "MODUL PENUGASAN PESERTA PPIF 2026",
+            url: urls.guidebookPenugasan,
+            icon: Presentation,
+            subtitle: "Document",
+            category: "Guidebooks",
+        },
+
+        // WEBSITE AKTIVITAS
         {
             title: "Website BRIEFING DAY",
             url: urls.webBriefing,
@@ -185,40 +183,27 @@ export default function HomePage() {
 
             modalContent: (
                 <div className="space-y-4">
-                    <img
-                        src="/awarding/result-briefing.jpeg"
-                        alt="Rundown D-Day PPIF 2026"
-                        className="w-full h-auto rounded-xl border-2 border-black object-contain"
+                    <InfoCard
+                        text="Content Pending. Menunggu data dirilis terlabih dahulu.."
                     />
-                    <p className="text-xs text-center font-bold text-gray-600">
-                        Persiapkan diri siapa tau dipanggil saat Gladi D-Day!
-                    </p>
                 </div>
-            ),
+            )
         },
         {
-            title: "DUMMY - Sheets Hasil Penugasan Variants",
-            url: "#",
-            icon: Table2,
-            subtitle: "*Module akan cek tugas Peserta disini.",
-            category: "Awarding",
-        },
-        {
-            title: "DUMMY - Recap Penugasan Terbaik",
+            title: "Recap Penugasan Terbaik",
             url: "#",
             icon: Trophy,
-            subtitle: "*Pemenang akan dipilih oleh Devs.",
+            subtitle: "View",
+            type: "modal",
             category: "Awarding",
-        },
 
-
-        // TEMPORARY
-        {
-            title: "DATA KELOMPOK PESERTA PPIF 2026",
-            url: "#",
-            icon: Layers,
-            subtitle: "Google Sheets",
-            category: "Briefing Day",
+            modalContent: (
+                <div className="space-y-4">
+                    <InfoCard
+                        text="Content Pending. Menunggu data dirilis terlabih dahulu.."
+                    />
+                </div>
+            )
         },
 
         // COORDINATOR PANEL LINKS --------------------------------------------------------------------
@@ -242,7 +227,30 @@ export default function HomePage() {
             icon: Layers,
             subtitle: "Google Sheets",
             category: "Coordinator Panel",
-        }
+        },
+
+        /*
+{
+    title: "Data Peserta Dummy Gladi Bersih",
+    url: "",
+    icon: File,
+    subtitle: "View",
+    category: "Gladi Bersih",
+    type: "modal",
+    modalContent: (
+        <div className="space-y-4">
+            <img
+                src="../dummy/dummy.jpeg"
+                alt="Data Peserta Dummy PPIF 2026"
+                className="w-full h-auto rounded-xl border-2 border-black object-contain"
+            />
+            <p className="text-xs text-center font-bold text-gray-600">
+                *Plotting peserta dapat berubah sewaktu-waktu sesuai kondisi di lapangan.
+            </p>
+        </div>
+    ),
+},
+*/
     ];
 
     useEffect(() => {
@@ -284,7 +292,7 @@ export default function HomePage() {
                 </div>
 
                 {/* --- LATEST NEWS HEADLINE BANNER --- */}
-                <div className="bg-yellow-300 border-3 border-black px-6 py-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3 relative transition-transform">
+                <div className="hidden bg-yellow-300 border-3 border-black px-6 py-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] items-center gap-3 relative transition-transform">
                     {/* Comic Flash Tag - Positioned absolute to straddle the top border */}
                     <span className="absolute -top-4.5 left-4 shrink-0 bg-red-600 text-white font-black text-[10px] sm:text-xs uppercase px-2.5 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 -rotate-2">
                         <Megaphone className="w-4 h-4 shrink-0 stroke-[2.5] animate-pulse" />
@@ -307,8 +315,8 @@ export default function HomePage() {
                     hideWhenDue={countdownHideWhenDue}
                 />
 
-                <div className="hidden space-y-6">
-                    {["Gladi Bersih", "Awarding", "Guidebooks"].map((category, idx) => {
+                <div className="space-y-6">
+                    {["PPIF 2026", "Awarding", "Guidebooks"].map((category, idx) => {
                         const filteredLinks = linksData.filter((item) => item.category === category);
                         if (filteredLinks.length === 0) return null;
 
