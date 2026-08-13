@@ -307,13 +307,7 @@ export default function HomePage() {
                     </div>
                 </div>
 
-                <Countdown
-                    targetDate={countdownDay + "T" + countdownTime}
-                    event={countdownEvent}
-                    doneMessage={countdownDoneMessage}
-                    hide={countdownHide}
-                    hideWhenDue={countdownHideWhenDue}
-                />
+                <Countdown />
 
                 <div className="space-y-6">
                     {["PPIF 2026", "Awarding", "Guidebooks"].map((category, idx) => {
