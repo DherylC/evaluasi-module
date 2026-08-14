@@ -62,7 +62,7 @@ export default function HomePage() {
             title: "DATA & ABSENSI PESERTA PPIF 2026",
             url: "https://docs.google.com/spreadsheets/d/1SPCO-5yW_FXor9v2duZslzLIdYBsR0_NC2nu_naDguI/edit?usp=drivesdk",
             icon: ListTodo,
-            subtitle: "Dilarang modifikasi apapun selain dropdown.",
+            subtitle: "**HANYA MODIFIKASI KEHADIRAN BRIEFING DAY.**",
             category: "PPIF 2026",
         },
 
@@ -72,7 +72,7 @@ export default function HomePage() {
             icon: Table2,
             subtitle: "View",
             type: "modal",
-            category: "PPIF 2026",
+            category: "PPIF 20261",
 
             modalContent: (
                 <div className="space-y-4">
@@ -90,7 +90,7 @@ export default function HomePage() {
             url: "",
             icon: File,
             subtitle: "View",
-            category: "Gladi Bersih",
+            category: "PPIF 2026",
             type: "modal",
             modalContent: (
                 <div className="space-y-4">
@@ -195,7 +195,7 @@ export default function HomePage() {
             icon: Trophy,
             subtitle: "View",
             type: "modal",
-            category: "Awarding",
+            category: "Awarding1",
 
             modalContent: (
                 <div className="space-y-4">
@@ -282,7 +282,7 @@ export default function HomePage() {
 
             <div className="pt-16 relative z-10 mx-auto max-w-xl flex flex-col gap-6">
                 {/* Hero Title Banner */}
-                <div className="relative text-center my-2">
+                <div className="hidden relative text-center my-2">
                     <span className="inline-block -rotate-2 bg-yellow-400 px-4 py-1 text-xs font-black uppercase text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-2">
                         PPIF 2026
                     </span>
@@ -363,14 +363,12 @@ export default function HomePage() {
                     <div className="animate-fade-in" style={{ animationDelay: '0ms' }}>
                         <ComicCard
                             title="Evaluasi Akhir"
-                            badge="FINAL EVALUATIONS!"
+                            badge=""
                             badgeBg="bg-emerald-600 text-white"
                             link="/evaluations"
                             rotate="rotate-1"
                             isWide
-                            borderColor="border-emerald-600"
-                            bgColor="bg-emerald-100"
-                            desc="Last Updated: Gladi Bersih - D-Day (12 Agu 2026)"
+                            desc="All Training Evaluations"
                         />
                     </div>
 
