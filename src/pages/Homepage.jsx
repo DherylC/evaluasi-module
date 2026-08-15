@@ -62,10 +62,9 @@ export default function HomePage() {
             title: "DATA & ABSENSI PESERTA PPIF 2026",
             url: "https://docs.google.com/spreadsheets/d/1SPCO-5yW_FXor9v2duZslzLIdYBsR0_NC2nu_naDguI/edit?usp=drivesdk",
             icon: ListTodo,
-            subtitle: "**HANYA MODIFIKASI KEHADIRAN BRIEFING DAY.**",
+            subtitle: "Isi sesuai harinya",
             category: "PPIF 2026",
         },
-
         {
             title: "Sheets Hasil Penugasan Variants",
             url: "#",
@@ -82,7 +81,13 @@ export default function HomePage() {
                 </div>
             )
         },
-
+        {
+            title: "PAPAN KELOMPOK PPIF 2026",
+            url: "https://drive.google.com/file/d/1rwlvYeY9Lgz7mg2VOABU_uSV3JR4pIZt/view",
+            icon: File,
+            subtitle: "Gunakan untuk mengubah Profile Picture Grup WA.",
+            category: "PPIF 2026",
+        },
 
         // RUNDOWN --------------------------------------------------------------------
         {
@@ -149,6 +154,7 @@ export default function HomePage() {
             category: "Guidebooks",
         },
 
+
         // WEBSITE AKTIVITAS
         {
             title: "Website BRIEFING DAY",
@@ -183,6 +189,11 @@ export default function HomePage() {
 
             modalContent: (
                 <div className="space-y-4">
+                    <img
+                        src="/awarding/result.jpeg"
+                        alt="Ranking Pemecahan Nama Kelompok"
+                        className="w-full h-auto rounded-xl border-2 border-black object-contain"
+                    />
                     <InfoCard
                         text="Content Pending. Menunggu data dirilis terlabih dahulu.."
                     />
@@ -310,7 +321,7 @@ export default function HomePage() {
                 <Countdown />
 
                 <div className="space-y-6">
-                    {["PPIF 2026", "Awarding", "Guidebooks"].map((category, idx) => {
+                    {["PPIF 2026", "Guidebooks"].map((category, idx) => {
                         const filteredLinks = linksData.filter((item) => item.category === category);
                         if (filteredLinks.length === 0) return null;
 

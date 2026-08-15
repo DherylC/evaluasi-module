@@ -137,7 +137,7 @@ function Countdown({
         if (hideWhenDue) return null;
 
         return (
-            <div className="animate-fade-in relative w-full max-w-xl mx-auto my-8 p-6 sm:p-8 bg-red-500 border-3 sm:border-4 border-black rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-center flex flex-col items-center justify-center gap-3 select-none">
+            <div className="animate-fade-in relative w-full max-w-xl mx-auto my-8 p-6 sm:p-8 bg-red-500 border-3 sm:border-4 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center flex flex-col items-center justify-center gap-3 select-none">
                 {/* Top Badge */}
                 <div className="absolute -top-4 sm:-top-5 left-1/2 -translate-x-1/2 z-10">
                     <span className="inline-block bg-yellow-400 text-black text-xs sm:text-sm font-black uppercase tracking-wider px-4 py-1 sm:py-1.5 border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -rotate-1 whitespace-nowrap">
