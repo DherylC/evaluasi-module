@@ -201,20 +201,18 @@ export default function HomePage() {
             )
         },
         {
+            title: "Sheets Pengumpulan Penugasan Peserta",
+            url: "https://docs.google.com/spreadsheets/d/1WwKhnH_VerjP99lom59XcOgDTn693VcnJms4AT1wYTg/edit?usp=drivesdk",
+            icon: Table2,
+            subtitle: "Mohon dicek secara berkala.",
+            category: "Penugasan Peserta",
+        },
+        {
             title: "Recap Penugasan Terbaik",
-            url: "#",
-            icon: Trophy,
-            subtitle: "View",
-            type: "modal",
-            category: "Awarding1",
-
-            modalContent: (
-                <div className="space-y-4">
-                    <InfoCard
-                        text="Content Pending. Menunggu data dirilis terlabih dahulu.."
-                    />
-                </div>
-            )
+            url: "https://docs.google.com/spreadsheets/d/12BKslwrQsZwMhiA358xeEgprbksaV8ivkKb3nVgLbPc/edit?usp=sharing",
+            icon: Table2,
+            subtitle: "Kirim 2 penugasan terbaik dari tiap kelompok.",
+            category: "Penugasan Peserta",
         },
 
         // COORDINATOR PANEL LINKS --------------------------------------------------------------------
@@ -321,7 +319,7 @@ export default function HomePage() {
                 <Countdown />
 
                 <div className="space-y-6">
-                    {["PPIF 2026", "Guidebooks"].map((category, idx) => {
+                    {["PPIF 2026", "Penugasan Peserta", "Guidebooks"].map((category, idx) => {
                         const filteredLinks = linksData.filter((item) => item.category === category);
                         if (filteredLinks.length === 0) return null;
 
