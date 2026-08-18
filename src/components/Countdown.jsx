@@ -3,14 +3,15 @@ import React, { useState, useEffect } from "react";
 // Your published CSV URL
 const PUBLISHED_CSV_URL = `https://docs.google.com/spreadsheets/d/e/2PACX-1vRdjhHy_iHdgQzPCgI89JXcrzIq4KmTqqrQJcDApucEBMxjnIYBWp6IIpe-Gl-nV3ngrCPclD5e9c6i/pub?gid=1636893193&single=true&output=csv`;
 
-// Helper function to safely parse CSV lines with quoted commas
+// Safely split CSV line handling quotes and line breaks
 function parseCSVLine(line) {
     const result = [];
     let current = "";
     let inQuotes = false;
+    const cleanLine = line.replace(/\r/g, "");
 
-    for (let i = 0; i < line.length; i++) {
-        const char = line[i];
+    for (let i = 0; i < cleanLine.length; i++) {
+        const char = cleanLine[i];
         if (char === '"') {
             inQuotes = !inQuotes;
         } else if (char === "," && !inQuotes) {
@@ -24,14 +25,59 @@ function parseCSVLine(line) {
     return result;
 }
 
+// Bulletproof timestamp generator with explicit WIB (UTC+7) support
+function getTargetTimestamp(dayStr = "2026-08-18", timeStr = "11:00:00") {
+    try {
+        const cleanDay = (dayStr || "").trim().replace(/\r/g, "");
+        const cleanTime = (timeStr || "00:00:00").trim().replace(/\r/g, "").replace(/\./g, ":");
+
+        let year = 2026, month = 8, day = 18;
+
+        const dateParts = cleanDay.split(/[-/]/).map((p) => parseInt(p, 10));
+        if (dateParts.length === 3) {
+            if (dateParts[0] > 1000) {
+                // YYYY-MM-DD
+                year = dateParts[0];
+                month = dateParts[1];
+                day = dateParts[2];
+            } else if (dateParts[2] > 1000) {
+                // DD-MM-YYYY
+                day = dateParts[0];
+                month = dateParts[1];
+                year = dateParts[2];
+            }
+        }
+
+        const timeParts = cleanTime.split(":").map((p) => parseInt(p, 10) || 0);
+        const hours = timeParts[0] || 0;
+        const minutes = timeParts[1] || 0;
+        const seconds = timeParts[2] || 0;
+
+        // Build explicit WIB ISO string (UTC+07:00)
+        const yStr = String(year);
+        const mStr = String(month).padStart(2, "0");
+        const dStr = String(day).padStart(2, "0");
+        const hStr = String(hours).padStart(2, "0");
+        const minStr = String(minutes).padStart(2, "0");
+        const sStr = String(seconds).padStart(2, "0");
+
+        const isoWIB = `${yStr}-${mStr}-${dStr}T${hStr}:${minStr}:${sStr}+07:00`;
+        const parsedTime = new Date(isoWIB).getTime();
+
+        return isNaN(parsedTime) ? new Date(year, month - 1, day, hours, minutes, seconds).getTime() : parsedTime;
+    } catch {
+        return new Date(2026, 7, 18, 11, 0, 0).getTime();
+    }
+}
+
 export default function CountdownPage() {
     const [config, setConfig] = useState({
-        targetDate: "2026-08-15T10:00:00",
-        event: "BRIEFING DAY PPIF 2026",
-        doneMessage: "DONE!",
+        targetTimestamp: getTargetTimestamp("2026-08-18", "11:00:00"),
+        event: "D-DAY PPIF 2026",
+        doneMessage: "D-DAY ONGOING",
         hide: false,
         hideWhenDue: false,
-        note: "",
+        note: "SEMANGAT!",
         noteAfterDone: "",
         loading: true,
     });
@@ -39,25 +85,27 @@ export default function CountdownPage() {
     useEffect(() => {
         async function fetchSheetConfig() {
             try {
-                const res = await fetch(PUBLISHED_CSV_URL);
+                // Cache-busting timestamp param
+                const res = await fetch(`${PUBLISHED_CSV_URL}&_t=${Date.now()}`);
                 const csvText = await res.text();
 
                 const lines = csvText.trim().split("\n");
                 if (lines.length > 1) {
-                    // Use smart CSV line parser for Row 2
                     const row = parseCSVLine(lines[1]);
 
-                    const day = row[0] || "2026-08-15";
-                    const time = row[1] || "10:00:00";
-                    const event = row[2] || "BRIEFING DAY PPIF 2026";
-                    const doneMessage = row[3] || "DONE!";
+                    const rawDay = row[0] || "2026-08-18";
+                    const rawTime = row[1] || "11:00:00";
+                    const event = row[2] || "D-DAY PPIF 2026";
+                    const doneMessage = row[3] || "D-DAY ONGOING";
                     const hide = row[4]?.toLowerCase() === "true";
                     const hideWhenDue = row[5]?.toLowerCase() === "true";
                     const note = row[6] || "";
                     const noteAfterDone = row[7] || "";
 
+                    const timestamp = getTargetTimestamp(rawDay, rawTime);
+
                     setConfig({
-                        targetDate: `${day}T${time}`,
+                        targetTimestamp: timestamp,
                         event,
                         doneMessage,
                         hide,
@@ -80,7 +128,7 @@ export default function CountdownPage() {
 
     return (
         <Countdown
-            targetDate={config.targetDate}
+            targetTimestamp={config.targetTimestamp}
             event={config.event}
             doneMessage={config.doneMessage}
             hide={config.hide}
@@ -93,7 +141,7 @@ export default function CountdownPage() {
 
 // Inner Countdown Renderer
 function Countdown({
-    targetDate,
+    targetTimestamp,
     event,
     doneMessage,
     hide = false,
@@ -101,11 +149,12 @@ function Countdown({
     note = "",
     noteAfterDone = "",
 }) {
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft());
     const [prevTime, setPrevTime] = useState(timeLeft);
 
     function calculateTimeLeft() {
-        const difference = +new Date(targetDate) - +new Date();
+        const difference = targetTimestamp - Date.now();
+
         if (difference <= 0) {
             return { days: 0, hours: 0, minutes: 0, seconds: 0, isFinished: true };
         }
@@ -120,6 +169,8 @@ function Countdown({
     }
 
     useEffect(() => {
+        setTimeLeft(calculateTimeLeft());
+
         const timer = setInterval(() => {
             setTimeLeft((current) => {
                 setPrevTime(current);
@@ -128,31 +179,28 @@ function Countdown({
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [targetDate]);
+    }, [targetTimestamp]);
 
     if (hide) return null;
 
-    // STATE 1: COUNTDOWN FINISHED (Matches your reference image)
+    // STATE 1: COUNTDOWN FINISHED
     if (timeLeft.isFinished) {
         if (hideWhenDue) return null;
 
         return (
-            <div className="animate-fade-in relative w-full max-w-xl mx-auto my-8 p-6 sm:p-8 bg-red-500 border-3 sm:border-4 border-black rounded-2xl shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center flex flex-col items-center justify-center gap-3 select-none">
-                {/* Top Badge */}
+            <div className="animate-fade-in relative w-full max-w-xl mx-auto my-8 p-6 sm:p-8 bg-red-500 border-3 sm:border-4 border-black rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-center flex flex-col items-center justify-center gap-3 select-none">
                 <div className="absolute -top-4 sm:-top-5 left-1/2 -translate-x-1/2 z-10">
                     <span className="inline-block bg-yellow-400 text-black text-xs sm:text-sm font-black uppercase tracking-wider px-4 py-1 sm:py-1.5 border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -rotate-1 whitespace-nowrap">
                         {event}
                     </span>
                 </div>
 
-                {/* Main Message */}
                 <h2 className="text-3xl sm:text-4xl font-black uppercase text-white tracking-wider mt-1">
                     {doneMessage}
                 </h2>
 
-                {/* Note After Done Pill Badge */}
                 {noteAfterDone && (
-                    <div className="inline-block bg-white text-black text-xs sm:text-sm font-bold px-4 py-1.5 rounded-2xl border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] max-w-full wrap-break-word">
+                    <div className="inline-block bg-white text-black text-xs sm:text-sm font-bold px-4 py-1.5 rounded-2xl border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] max-w-full">
                         {noteAfterDone}
                     </div>
                 )}
@@ -163,14 +211,12 @@ function Countdown({
     // STATE 2: ACTIVE COUNTDOWN
     return (
         <div className="animate-fade-in relative w-full max-w-2xl mx-auto my-8 p-5 pt-7 sm:p-6 sm:pt-8 bg-yellow-300 border-3 sm:border-4 border-black rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-black select-none">
-            {/* Top Badge */}
             <div className="absolute -top-4 sm:-top-5 left-1/2 -translate-x-1/2 z-10">
-                <span className="inline-block bg-red-600 text-white text-xs sm:text-sm font-black uppercase tracking-wider px-4 py-1 sm:py-1.5 border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -rotate-1 whitespace-nowrap">
+                <span className="inline-block bg-red-600 text-white text-xs sm:text-sm font-black uppercase tracking-wider px-4 py-1 sm:py-1.5 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] -rotate-1 whitespace-nowrap">
                     {event}
                 </span>
             </div>
 
-            {/* Grid Units */}
             <div className="grid grid-cols-4 gap-2 sm:gap-4 text-center">
                 <TimeUnit label="Days" value={timeLeft.days} prevValue={prevTime.days} delay={100} />
                 <TimeUnit label="Hours" value={timeLeft.hours} prevValue={prevTime.hours} delay={150} />
@@ -178,10 +224,9 @@ function Countdown({
                 <TimeUnit label="Secs" value={timeLeft.seconds} prevValue={prevTime.seconds} delay={250} />
             </div>
 
-            {/* Active Note Pill Badge */}
             {note && (
                 <div className="mt-5 text-center">
-                    <span className="inline-block bg-white text-black text-xs sm:text-sm font-bold px-4 py-1.5 rounded-2xl border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] max-w-full wrap-break-word">
+                    <span className="inline-block bg-white text-black text-xs sm:text-sm font-bold px-4 py-1.5 rounded-2xl border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] max-w-fullS">
                         {note}
                     </span>
                 </div>

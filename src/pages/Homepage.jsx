@@ -115,7 +115,7 @@ export default function HomePage() {
             url: "",
             icon: File,
             subtitle: "View",
-            category: "Gladi Bersih",
+            category: "PPIF 2026",
             type: "modal",
             modalContent: (
                 <div className="space-y-4">
